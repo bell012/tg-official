@@ -15,11 +15,16 @@ defineProps<{ intro: string }>();
 </script>
 
 <style scoped lang="scss">
-/* Figma 84:914 Frame 22 — PC: 680px 宽，gap 20px，y≈230 */
+@use "./serve-h5" as *;
+
 .serve-hero {
   display: flex;
   justify-content: center;
   padding: 120px 24px 24px;
+
+  @media (max-width: 767px) {
+    padding: 0;
+  }
 
   @media (min-width: 768px) {
     padding: 120px 32px 32px;
@@ -33,9 +38,13 @@ defineProps<{ intro: string }>();
   width: 100%;
   max-width: 680px;
   gap: 20px;
+
+  @media (max-width: 767px) {
+    max-width: 100%;
+    gap: h5(20);
+  }
 }
 
-/* 大标题 79:1075 — 600×199 */
 .serve-hero__title-box {
   position: relative;
   width: 100%;
@@ -44,12 +53,11 @@ defineProps<{ intro: string }>();
   flex-shrink: 0;
 
   @media (max-width: 767px) {
-    max-width: 320px;
-    height: 106px;
+    width: h5(600);
+    height: h5(199);
   }
 }
 
-/* 水印 73:1055 — MiSans Heavy 150px，渐变，opacity 0.1 */
 .serve-hero__watermark {
   position: absolute;
   inset: 0;
@@ -75,11 +83,10 @@ defineProps<{ intro: string }>();
   user-select: none;
 
   @media (max-width: 767px) {
-    font-size: 80px;
+    font-size: h5(150);
   }
 }
 
-/* 前景标题 73:1057 — 相对父级 (100,51) 400×140，PingFang SC 600 100px */
 .serve-hero__title {
   position: absolute;
   left: 16.67%;
@@ -99,11 +106,10 @@ defineProps<{ intro: string }>();
   white-space: nowrap;
 
   @media (max-width: 767px) {
-    font-size: 40px;
+    font-size: h5(100);
   }
 }
 
-/* 简介 79:1078 — 20px #c2c2c2，居中 */
 .serve-hero__intro {
   width: 100%;
   margin: 0;
@@ -117,9 +123,8 @@ defineProps<{ intro: string }>();
 
   @media (max-width: 767px) {
     max-width: 100%;
-    font-size: 15px;
-    line-height: 1.75;
-    color: rgba(255, 255, 255, 0.6);
+    font-size: h5(33);
+    line-height: 1.67;
   }
 }
 </style>

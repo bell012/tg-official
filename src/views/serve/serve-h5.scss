@@ -1,0 +1,4 @@
+// Figma H5 画布 1125px，移动端尺寸按视口等比缩放
+@function h5($px) {
+  @return calc(#{$px} / 1125 * 100vw);
+}

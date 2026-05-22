@@ -16,7 +16,6 @@
   background-color: #0d0c14;
 }
 
-/* Ellipse 1: 1263×1476 @ (-818, 341), rgba(192,89,31,0.15), blur 800 */
 .serve-page-bg__ellipse {
   position: absolute;
   border-radius: 50%;
@@ -32,7 +31,6 @@
   filter: blur(800px);
 }
 
-/* Ellipse 2: 883×1040 @ (1698, 1204), rgba(27,93,212,0.15), blur 800 */
 .serve-page-bg__ellipse--blue {
   top: 1204px;
   left: 1698px;

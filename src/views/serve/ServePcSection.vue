@@ -7,7 +7,6 @@
     >
       <ServeSectionCardBg />
 
-      <!-- 左下角装饰 84:767 -->
       <img
         :src="section.couponVisual.cornerLeft"
         alt=""
@@ -15,25 +14,33 @@
         class="pointer-events-none absolute bottom-0 left-0 z-[2] h-[32.2%] w-[29.17%] max-w-[420px] object-contain object-left-bottom"
       />
 
-      <!-- 三端手机 84:720 -->
       <div
         class="absolute right-0 top-px z-[3] h-[99.65%] w-[48.19%] max-w-[694px]"
       >
-        <ServeCouponPhones />
+        <ServeCouponPhones :phones="section.couponVisual.phones" />
       </div>
 
-      <!-- 小标题 84:718 @ (60,121) -->
-      <div class="absolute left-[60px] top-[121px] z-10">
+      <div
+        class="absolute z-10"
+        :style="{
+          left: `${section.layout.heading.left}px`,
+          top: `${section.layout.heading.top}px`,
+        }"
+      >
         <ServeSectionHeading
           :no="section.no"
           :title="section.title"
           :subtitle="section.subtitle"
+          :heading-image="section.headingImage"
         />
       </div>
 
-      <!-- 描述 84:717 @ (70,223) -->
       <p
-        class="absolute left-[70px] top-[223px] z-10 max-w-[576px] text-lg leading-[1.67] text-[#c2c2c2]"
+        class="absolute z-10 max-w-[576px] text-lg leading-[1.67] text-[#c2c2c2]"
+        :style="{
+          left: `${section.layout.description.left}px`,
+          top: `${section.layout.description.top}px`,
+        }"
       >
         {{ section.description }}
       </p>
@@ -46,35 +53,62 @@
     >
       <ServeSectionCardBg />
 
+      <!-- Figma 82:1347 底部融色：整卡宽度，避免仅左侧 48% 叠层造成中线色差 -->
       <div
-        class="absolute bottom-0 top-0 z-[3] flex items-end justify-center"
-        :class="
-          section.imageOnLeft
-            ? 'left-0 w-[52%] pr-4'
-            : 'right-0 w-[52%] pl-4'
+        v-if="
+          section.layout.visual.side === 'left' && section.layout.visual.image
         "
-      >
-        <img
-          :src="section.image"
-          :alt="section.imageAlt"
-          class="max-h-[96%] w-full object-contain object-bottom"
-          :class="section.imageOnLeft ? 'object-left-bottom' : 'object-right-bottom'"
-        />
-      </div>
+        class="serve-section-bottom-fade pointer-events-none absolute inset-0 z-[2] rounded-[30px]"
+        aria-hidden="true"
+      />
+
+      <ServeSectionVisual
+        v-if="section.layout.visual.image"
+        :side="section.layout.visual.side"
+        :image="section.layout.visual.image"
+        :alt="section.imageAlt"
+        :frame="section.layout.visual.frame"
+        :fade-bottom="section.layout.visual.fadeBottom"
+        :flip-horizontal="section.layout.visual.flipHorizontal"
+      />
+
+      <img
+        v-if="section.layout.decor"
+        :src="section.layout.decor.image"
+        alt=""
+        aria-hidden="true"
+        class="pointer-events-none absolute bottom-0 z-[2] h-[32.2%] w-[29.17%] max-w-[420px] object-contain object-bottom"
+        :class="
+          section.layout.decor.position === 'br'
+            ? 'right-0 object-right-bottom'
+            : 'left-0 object-left-bottom'
+        "
+      />
 
       <div
-        class="absolute top-0 z-10 flex h-full flex-col justify-center px-6 md:px-[60px]"
-        :class="section.imageOnLeft ? 'right-0 w-[48%]' : 'left-0 w-[48%]'"
+        class="absolute z-10"
+        :style="{
+          left: `${section.layout.heading.left}px`,
+          top: `${section.layout.heading.top}px`,
+        }"
       >
         <ServeSectionHeading
           :no="section.no"
           :title="section.title"
           :subtitle="section.subtitle"
+          :heading-image="section.headingImage"
         />
-        <p class="mt-6 max-w-[576px] text-lg leading-[1.67] text-[#c2c2c2]">
-          {{ section.description }}
-        </p>
       </div>
+
+      <p
+        class="absolute z-10 max-w-[576px] text-lg leading-[1.67] text-[#c2c2c2]"
+        :style="{
+          left: `${section.layout.description.left}px`,
+          top: `${section.layout.description.top}px`,
+        }"
+      >
+        {{ section.description }}
+      </p>
     </div>
   </section>
 </template>
@@ -83,7 +117,21 @@
 import ServeCouponPhones from "./ServeCouponPhones.vue";
 import ServeSectionCardBg from "./ServeSectionCardBg.vue";
 import ServeSectionHeading from "./ServeSectionHeading.vue";
+import ServeSectionVisual from "./ServeSectionVisual.vue";
 import type { ServeSection } from "./sections";
 
 defineProps<{ section: ServeSection }>();
 </script>
+
+<style scoped lang="scss">
+/* 与 Figma Rectangle 6 同比例，铺满 1440 卡宽 */
+.serve-section-bottom-fade {
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    transparent 41%,
+    rgba(26, 25, 33, 0.25) 70%,
+    rgba(26, 25, 33, 0.7) 100%
+  );
+}
+</style>

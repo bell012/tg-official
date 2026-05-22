@@ -1,20 +1,19 @@
 <template>
-  <!-- Figma 84:700 左边素材 694×567 -->
   <div class="serve-coupon-phones">
     <img
-      :src="phoneLeft"
+      :src="phones.left"
       alt=""
       class="serve-coupon-phones__left"
       aria-hidden="true"
     />
     <img
-      :src="phoneRight"
+      :src="phones.right"
       alt=""
       class="serve-coupon-phones__right"
       aria-hidden="true"
     />
     <img
-      :src="phoneCenter"
+      :src="phones.center"
       alt="票券活动"
       class="serve-coupon-phones__center"
     />
@@ -22,13 +21,14 @@
 </template>
 
 <script setup lang="ts">
-import phoneLeft from "@/static/serve/coupon-phone-left.png";
-import phoneCenter from "@/static/serve/coupon-phone-center.png";
-import phoneRight from "@/static/serve/coupon-phone-right.png";
+import type { ServeCouponVisual } from "./sections";
+
+defineProps<{
+  phones: ServeCouponVisual["phones"];
+}>();
 </script>
 
 <style scoped lang="scss">
-/* Figma 84:704 / 84:710 / 84:707 相对 694×567 定位 */
 .serve-coupon-phones {
   position: relative;
   width: 100%;
@@ -38,28 +38,28 @@ import phoneRight from "@/static/serve/coupon-phone-right.png";
 .serve-coupon-phones__left,
 .serve-coupon-phones__right {
   position: absolute;
-  top: 17.99%; /* 102/567 */
-  width: 28.53%; /* 198/694 */
-  height: 72.13%; /* 409/567 */
+  top: 17.99%;
+  width: 28.53%;
+  height: 72.13%;
   object-fit: contain;
   object-position: bottom center;
   z-index: 1;
 }
 
 .serve-coupon-phones__left {
-  left: 13.4%; /* 93/694 */
+  left: 13.4%;
 }
 
 .serve-coupon-phones__right {
-  left: 58.07%; /* 403/694 */
+  left: 58.07%;
 }
 
 .serve-coupon-phones__center {
   position: absolute;
-  left: 34.87%; /* 242/694 */
-  top: 8.29%; /* 47/567 */
-  width: 33.14%; /* 230/694 */
-  height: 83.6%; /* 474/567 */
+  left: 34.87%;
+  top: 8.29%;
+  width: 33.14%;
+  height: 83.6%;
   object-fit: contain;
   object-position: bottom center;
   z-index: 2;
