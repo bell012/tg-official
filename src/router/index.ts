@@ -21,7 +21,13 @@ const routes: RouteRecordRaw[] = [
         path: "consult",
         name: "Consult",
         component: () => import("@/views/consult/index.vue"),
-        meta: { title: "包网咨询" },
+        meta: { title: "包网资讯" },
+      },
+      {
+        path: "consult/:id",
+        name: "ConsultDetail",
+        component: () => import("@/views/consult/detail/index.vue"),
+        meta: { title: "包网资讯" },
       },
       {
         path: "about",
@@ -54,8 +60,8 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes,
   scrollBehavior(_to, _from, savedPosition) {
-    if (savedPosition) return savedPosition
-    return { top: 0 }
+    if (savedPosition) return savedPosition;
+    return { top: 0 };
   },
 })
 

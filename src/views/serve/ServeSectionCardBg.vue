@@ -1,12 +1,13 @@
 <template>
   <!-- Figma 82:1316 背景 -->
   <div
-    class="serve-card-bg absolute inset-0 overflow-hidden rounded-[30px] bg-[#1a1921]"
+    class="serve-card-bg absolute inset-0 overflow-hidden rounded-[30px]"
     v-bind="$attrs"
   >
-    <!-- Rectangle 4 底部微高光 -->
+    <!-- Rectangle 4 底部微高光（Figma 极淡，避免底部发灰发亮） -->
     <div
-      class="pointer-events-none absolute inset-0 z-0 bg-gradient-to-b from-transparent via-transparent to-white/[0.06]"
+      class="serve-card-bg__highlight pointer-events-none absolute inset-0 z-[1]"
+      aria-hidden="true"
     />
 
     <!-- 82:1306 光效 -->
@@ -17,21 +18,19 @@
       class="serve-card-bg__glow pointer-events-none absolute z-0 max-w-none select-none"
     />
 
-    <!-- 纹理紫色 1 — 82:1309 左上 + 网格 -->
+    <!-- Figma 纹理装饰 — 181:687 / 181:688 -->
+    <!-- <img
+      :src="texture"
+      alt=""
+      aria-hidden="true"
+      class="serve-card-bg__texture serve-card-bg__texture--tl pointer-events-none absolute z-[1] select-none"
+    />
     <img
       :src="texture"
       alt=""
       aria-hidden="true"
-      class="serve-card-bg__texture serve-card-bg__texture--tl pointer-events-none absolute z-[1] h-[142px] w-[142px]"
-    />
-
-    <!-- 纹理紫色 2 — 82:1310 右下 + 网格 -->
-    <img
-      :src="texture"
-      alt=""
-      aria-hidden="true"
-      class="serve-card-bg__texture serve-card-bg__texture--br pointer-events-none absolute z-[1] h-[142px] w-[142px]"
-    />
+      class="serve-card-bg__texture serve-card-bg__texture--br pointer-events-none absolute z-[1] select-none"
+    /> -->
   </div>
 </template>
 
@@ -45,24 +44,37 @@ defineOptions({ inheritAttrs: false });
 <style scoped lang="scss">
 .serve-card-bg__glow {
   left: -16.6%;
-  bottom: -12%;
+  bottom: -8%;
   width: 120.7%;
   height: auto;
+  opacity: 0.4;
 }
 
-/* Figma opacity 10% */
+/* Figma：底部白渐变仅末段极淡 */
+.serve-card-bg__highlight {
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    transparent 80%,
+    rgba(255, 255, 255, 0.015) 100%
+  );
+}
+
 .serve-card-bg__texture {
+  width: 13.64%; /* 142/1041 */
+  height: auto;
+  aspect-ratio: 1;
   opacity: 0.1;
+  object-fit: contain;
 }
 
 .serve-card-bg__texture--tl {
-  left: 14px;
-  top: 14px;
+  top: 1.34%; /* 14/1041 */
+  left: 1.34%;
 }
 
 .serve-card-bg__texture--br {
-  right: 14px;
-  bottom: 14px;
-  transform: rotate(180deg);
+  right: 1.34%;
+  bottom: 1.34%;
 }
 </style>

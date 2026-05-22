@@ -5,12 +5,23 @@ import TopNav from "@/layouts/TopNav.vue";
 import Footer from "@/layouts/Footer.vue";
 
 const route = useRoute();
-const isDarkPage = computed(() =>
-  ["/serve", "/consult", "/about", "/connect"].includes(route.path)
+
+const isDarkPage = computed(
+  () =>
+    ["/serve", "/about", "/connect"].includes(route.path) ||
+    route.path === "/consult" ||
+    route.path.startsWith("/consult/")
 );
+
 const mainBgClass = computed(() => {
   if (!isDarkPage.value) return "bg-white";
-  if (route.path === "/serve") return "bg-transparent";
+  if (
+    route.path === "/serve" ||
+    route.path === "/consult" ||
+    route.path.startsWith("/consult/")
+  ) {
+    return "bg-transparent";
+  }
   return "bg-[#0d0c14]";
 });
 </script>

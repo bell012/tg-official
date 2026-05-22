@@ -1,49 +1,123 @@
 <template>
-  <section class="relative px-4">
-    <div class="relative min-h-[640px] overflow-hidden rounded-[24px] md:min-h-[700px]">
-      <ServeSectionCardBg class="!rounded-[24px]" />
+  <section class="serve-mobile-section">
+    <div
+      class="serve-mobile-section__frame"
+      :class="
+        section.couponVisual
+          ? 'serve-mobile-section__frame--coupon'
+          : 'serve-mobile-section__frame--default'
+      "
+    >
+      <div class="serve-mobile-section__card">
+        <ServeSectionCardBg class="!rounded-[30px]" />
+      </div>
 
-      <div class="relative z-10 px-5 pb-3 pt-6">
-        <ServeSectionHeading
+      <div class="serve-mobile-section__content">
+        <ServeMobileHeading
           :no="section.no"
           :title="section.title"
           :subtitle="section.subtitle"
-          size="sm"
         />
-      </div>
 
-      <p class="relative z-10 px-5 text-[15px] leading-7 text-[#c2c2c2]">
-        {{ section.description }}
-      </p>
+        <p class="serve-mobile-section__desc">
+          {{ section.description }}
+        </p>
 
-      <div class="relative z-10 mt-4 px-2 pb-2">
-        <template v-if="section.couponVisual">
+        <div class="serve-mobile-section__visual">
           <img
-            :src="section.couponVisual.cornerLeft"
-            alt=""
-            aria-hidden="true"
-            class="pointer-events-none absolute bottom-2 left-2 z-[1] h-20 w-auto max-w-[50%] object-contain object-left-bottom"
+            :src="visualSrc"
+            :alt="section.imageAlt"
+            class="serve-mobile-section__visual-img"
+            :class="{ 'serve-mobile-section__visual-img--flip': section.layout.visual.flipHorizontal }"
           />
-          <div class="relative mx-auto h-[300px] max-w-[360px]">
-            <ServeCouponPhones />
-          </div>
-        </template>
-        <img
-          v-else
-          :src="section.image"
-          :alt="section.imageAlt"
-          class="mx-auto max-h-[320px] w-full object-contain object-bottom"
-        />
+        </div>
       </div>
     </div>
   </section>
 </template>
 
 <script setup lang="ts">
-import ServeCouponPhones from "./ServeCouponPhones.vue";
+import { computed } from "vue";
+import ServeMobileHeading from "./ServeMobileHeading.vue";
 import ServeSectionCardBg from "./ServeSectionCardBg.vue";
-import ServeSectionHeading from "./ServeSectionHeading.vue";
 import type { ServeSection } from "./sections";
 
-defineProps<{ section: ServeSection }>();
+const props = defineProps<{ section: ServeSection }>();
+
+const visualSrc = computed(
+  () =>
+    props.section.mobileVisualImage ?? props.section.layout.visual.image
+);
 </script>
+
+<style scoped lang="scss">
+@use "./serve-h5" as *;
+
+.serve-mobile-section {
+  width: 100%;
+}
+
+.serve-mobile-section__frame {
+  position: relative;
+  width: 100%;
+}
+
+/* Figma 181:679 背景 — 自 y:68 起 */
+.serve-mobile-section__card {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: h5(68);
+  bottom: 0;
+  overflow: hidden;
+  border-radius: h5(30);
+}
+
+.serve-mobile-section__content {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+/* 设计标注 @1x：副标题→文案 10px，文案→配图 25px（×3 → h5） */
+.serve-mobile-section__desc {
+  margin: h5(30) 0 h5(75);
+  padding: 0 h5(42);
+  box-sizing: border-box;
+  font-family: "PingFang SC", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 400;
+  font-size: h5(33);
+  line-height: 1.67;
+  text-align: center;
+  color: #c2c2c2;
+}
+
+.serve-mobile-section__visual {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  width: 100%;
+  overflow: hidden;
+}
+
+.serve-mobile-section__frame--default .serve-mobile-section__visual {
+  height: h5(567);
+}
+
+.serve-mobile-section__frame--coupon .serve-mobile-section__visual {
+  height: h5(900);
+}
+
+.serve-mobile-section__visual-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: bottom center;
+}
+
+.serve-mobile-section__visual-img--flip {
+  transform: scaleX(-1);
+}
+</style>
