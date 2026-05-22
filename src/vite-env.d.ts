@@ -6,3 +6,9 @@ declare module "*.vue" {
   const component: DefineComponent<{}, {}, any>;
   export default component;
 }
+
+declare module "*.svg?skipsvgo" {
+  import type { FunctionalComponent, SVGAttributes } from "vue";
+  const src: FunctionalComponent<SVGAttributes>;
+  export default src;
+}
