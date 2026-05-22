@@ -94,7 +94,13 @@ defineProps<{
   .consult-detail-body__ul {
     margin: 0;
     padding-left: 1.25em;
+    list-style: disc;
+    list-style-position: outside;
     @include body-text-pc;
+
+    li {
+      display: list-item;
+    }
 
     li + li {
       margin-top: 8px;
@@ -189,7 +195,13 @@ defineProps<{
   .consult-detail-body__ul {
     margin: 0;
     padding-left: 1.25em;
+    list-style: disc;
+    list-style-position: outside;
     @include body-text-h5;
+
+    li {
+      display: list-item;
+    }
 
     li + li {
       margin-top: h5(12);
