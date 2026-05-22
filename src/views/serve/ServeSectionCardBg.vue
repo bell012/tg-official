@@ -17,26 +17,11 @@
       aria-hidden="true"
       class="serve-card-bg__glow pointer-events-none absolute z-0 max-w-none select-none"
     />
-
-    <!-- Figma 纹理装饰 — 181:687 / 181:688 -->
-    <!-- <img
-      :src="texture"
-      alt=""
-      aria-hidden="true"
-      class="serve-card-bg__texture serve-card-bg__texture--tl pointer-events-none absolute z-[1] select-none"
-    />
-    <img
-      :src="texture"
-      alt=""
-      aria-hidden="true"
-      class="serve-card-bg__texture serve-card-bg__texture--br pointer-events-none absolute z-[1] select-none"
-    /> -->
   </div>
 </template>
 
 <script setup lang="ts">
 import cardGlow from "@/static/serve/coupon-card-glow.svg";
-import texture from "@/static/serve/card-texture-1ea6c2.png";
 
 defineOptions({ inheritAttrs: false });
 </script>
