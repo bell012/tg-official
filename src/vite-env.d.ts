@@ -18,3 +18,8 @@ declare module "*.svg?component" {
   const src: FunctionalComponent<SVGAttributes>;
   export default src;
 }
+
+declare module "*.svg?url" {
+  const src: string;
+  export default src;
+}
