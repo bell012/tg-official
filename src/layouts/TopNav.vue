@@ -139,7 +139,7 @@ import { useRoute, useRouter } from "vue-router";
 import logoUrl from "@/static/home/logo.png";
 import logoUrl_h5 from "@/static/home/logo_h5.png";
 import Search from "@/static/home/svg/search.svg?component";
-import Menu from "@/static/home/svg/Menu.svg?component";
+import Menu from "@/static/home/svg/menu.svg?component";
 import Telegrim from "@/static/home/svg/Telegrim.svg?component";
 import Close from "@/static/home/svg/close.svg?component";
 import telegramIcon from "@/static/home/Telegram.png";
