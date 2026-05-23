@@ -37,7 +37,7 @@
         <button
           type="button"
           class="flex h-[20px] w-[20px] items-center justify-center mr-[43px]"
-          @click="goSearch"
+          @click="toggleSearchPanel"
         >
           <Search class="h-5 w-5 text-[#fff] hover:text-[#FFC16F]" />
         </button>
@@ -72,7 +72,7 @@
         <button
           type="button"
           class="flex h-5 w-5 items-center justify-center"
-          @click="goSearch"
+          @click="toggleSearchPanel"
         >
           <Search class="h-5 w-5 text-[#C2C2C2]" />
         </button>
@@ -130,12 +130,72 @@
         </div>
       </div>
     </transition>
+
+    <!-- 搜索弹窗 -->
+    <transition name="fade">
+      <div
+        v-show="searchPanelOpen"
+        class="fixed inset-0 z-40 px-[14px] pt-[60px] md:px-6 md:pt-[142px]"
+        style="background: rgba(0, 0, 0, 0.7); backdrop-filter: blur(10px)"
+        @click.self="searchPanelOpen = false"
+      >
+        <form
+          class="mx-auto flex h-[40px] max-w-[720px] items-center gap-3 rounded-full border bg-white/20 px-4 md:h-14 md:px-5"
+          :class="searchQuery.trim() ? 'border-[#FFC16F]' : 'border-white/50 focus-within:border-[#FFC16F]'"
+          @submit.prevent="submitSearch"
+          @click.stop
+        >
+          <input
+            v-model="searchQuery"
+            type="text"
+            enterkeyhint="search"
+            placeholder="请输入搜索内容"
+            class="min-w-0 flex-1 bg-transparent text-sm text-white outline-none placeholder:font-normal placeholder:text-[#C2C2C2] md:text-base"
+            :class="searchQuery.trim() ? 'font-semibold md:text-lg' : ''"
+          />
+          <button type="submit" class="flex shrink-0 items-center justify-center" aria-label="搜索">
+            <Search class="h-5 w-5 text-white" />
+          </button>
+        </form>
+
+        <!-- 有内容时结果列表 -->
+        <ul
+          v-if="searchResults.length"
+          class="mx-auto mt-5 max-h-[calc(100vh-140px)] max-w-[720px] list-none overflow-y-auto p-0 md:mt-6"
+        >
+          <li v-for="(item, index) in searchResults" :key="item.id">
+            <router-link
+              :to="`/consult/${item.id}`"
+              class="flex gap-3 md:gap-4"
+              @click="searchPanelOpen = false"
+            >
+              <img
+                :src="item.h5Image"
+                :alt="item.title"
+                class="size-[60px] shrink-0 rounded-[10px] object-cover md:size-24 md:rounded-[20px]"
+              />
+              <div class="min-w-0 flex-1 pt-0.5">
+                <p class="line-clamp-2 text-sm font-semibold leading-snug text-white md:text-base">
+                  {{ item.title }}
+                </p>
+                <p class="mt-3 text-xs text-[#C2C2C2] md:mt-4 md:text-sm">2026年1月4日</p>
+              </div>
+            </router-link>
+            <div
+              v-if="index < searchResults.length - 1"
+              class="my-4 h-px bg-white/30 md:my-4"
+            />
+          </li>
+        </ul>
+      </div>
+    </transition>
   </header>
 </template>
 
 <script setup lang="ts">
 import { ref, computed } from "vue";
 import { useRoute, useRouter } from "vue-router";
+import { consultAllArticles } from "@/views/consult/articles";
 import logoUrl from "@/static/home/logo.png";
 import logoUrl_h5 from "@/static/home/logo_h5.png";
 import Search from "@/static/home/svg/search.svg?component";
@@ -184,8 +244,33 @@ const isActive = (path: string) => {
 const activeIndex = computed(() => navItems.findIndex((i) => isActive(i.path)));
 
 const mobileOpen = ref(false);
-const toggleMobile = () => (mobileOpen.value = !mobileOpen.value);
-const goSearch = () => router.push("/search");
+const searchPanelOpen = ref(false);
+const searchQuery = ref("");
+
+const searchResults = computed(() => {
+  const q = searchQuery.value.trim().toLowerCase();
+  if (!q) return [];
+  return consultAllArticles
+    .filter((a) => a.title.toLowerCase().includes(q))
+    .slice(0, 5);
+});
+
+const toggleMobile = () => {
+  mobileOpen.value = !mobileOpen.value;
+  if (mobileOpen.value) searchPanelOpen.value = false;
+};
+
+const toggleSearchPanel = () => {
+  searchPanelOpen.value = !searchPanelOpen.value;
+  if (searchPanelOpen.value) mobileOpen.value = false;
+};
+
+const submitSearch = () => {
+  const q = searchQuery.value.trim();
+  if (!q) return;
+  searchPanelOpen.value = false;
+  router.push({ path: "/search", query: { q } });
+};
 const handleJump = () => {
   console.log("联系官方TG");
 };
