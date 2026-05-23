@@ -28,11 +28,11 @@ const mainBgClass = computed(() => {
 
 <template>
   <div
-    class="relative md:pb-[200px]"
+    class="relative md:pb-[590px]"
     :class="isDarkPage ? 'bg-[#0d0c14]' : 'bg-white'"
   >
     <TopNav />
-    <main class="relative z-10 pt-[56px] md:pt-[72px]" :class="mainBgClass">
+    <main class="relative z-10 pt-[40px] md:pt-[110px]" :class="mainBgClass">
       <router-view />
     </main>
     <Footer />
