@@ -1,5 +1,5 @@
 <template>
-  <div class="consult-page relative min-h-screen overflow-x-hidden text-white">
+  <div class="consult-page page-motion relative min-h-screen overflow-x-hidden text-white">
     <ServePageBackground />
     <div class="relative z-[1]">
       <!-- PC — Figma 84:915 -->
@@ -8,11 +8,12 @@
         <div class="consult-pc-content">
           <div class="consult-pc-grid">
             <ConsultArticleCard
-              v-for="article in currentPageArticles"
+              v-for="(article, index) in currentPageArticles"
               :key="article.id"
               :article="article"
               :image="article.pcImage"
               variant="pc"
+              :stagger-index="index"
             />
           </div>
           <ConsultPagination
@@ -25,11 +26,12 @@
       <!-- H5 — Figma 164:2454 -->
       <div class="consult-h5-layout md:!hidden">
         <ConsultArticleCard
-          v-for="article in consultAllArticles"
+          v-for="(article, index) in consultAllArticles"
           :key="`h5-${article.id}`"
           :article="article"
           :image="article.h5Image"
           variant="h5"
+          :stagger-index="index"
         />
       </div>
     </div>
@@ -55,7 +57,7 @@ const currentPageArticles = computed(
 );
 
 watch(currentPage, () => {
-  window.scrollTo({ top: 0 });
+  window.scrollTo({ top: 0, behavior: "smooth" });
 });
 </script>
 

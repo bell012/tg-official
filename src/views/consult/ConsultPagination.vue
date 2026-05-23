@@ -78,6 +78,9 @@ function goTo(page: number) {
   line-height: 1;
   color: #ffffff;
   cursor: pointer;
+  transition:
+    background 0.12s cubic-bezier(0.455, 0.03, 0.515, 0.955),
+    opacity 0.12s cubic-bezier(0.455, 0.03, 0.515, 0.955);
 
   &:disabled {
     opacity: 0.45;
@@ -104,6 +107,7 @@ function goTo(page: number) {
       display: block;
       width: 48px;
       height: 48px;
+      transition: opacity 0.12s cubic-bezier(0.455, 0.03, 0.515, 0.955);
     }
 
     &:not(:disabled):hover img {

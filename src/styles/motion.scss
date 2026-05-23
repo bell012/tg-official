@@ -1,0 +1,31 @@
+$motion-ease-out: cubic-bezier(0.2, 1, 0.2, 1);
+$motion-reveal-duration: 1.5s;
+
+.page-motion {
+  scroll-behavior: smooth;
+}
+
+.motion-reveal {
+  opacity: 0.01;
+  transform: translate3d(0, 100px, 0);
+  transition:
+    opacity $motion-reveal-duration $motion-ease-out,
+    transform $motion-reveal-duration $motion-ease-out;
+
+  &.is-revealed {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-motion {
+    scroll-behavior: auto;
+  }
+
+  .motion-reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
