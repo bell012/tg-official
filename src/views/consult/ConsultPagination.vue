@@ -7,7 +7,7 @@
       aria-label="上一页"
       @click="goTo(currentPage - 1)"
     >
-      <img :src="prevIcon" alt="" width="56" height="56" />
+      <img :src="prevIcon" alt="" width="48" height="48" />
     </button>
 
     <button
@@ -29,14 +29,14 @@
       aria-label="下一页"
       @click="goTo(currentPage + 1)"
     >
-      <img :src="nextIcon" alt="" width="56" height="56" />
+      <img :src="nextIcon" alt="" width="48" height="48" />
     </button>
   </nav>
 </template>
 
 <script setup lang="ts">
-import prevIcon from "@/static/consult/pagination-prev.svg";
-import nextIcon from "@/static/consult/pagination-next.svg";
+import prevIcon from "@/static/consult/pagination-prev.svg?url";
+import nextIcon from "@/static/consult/pagination-next.svg?url";
 
 const props = defineProps<{
   currentPage: number;
@@ -54,27 +54,27 @@ function goTo(page: number) {
 </script>
 
 <style scoped lang="scss">
-/* Figma 166:1906 — gap 24，按钮 56×56，圆角 12 */
+/* Figma 166:1906 — gap 24，按钮 56×56，圆角 12（略缩小为 48×48） */
 .consult-pagination {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 24px;
+  gap: 20px;
 }
 
 .consult-pagination__btn {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 56px;
-  height: 56px;
+  width: 48px;
+  height: 48px;
   padding: 0;
   border: none;
-  border-radius: 12px;
+  border-radius: 10px;
   background: #2a2833;
   font-family: "PingFang SC", -apple-system, BlinkMacSystemFont, sans-serif;
   font-weight: 600;
-  font-size: 24px;
+  font-size: 20px;
   line-height: 1;
   color: #ffffff;
   cursor: pointer;
@@ -102,8 +102,8 @@ function goTo(page: number) {
 
     img {
       display: block;
-      width: 56px;
-      height: 56px;
+      width: 48px;
+      height: 48px;
     }
 
     &:not(:disabled):hover img {
