@@ -191,7 +191,7 @@
 <script setup lang="ts">
 import { ref, computed } from "vue";
 import { useRoute, useRouter } from "vue-router";
-import { consultAllArticles } from "@/views/consult/articles";
+import { consultAllArticles } from "@/utils/consultArticles";
 import logoUrl from "@/static/home/logo.png";
 import logoUrl_h5 from "@/static/home/logo_h5.png";
 import Search from "@/static/home/svg/search.svg?component";
