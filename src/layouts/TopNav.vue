@@ -86,46 +86,42 @@
       </div>
     </div>
 
-    <!-- H5 全屏弹窗 -->
+    <!-- H5 侧边栏 — Figma 155:3446 首页-侧边栏 / Frame 58 -->
     <transition name="fade">
-      <div
-        v-show="mobileOpen"
-        class="fixed inset-0 z-40 flex flex-col md:hidden"
-        style="background: rgba(0, 0, 0, 0.7); backdrop-filter: blur(10px)"
-      >
-        <div class="flex items-center justify-between px-[20px] pt-[30px]">
-          <span class="text-xl font-[600] text-white">Persona</span>
+      <div v-show="mobileOpen" class="mobile-menu fixed inset-0 z-40 flex flex-col md:hidden">
+        <div class="mobile-menu__head">
+          <span class="mobile-menu__title">Persona</span>
           <button
             type="button"
-            class="flex h-4 w-4 items-center justify-center"
+            class="mobile-menu__close-btn"
             aria-label="close"
             @click="toggleMobile"
           >
-            <Close class="h-4 w-4 text-white" />
+            <Close class="mobile-menu__close-icon" />
           </button>
         </div>
 
-        <div class="mt-[20px] flex flex-col gap-[7px] px-[20px] py-[14px]">
+        <nav class="mobile-menu__nav">
           <a
             v-for="item in navItems"
             :key="item.path"
-            class="flex h-[50px] cursor-pointer items-center justify-center rounded-[10px] border border-white/30 bg-black/50 backdrop-blur-[10px] text-base font-[600]"
-            :class="isActive(item.path) ? 'text-[#FFC16F]' : 'text-white'"
+            class="mobile-menu__link"
+            :class="{ 'mobile-menu__link--active': isActive(item.path) }"
             @click="goAndClose(item.path)"
           >
             {{ item.label }}
           </a>
-        </div>
+        </nav>
 
-        <div class="mt-[30px] grid grid-cols-4 gap-[2px] px-[20px]">
+        <div class="mobile-menu__social">
           <a
             v-for="s in socialItems"
             :key="s.label"
-            class="flex cursor-pointer flex-col items-center gap-[7px]"
+            class="mobile-menu__social-item"
             @click="s.handler"
           >
-            <img :src="s.icon" :alt="s.label" class="h-[35px] w-[35px]" />
-            <span class="text-sm font-[400] text-[#C2C2C2]">{{ s.label }}</span>
+            <img :src="s.icon" :alt="s.label" class="mobile-menu__social-icon" />
+            <span class="mobile-menu__social-label">{{ s.label }}</span>
           </a>
         </div>
       </div>
@@ -284,6 +280,8 @@ const goAndClose = (path: string) => {
 </script>
 
 <style scoped lang="scss">
+@use "@/views/serve/serve-h5" as *;
+
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.2s ease;
@@ -291,5 +289,104 @@ const goAndClose = (path: string) => {
 .fade-enter-from,
 .fade-leave-to {
   opacity: 0;
+}
+
+/* Figma Frame 58 — 遮罩 #000 70% + blur */
+.mobile-menu {
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(10px);
+}
+
+/* Persona y:222 / close 48×48 @ x:1017 */
+.mobile-menu__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: h5(90) h5(60) 0;
+}
+
+.mobile-menu__title {
+  font-family: "PingFang SC", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 600;
+  font-size: h5(60);
+  line-height: 1.4;
+  color: #ffffff;
+}
+
+.mobile-menu__close-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.mobile-menu__close-icon {
+  width: h5(48);
+  height: h5(48);
+  color: #ffffff;
+}
+
+/* 导航区 x:60 y:366，项 1005×150，间距 21，圆角 30 */
+.mobile-menu__nav {
+  display: flex;
+  flex-direction: column;
+  gap: h5(21);
+  margin-top: h5(60);
+  padding: 0 h5(60);
+}
+
+.mobile-menu__link {
+  display: flex;
+  height: h5(150);
+  align-items: center;
+  justify-content: center;
+  border-radius: h5(30);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(0, 0, 0, 0.5);
+  font-family: "PingFang SC", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 600;
+  font-size: h5(48);
+  line-height: 1.4;
+  color: #ffffff;
+  text-decoration: none;
+  cursor: pointer;
+
+  &--active {
+    color: #ffc16f;
+  }
+}
+
+/* 社交区 y:1290，图标 105，文案 42 #C2C2C2，列间距 7 */
+.mobile-menu__social {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: h5(7);
+  padding: h5(90) h5(42) h5(60);
+}
+
+.mobile-menu__social-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: h5(21);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.mobile-menu__social-icon {
+  width: h5(105);
+  height: h5(105);
+}
+
+.mobile-menu__social-label {
+  font-family: "PingFang SC", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 400;
+  font-size: h5(42);
+  line-height: 1.4;
+  color: #c2c2c2;
+  text-align: center;
 }
 </style>
