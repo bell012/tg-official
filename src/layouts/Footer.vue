@@ -1,6 +1,6 @@
 <template>
   <footer
-    class="bg-[#1A1921] md:fixed md:bottom-0 md:left-0 md:right-0 md:z-0"
+    class="relative z-20 bg-[#1A1921] md:fixed md:bottom-0 md:left-0 md:right-0 md:z-0"
   >
     <!-- PC -->
     <div
@@ -84,7 +84,9 @@
     </div>
 
     <!-- H5 -->
-    <div class="block p-[20px] md:hidden">
+    <div
+      class="block p-[20px] pb-[calc(20px+env(safe-area-inset-bottom,0px))] md:hidden"
+    >
       <div class="flex flex-col items-center">
         <img :src="logoUrl" alt="TG包网" class="h-[24px] w-auto" />
         <p class="mt-[10px] text-center text-xs font-[400] text-[#C2C2C2]">
