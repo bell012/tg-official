@@ -1,32 +1,36 @@
 <template>
-  <RouterLink
-    :to="`/consult/${article.id}`"
-    class="consult-card-link"
-    :class="`consult-card-link--${variant}`"
-  >
-    <article class="consult-card" :class="`consult-card--${variant}`">
-      <div class="consult-card__media">
-        <img
-          class="consult-card__image"
-          :src="image"
-          :alt="article.title"
-          loading="lazy"
-          decoding="async"
-        />
-      </div>
-      <h2 class="consult-card__title">{{ article.title }}</h2>
-    </article>
-  </RouterLink>
+  <MotionReveal :stagger-index="staggerIndex">
+    <RouterLink
+      :to="`/consult/${article.id}`"
+      class="consult-card-link"
+      :class="`consult-card-link--${variant}`"
+    >
+      <article class="consult-card" :class="`consult-card--${variant}`">
+        <div class="consult-card__media">
+          <img
+            class="consult-card__image"
+            :src="image"
+            :alt="article.title"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+        <h2 class="consult-card__title">{{ article.title }}</h2>
+      </article>
+    </RouterLink>
+  </MotionReveal>
 </template>
 
 <script setup lang="ts">
 import { RouterLink } from "vue-router";
+import MotionReveal from "@/components/MotionReveal.vue";
 import type { ConsultArticle } from "./articles";
 
 defineProps<{
   article: ConsultArticle;
   image: string;
   variant: "pc" | "h5";
+  staggerIndex?: number;
 }>();
 </script>
 
@@ -43,6 +47,11 @@ defineProps<{
 
 .consult-card-link--h5 {
   -webkit-tap-highlight-color: transparent;
+}
+
+.consult-card-link:hover .consult-card__image,
+.consult-card-link:focus-visible .consult-card__image {
+  transform: scale(1.22);
 }
 
 /* Figma PC — 454×620，圆角 30，边框 #322E28，背景 #1A1921 */
@@ -68,6 +77,7 @@ defineProps<{
     height: 100%;
     object-fit: cover;
     display: block;
+    transition: transform 0.5s cubic-bezier(0.2, 1, 0.2, 1);
   }
 
   .consult-card__title {
@@ -104,6 +114,7 @@ defineProps<{
     height: 100%;
     object-fit: cover;
     display: block;
+    transition: transform 0.5s cubic-bezier(0.2, 1, 0.2, 1);
   }
 
   .consult-card__title {
@@ -114,6 +125,17 @@ defineProps<{
     font-size: h5(42);
     line-height: 1.42;
     color: #ffffff;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .consult-card__image {
+    transition: none;
+  }
+
+  .consult-card-link:hover .consult-card__image,
+  .consult-card-link:focus-visible .consult-card__image {
+    transform: none;
   }
 }
 </style>
