@@ -7,8 +7,10 @@
         class="w-full h-full bg-[#0D0C14] bg-no-repeat bg-[length:100%_100%]"
         style="background-image: url('/src/static/home/homeBG_pc.png')"
       >
-        <!-- 步骤1 -->
-        <section class="w-full h-full px-[240px] pt-[60px] pb-[120px]">
+        <!-- PC步骤1 -->
+        <section
+          class="w-full h-full px-[40px] xl:px-[120px] 2xl:px-[240px] pt-[60px] pb-[120px]"
+        >
           <div class="flex items-end justify-between h-[149px] overflow-hidden">
             <div class="flex items-stretch gap-[16px]">
               <div class="w-[8px] bg-[#FFC16F]"></div>
@@ -92,8 +94,10 @@
           </div>
         </section>
 
-        <!-- 步骤2 -->
-        <section class="w-full px-[240px] pb-[120px]">
+        <!-- PC步骤2 -->
+        <section
+          class="w-full px-[40px] xl:px-[120px] 2xl:px-[240px] pb-[120px]"
+        >
           <div class="flex items-stretch h-[149px] overflow-hidden gap-[16px]">
             <div class="w-[8px] bg-[#FFC16F]"></div>
             <div>
@@ -123,7 +127,9 @@
             </div>
           </div>
 
-          <div class="mt-[60px] grid grid-cols-2 gap-[120px] items-center">
+          <div
+            class="mt-[60px] grid grid-cols-2 items-center gap-[40px] xl:gap-[80px] 2xl:gap-[120px]"
+          >
             <img :src="phonePc" alt="APP/H5演示" class="w-full h-[821px]" />
             <div
               class="rounded-[10px] border border-[#322E28] bg-[#1A1921] px-[43px] pt-[60px] pb-[50px]"
@@ -141,7 +147,7 @@
             四大核心优势，驱动平台增长
           </div>
 
-          <div class="mt-[20px] grid grid-cols-4 gap-[20px]">
+          <div class="mt-[20px] grid grid-cols-2 gap-[20px] xl:grid-cols-4">
             <div
               v-for="card in featureCards"
               :key="card.title"
@@ -164,8 +170,10 @@
           </div>
         </section>
 
-        <!-- 步骤3 -->
-        <section class="w-full px-[240px] pb-[120px]">
+        <!-- PC步骤3 -->
+        <section
+          class="w-full px-[40px] xl:px-[120px] 2xl:px-[240px] pb-[120px]"
+        >
           <div class="flex items-stretch h-[149px] overflow-hidden gap-[16px]">
             <div class="w-[8px] bg-[#FFC16F]"></div>
             <div>
@@ -233,8 +241,10 @@
           </div>
         </section>
 
-        <!-- 步骤4 -->
-        <section class="w-full px-[240px] pb-[120px]">
+        <!-- PC步骤4 -->
+        <section
+          class="w-full px-[40px] xl:px-[120px] 2xl:px-[240px] pb-[120px]"
+        >
           <div class="flex items-stretch h-[149px] overflow-hidden gap-[16px]">
             <div class="w-[8px] bg-[#FFC16F]"></div>
             <div>
@@ -269,7 +279,7 @@
               v-for="article in articles"
               :key="article.id"
               :to="`/consult/${article.id}`"
-              class="group flex w-full h-[620px] flex-col overflow-hidden rounded-[30px] border border-[#322E28] bg-[#1A1921] text-inherit no-underline cursor-pointer"
+              class="group flex w-full flex-col overflow-hidden rounded-[30px] border border-[#322E28] bg-[#1A1921] text-inherit no-underline cursor-pointer"
             >
               <div class="w-full h-[456px] flex-shrink-0 overflow-hidden">
                 <img
@@ -280,15 +290,17 @@
                   decoding="async"
                 />
               </div>
-              <h3 class="mt-[30px] px-[20px] text-[24px] font-[600] text-white">
+              <h3 class="py-[30px] px-[20px] text-[24px] font-[600] text-white">
                 {{ article.title }}
               </h3>
             </RouterLink>
           </div>
         </section>
 
-        <!-- 步骤5 -->
-        <section class="w-full px-[240px] pb-[120px]">
+        <!-- PC步骤5 -->
+        <section
+          class="w-full px-[40px] xl:px-[120px] 2xl:px-[240px] pb-[120px]"
+        >
           <div class="flex items-stretch h-[149px] overflow-hidden gap-[16px]">
             <div class="w-[8px] bg-[#FFC16F]"></div>
             <div>
@@ -352,7 +364,7 @@
         class="w-full h-full bg-[#0D0C14] bg-no-repeat bg-[length:100%_100%] px-[14px]"
         style="background-image: url('/src/static/home/homeBG_H5.png')"
       >
-        <!-- 步骤1 -->
+        <!-- H5步骤1 -->
         <section class="w-full h-full pt-[16px] pb-[30px]">
           <div class="flex flex-col items-center">
             <div class="text-[25px] font-[700] leading-[1] text-[#FFC16F]">
@@ -428,7 +440,7 @@
           </div>
         </section>
 
-        <!-- 步骤2 -->
+        <!-- H5步骤2 -->
         <section class="pb-[30px]">
           <div class="flex flex-col items-center">
             <div class="text-[25px] font-[700] leading-[1] text-[#FFC16F]">
@@ -494,7 +506,7 @@
           </div>
         </section>
 
-        <!-- 步骤3 -->
+        <!-- H5步骤3 -->
         <section class="pb-[30px]">
           <div class="flex flex-col items-center">
             <div class="text-[25px] font-[700] leading-[1] text-[#FFC16F]">
@@ -564,7 +576,7 @@
           </div>
         </section>
 
-        <!-- 步骤4 -->
+        <!-- H5步骤4 -->
         <section class="pb-[30px]">
           <div class="flex flex-col items-center">
             <div class="text-[25px] font-[700] leading-[1] text-[#FFC16F]">
@@ -611,7 +623,7 @@
           </div>
         </section>
 
-        <!-- 步骤5 -->
+        <!-- H5步骤5 -->
         <section class="pb-[30px]">
           <div class="flex flex-col items-center">
             <div class="text-[25px] font-[700] leading-[1] text-[#FFC16F]">
