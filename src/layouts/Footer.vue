@@ -1,10 +1,10 @@
 <template>
   <footer
-    class="relative z-20 bg-[#1A1921] md:fixed md:bottom-0 md:left-0 md:right-0 md:z-0"
+    class="relative z-20 bg-[#1A1921] lg:fixed lg:bottom-0 lg:left-0 lg:right-0 lg:z-0"
   >
     <!-- PC -->
     <div
-      class="mx-auto hidden h-[590px] w-full flex-col px-[140px] py-[60px] md:flex"
+      class="mx-auto hidden h-[590px] w-full flex-col px-[140px] py-[60px] lg:flex"
     >
       <div class="w-full flex flex-col items-center justify-center">
         <img :src="logoUrl" alt="TG包网" class="h-[50px] w-auto" />
@@ -94,7 +94,7 @@
 
     <!-- H5 -->
     <div
-      class="block p-[20px] pb-[calc(20px+env(safe-area-inset-bottom,0px))] md:hidden"
+      class="block p-[20px] pb-[calc(20px+env(safe-area-inset-bottom,0px))] lg:hidden"
     >
       <div class="flex flex-col items-center">
         <img :src="logoUrl" alt="TG包网" class="h-[24px] w-auto" />

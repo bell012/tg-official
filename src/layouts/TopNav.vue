@@ -2,7 +2,7 @@
   <header class="fixed left-0 right-0 top-0 z-50 bg-[#1A1921]">
     <!-- PC -->
     <div
-      class="mx-auto hidden h-[110px] w-full items-center justify-between px-[140px] py-[32px] md:flex"
+      class="mx-auto hidden h-[110px] w-full items-center justify-between px-[140px] py-[32px] lg:flex"
     >
       <router-link to="/" class="flex items-center mr-[305px] min-w-[150px]">
         <img :src="logoUrl" alt="TG包网" class="h-[36px] w-auto" />
@@ -53,7 +53,7 @@
     </div>
 
     <!-- H5 -->
-    <div class="flex h-[40px] w-full items-center justify-between px-[14px] py-[10px] md:hidden">
+    <div class="flex h-[40px] w-full items-center justify-between px-[14px] py-[10px] lg:hidden">
       <div class="flex items-center">
         <button
           type="button"
@@ -88,7 +88,7 @@
 
     <!-- H5 侧边栏 -->
     <transition name="fade">
-      <div v-show="mobileOpen" class="mobile-menu fixed inset-0 z-40 flex flex-col md:hidden">
+      <div v-show="mobileOpen" class="mobile-menu fixed inset-0 z-40 flex flex-col lg:hidden">
         <div class="mobile-menu__head">
           <span class="mobile-menu__title">Persona</span>
           <button
@@ -131,12 +131,12 @@
     <transition name="fade">
       <div
         v-show="searchPanelOpen"
-        class="fixed inset-0 z-40 px-[14px] pt-[60px] md:px-6 md:pt-[142px]"
+        class="fixed inset-0 z-40 px-[14px] pt-[60px] lg:px-6 lg:pt-[142px]"
         style="background: rgba(0, 0, 0, 0.7); backdrop-filter: blur(10px)"
         @click.self="searchPanelOpen = false"
       >
         <form
-          class="mx-auto flex h-[40px] max-w-[720px] items-center gap-3 rounded-full border bg-white/20 px-4 md:h-14 md:px-5"
+          class="mx-auto flex h-[40px] max-w-[720px] items-center gap-3 rounded-full border bg-white/20 px-4 lg:h-14 lg:px-5"
           :class="searchQuery.trim() ? 'border-[#FFC16F]' : 'border-white/50 focus-within:border-[#FFC16F]'"
           @submit.prevent="submitSearch"
           @click.stop
@@ -146,8 +146,8 @@
             type="text"
             enterkeyhint="search"
             placeholder="请输入搜索内容"
-            class="min-w-0 flex-1 bg-transparent text-sm text-white outline-none placeholder:font-normal placeholder:text-[#C2C2C2] md:text-base"
-            :class="searchQuery.trim() ? 'font-semibold md:text-lg' : ''"
+            class="min-w-0 flex-1 bg-transparent text-sm text-white outline-none placeholder:font-normal placeholder:text-[#C2C2C2] lg:text-base"
+            :class="searchQuery.trim() ? 'font-semibold lg:text-lg' : ''"
           />
           <button type="submit" class="flex shrink-0 items-center justify-center" aria-label="搜索">
             <Search class="h-5 w-5 text-white" />
@@ -157,39 +157,39 @@
         <!-- 有内容时结果列表：H5 单列，PC 一行两个 -->
         <ul
           v-if="searchResults.length"
-          class="scrollbar-none mx-auto mt-5 grid max-h-[calc(100vh-140px)] w-full max-w-[720px] list-none grid-cols-1 gap-0 overflow-y-auto p-0 md:mt-6 md:grid-cols-2 md:gap-x-6 md:gap-y-6"
+          class="scrollbar-none mx-auto mt-5 grid max-h-[calc(100vh-140px)] w-full max-w-[720px] list-none grid-cols-1 gap-0 overflow-y-auto p-0 lg:mt-6 lg:grid-cols-2 lg:gap-x-6 lg:gap-y-6"
         >
           <li v-for="(item, index) in searchResults" :key="item.id" class="min-w-0">
             <router-link
               :to="`/consult/${item.id}`"
-              class="group flex gap-3 md:gap-4"
+              class="group flex gap-3 lg:gap-4"
               @click="searchPanelOpen = false"
             >
               <img
                 :src="item.h5Image"
                 :alt="item.title"
-                class="size-[60px] shrink-0 rounded-[10px] object-cover md:size-24 md:rounded-[20px]"
+                class="size-[60px] shrink-0 rounded-[10px] object-cover lg:size-24 lg:rounded-[20px]"
               />
               <div class="min-w-0 flex-1 pt-0.5">
-                <p class="line-clamp-2 text-sm font-semibold leading-snug text-white transition-colors group-hover:text-[#FFC16F] md:text-base">
+                <p class="line-clamp-2 text-sm font-semibold leading-snug text-white transition-colors group-hover:text-[#FFC16F] lg:text-base">
                   {{ item.title }}
                 </p>
-                <p class="mt-3 text-xs text-[#C2C2C2] md:mt-4 md:text-sm">{{ item.publishedAt }}</p>
+                <p class="mt-3 text-xs text-[#C2C2C2] lg:mt-4 lg:text-sm">{{ item.publishedAt }}</p>
               </div>
             </router-link>
             <div
               v-if="index < searchResults.length - 1"
-              class="my-4 h-px bg-white/30 md:hidden"
+              class="my-4 h-px bg-white/30 lg:hidden"
             />
           </li>
-          <li class="hidden md:block col-span-1 min-w-0 md:col-span-2">
+          <li class="hidden lg:block col-span-1 min-w-0 lg:col-span-2">
             <button
               type="button"
-              class="group flex w-full items-center justify-center py-4 md:py-6"
+              class="group flex w-full items-center justify-center py-4 lg:py-6"
               @click="goSearchMore"
             >
               <span
-                class="text-sm font-semibold text-white transition-colors group-hover:text-[#FFC16F] md:text-base"
+                class="text-sm font-semibold text-white transition-colors group-hover:text-[#FFC16F] lg:text-base"
               >
                 显示更多
               </span>

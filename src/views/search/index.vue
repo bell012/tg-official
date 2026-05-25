@@ -16,7 +16,7 @@
 
       <template v-else>
         <!-- PC — 与 /consult 相同列表 -->
-        <div class="hidden md:block">
+        <div class="hidden lg:block">
           <div class="search-pc-content">
             <div class="search-pc-grid">
               <ConsultArticleCard
@@ -37,7 +37,7 @@
         </div>
 
         <!-- H5 — 与 /consult 相同，不分页 -->
-        <div class="search-h5-layout md:!hidden">
+        <div class="search-h5-layout lg:!hidden">
           <ConsultArticleCard
             v-for="(article, index) in filteredArticles"
             :key="`h5-${article.id}`"

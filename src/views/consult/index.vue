@@ -3,7 +3,7 @@
     <ServePageBackground />
     <div class="relative z-[1]">
       <!-- PC — Figma 84:915 -->
-      <div class="hidden md:block">
+      <div class="hidden lg:block">
         <ConsultHero />
         <div class="consult-pc-content">
           <div class="consult-pc-grid">
@@ -24,7 +24,7 @@
       </div>
 
       <!-- H5 — Figma 164:2454 -->
-      <div class="consult-h5-layout md:!hidden">
+      <div class="consult-h5-layout lg:!hidden">
         <ConsultArticleCard
           v-for="(article, index) in consultAllArticles"
           :key="`h5-${article.id}`"

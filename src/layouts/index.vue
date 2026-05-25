@@ -1,10 +1,10 @@
 <template>
   <div
-    class="relative md:pb-[590px]"
+    class="relative lg:pb-[590px]"
     :class="isDarkPage ? 'bg-[#0d0c14]' : 'bg-white'"
   >
     <TopNav />
-    <main class="relative z-10 pt-[40px] md:pt-[110px]" :class="mainBgClass">
+    <main class="relative z-10 pt-[40px] lg:pt-[110px]" :class="mainBgClass">
       <router-view />
     </main>
     <Footer />

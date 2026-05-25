@@ -3,7 +3,7 @@
     <!-- 票券活动：Figma 84:714 -->
     <div
       v-if="section.couponVisual"
-      class="relative h-[520px] overflow-hidden rounded-[30px] md:h-[568px]"
+      class="relative h-[520px] overflow-hidden rounded-[30px] lg:h-[568px]"
     >
       <ServeSectionCardBg />
 
@@ -49,7 +49,7 @@
     <!-- 其他模块 -->
     <div
       v-else
-      class="relative h-[520px] overflow-hidden rounded-[30px] md:h-[568px]"
+      class="relative h-[520px] overflow-hidden rounded-[30px] lg:h-[568px]"
     >
       <ServeSectionCardBg />
 

@@ -3,7 +3,7 @@
     <ServePageBackground />
     <div class="relative z-[1]">
       <!-- PC -->
-      <div class="hidden md:block">
+      <div class="hidden lg:block">
         <ServeHero :intro="serveIntro" />
         <div class="relative mx-auto flex max-w-[1440px] flex-col gap-[120px] px-8 pb-24">
           <ServePcSection
@@ -15,7 +15,7 @@
       </div>
 
       <!-- H5 — Figma 177:3067 Frame 63：Hero + 8 模块，gap 90 -->
-      <div class="serve-h5-layout md:!hidden">
+      <div class="serve-h5-layout lg:!hidden">
         <ServeHero :intro="serveIntro" />
         <ServeMobileSection
           v-for="item in serveSections"
