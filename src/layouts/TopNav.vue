@@ -86,7 +86,7 @@
       </div>
     </div>
 
-    <!-- H5 侧边栏 — Figma 155:3446 首页-侧边栏 / Frame 58 -->
+    <!-- H5 侧边栏 -->
     <transition name="fade">
       <div v-show="mobileOpen" class="mobile-menu fixed inset-0 z-40 flex flex-col md:hidden">
         <div class="mobile-menu__head">
@@ -154,15 +154,15 @@
           </button>
         </form>
 
-        <!-- 有内容时结果列表 -->
+        <!-- 有内容时结果列表：H5 单列，PC 一行两个 -->
         <ul
           v-if="searchResults.length"
-          class="mx-auto mt-5 max-h-[calc(100vh-140px)] max-w-[720px] list-none overflow-y-auto p-0 md:mt-6"
+          class="scrollbar-none mx-auto mt-5 grid max-h-[calc(100vh-140px)] w-full max-w-[720px] list-none grid-cols-1 gap-0 overflow-y-auto p-0 md:mt-6 md:grid-cols-2 md:gap-x-6 md:gap-y-6"
         >
-          <li v-for="(item, index) in searchResults" :key="item.id">
+          <li v-for="(item, index) in searchResults" :key="item.id" class="min-w-0">
             <router-link
               :to="`/consult/${item.id}`"
-              class="flex gap-3 md:gap-4"
+              class="group flex gap-3 md:gap-4"
               @click="searchPanelOpen = false"
             >
               <img
@@ -171,16 +171,29 @@
                 class="size-[60px] shrink-0 rounded-[10px] object-cover md:size-24 md:rounded-[20px]"
               />
               <div class="min-w-0 flex-1 pt-0.5">
-                <p class="line-clamp-2 text-sm font-semibold leading-snug text-white md:text-base">
+                <p class="line-clamp-2 text-sm font-semibold leading-snug text-white transition-colors group-hover:text-[#FFC16F] md:text-base">
                   {{ item.title }}
                 </p>
-                <p class="mt-3 text-xs text-[#C2C2C2] md:mt-4 md:text-sm">2026年1月4日</p>
+                <p class="mt-3 text-xs text-[#C2C2C2] md:mt-4 md:text-sm">{{ item.publishedAt }}</p>
               </div>
             </router-link>
             <div
               v-if="index < searchResults.length - 1"
-              class="my-4 h-px bg-white/30 md:my-4"
+              class="my-4 h-px bg-white/30 md:hidden"
             />
+          </li>
+          <li class="hidden md:block col-span-1 min-w-0 md:col-span-2">
+            <button
+              type="button"
+              class="group flex w-full items-center justify-center py-4 md:py-6"
+              @click="goSearchMore"
+            >
+              <span
+                class="text-sm font-semibold text-white transition-colors group-hover:text-[#FFC16F] md:text-base"
+              >
+                显示更多
+              </span>
+            </button>
           </li>
         </ul>
       </div>
@@ -248,7 +261,7 @@ const searchResults = computed(() => {
   if (!q) return [];
   return consultAllArticles
     .filter((a) => a.title.toLowerCase().includes(q))
-    .slice(0, 5);
+    .slice(0, 6);
 });
 
 const toggleMobile = () => {
@@ -267,6 +280,8 @@ const submitSearch = () => {
   searchPanelOpen.value = false;
   router.push({ path: "/search", query: { q } });
 };
+
+const goSearchMore = () => submitSearch();
 const handleJump = () => {
   console.log("联系官方TG");
 };
