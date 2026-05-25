@@ -8,12 +8,12 @@
         <img :src="logoUrl" alt="TG包网" class="h-[36px] w-auto" />
       </router-link>
 
-      <nav class="flex items-center gap-[58px]">
+      <nav class="flex items-center gap-[58px] min-w-[520px]">
         <router-link
           v-for="item in navItems"
           :key="item.path"
           :to="item.path"
-          class="group relative text-base font-[400] min-w-[65px]"
+          class="group relative text-base font-[400]"
           :class="
             isActive(item.path)
               ? 'font-[600] text-[#fff]'
