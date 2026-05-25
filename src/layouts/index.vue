@@ -20,7 +20,7 @@ const route = useRoute();
 
 const isDarkPage = computed(
   () =>
-    ["/serve", "/about", "/connect"].includes(route.path) ||
+    ["/serve", "/about", "/connect", "/search"].includes(route.path) ||
     route.path === "/consult" ||
     route.path.startsWith("/consult/")
 );
@@ -30,6 +30,7 @@ const mainBgClass = computed(() => {
   if (
     route.path === "/serve" ||
     route.path === "/consult" ||
+    route.path === "/search" ||
     route.path.startsWith("/consult/")
   ) {
     return "bg-transparent";
