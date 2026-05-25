@@ -1,3 +1,15 @@
+<template>
+  <div
+    class="relative md:pb-[590px]"
+    :class="isDarkPage ? 'bg-[#0d0c14]' : 'bg-white'"
+  >
+    <TopNav />
+    <main class="relative z-10 pt-[40px] md:pt-[110px]" :class="mainBgClass">
+      <router-view />
+    </main>
+    <Footer />
+  </div>
+</template>
 <script setup lang="ts">
 import { computed } from "vue";
 import { useRoute } from "vue-router";
@@ -25,18 +37,4 @@ const mainBgClass = computed(() => {
   return "bg-[#0d0c14]";
 });
 </script>
-
-<template>
-  <div
-    class="relative md:pb-[590px]"
-    :class="isDarkPage ? 'bg-[#0d0c14]' : 'bg-white'"
-  >
-    <TopNav />
-    <main class="relative z-10 pt-[40px] md:pt-[110px]" :class="mainBgClass">
-      <router-view />
-    </main>
-    <Footer />
-  </div>
-</template>
-
 <style scoped lang="scss"></style>
