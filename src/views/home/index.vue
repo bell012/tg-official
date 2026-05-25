@@ -1,7 +1,7 @@
 <template>
   <div class="min-h-screen">
     <!-- PC -->
-    <div class="hidden md:block">
+    <div class="hidden lg:block">
       <div class="h-[970px] bg-[#0D0C14]">视频</div>
       <div
         class="w-full h-full bg-[#0D0C14] bg-no-repeat bg-[length:100%_100%]"
@@ -87,11 +87,87 @@
             </div>
           </div>
         </section>
+
+        <!-- 步骤2 -->
+        <section class="w-full px-[240px] pb-[120px]">
+          <div class="flex items-stretch h-[149px] overflow-hidden gap-[16px]">
+            <div class="w-[8px] bg-[#FFC16F]"></div>
+            <div>
+              <div
+                class="relative text-[60px] font-[700] leading-[1] text-[#FFC16F]"
+              >
+                02
+                <div
+                  class="absolute bottom-[5px] left-0 h-[14px] w-[93px]"
+                  style="
+                    background: linear-gradient(
+                      90deg,
+                      rgba(255, 193, 111, 0.4) 0%,
+                      rgba(255, 193, 111, 0.08) 100%
+                    );
+                  "
+                ></div>
+              </div>
+              <h2
+                class="mt-[3px] text-[50px] font-[600] leading-[1] text-white"
+              >
+                APP/H5演示
+              </h2>
+              <div class="mt-[1px] text-[30px] font-[600] text-white/20">
+                APP/H5 DEMO PREVIEW
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-[60px] grid grid-cols-2 gap-[120px] items-center">
+            <img :src="phonePc" alt="APP/H5演示" class="w-full h-[821px]" />
+            <div
+              class="rounded-[10px] border border-[#322E28] bg-[#1A1921] px-[43px] pt-[60px] pb-[50px]"
+            >
+              <h3
+                class="text-center text-[36px] font-[600] text-white"
+              >
+                APP体验流畅稳定，H5访问轻便快捷<br />一站式整合全玩法，畅玩体验全面升级
+              </h3>
+              <p
+                class="mt-[30px] text-[18px] font-[400] text-[#C2C2C2]"
+              >
+                火爆电子、热门棋牌、体育赛事、真人视讯、捕鱼娱乐、综合彩票、热门娱乐品类全面集成，随时满足玩家畅玩需求，H5免安装即开即玩，也可下载App感受原生级流畅体验。
+              </p>
+            </div>
+          </div>
+
+          <div class="mt-[60px] text-left text-[36px] font-[600] text-white">
+            四大核心优势，驱动平台增长
+          </div>
+
+          <div class="mt-[20px] grid grid-cols-4 gap-[20px]">
+            <div
+              v-for="card in featureCards"
+              :key="card.title"
+              class="feature-card flex h-[500px] flex-col items-center pt-[60px] text-center"
+            >
+              <h3 class="text-[30px] font-[600] text-white">
+                {{ card.title }}
+              </h3>
+              <p
+                class="mt-[10px] px-[68px] text-base font-[400] text-[#C2C2C2]"
+              >
+                {{ card.desc }}
+              </p>
+              <img
+                :src="card.icon"
+                :alt="card.title"
+                class=" mt-auto h-[316px] w-auto"
+              />
+            </div>
+          </div>
+        </section>
       </div>
     </div>
 
     <!-- H5 -->
-    <div class="block md:hidden">
+    <div class="block lg:hidden">
       <div class="h-[667px] bg-[#0D0C14]">视频</div>
       <div
         class="w-full h-full bg-[#0D0C14] bg-no-repeat bg-[length:100%_100%] px-[14px]"
@@ -166,6 +242,72 @@
             </div>
           </div>
         </section>
+
+        <!-- 步骤2 -->
+        <section class="pb-[30px]">
+          <div class="flex flex-col items-center">
+            <div class="text-[25px] font-[700] leading-[1] text-[#FFC16F]">02</div>
+            <div
+              class="h-[5px] w-[31px]"
+              style="
+                background: linear-gradient(
+                  180deg,
+                  rgba(255, 193, 111, 0) 0%,
+                  rgba(255, 193, 111, 0.4) 100%
+                );
+              "
+            ></div>
+            <h2 class="mt-[10px] text-[22px] font-[600] text-white">
+              APP/H5演示
+            </h2>
+            <div class="mt-[2px] text-xs font-[600] text-white/40">
+              APP/H5 DEMO PREVIEW
+            </div>
+          </div>
+
+          <div
+            class="mt-[20px] rounded-[10px] bg-[#1A1921] border border-[#322E28] p-[14px]"
+          >
+            <h3
+              class="text-base font-[600] text-white text-left"
+            >
+              APP体验流畅稳定，H5访问轻便快捷，一站式整合全玩法，畅玩体验全面升级
+            </h3>
+            <p
+              class="mt-[10px] text-[10px] font-[400] text-[#C2C2C2]"
+            >
+              火爆电子、热门棋牌、体育赛事、真人视讯、捕鱼娱乐、综合彩票、热门娱乐品类全面集成，随时满足玩家畅玩需求，H5免安装即开即玩，也可下载App感受原生级流畅体验。
+            </p>
+          </div>
+
+          <img :src="phoneH5" alt="APP/H5演示" class="mt-[20px] w-[282px] h-full mx-auto" />
+
+          <div class="mt-[20px] text-center text-base font-[600] text-white">
+            四大核心优势，驱动平台增长
+          </div>
+
+          <div class="mt-[14px] grid grid-cols-2 gap-[14px]">
+            <div
+              v-for="card in featureCards"
+              :key="card.title"
+              class="feature-card-h5 flex h-[197px] flex-col items-center pt-[20px] text-center"
+            >
+              <h3 class="text-base font-[600] text-white">
+                {{ card.title }}
+              </h3>
+              <p
+                class="mt-[3px] px-[14px] text-xs font-[400] text-[#C2C2C2]"
+              >
+                {{ card.desc }}
+              </p>
+              <img
+                :src="card.icon"
+                :alt="card.title"
+                class="h-[105px] w-auto"
+              />
+            </div>
+          </div>
+        </section>
       </div>
     </div>
   </div>
@@ -174,6 +316,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import { useStep1 } from "./step1";
+import { useStep2 } from "./step2";
 
 const statsRowPc = ref<HTMLElement | null>(null);
 const statsRowH5 = ref<HTMLElement | null>(null);
@@ -190,6 +333,15 @@ const {
   countPc,
   countH5,
 } = useStep1({ statsRowPc, statsRowH5 });
+
+const {
+  featureCards,
+  phonePc,
+  phoneH5,
+  featureBgDefault,
+  featureBgActive,
+  featureBgH5,
+} = useStep2();
 </script>
 
 <style scoped lang="scss">
@@ -205,6 +357,22 @@ const {
 
 .service-card-h5 {
   background-image: v-bind(cardBgH5);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.feature-card {
+  background-image: v-bind(featureBgDefault);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+.feature-card:hover {
+  background-image: v-bind(featureBgActive);
+}
+
+.feature-card-h5 {
+  background-image: v-bind(featureBgH5);
   background-size: 100% 100%;
   background-repeat: no-repeat;
 }
