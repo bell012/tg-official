@@ -39,7 +39,7 @@
               </div>
             </div>
             <button
-              class="rounded-[10px] border border-[#FFC16F] px-[60px] py-[10px] text-xl font-[600] text-[#FFC16F]"
+              class="rounded-[10px] border border-[#FFC16F] px-[60px] py-[10px] text-xl font-[600] text-[#FFC16F] hover:bg-[#FFC16F] hover:text-[#0D0C14]"
               @click="handleViewAll"
             >
               查看全部服务
@@ -284,6 +284,66 @@
                 {{ article.title }}
               </h3>
             </RouterLink>
+          </div>
+        </section>
+
+        <!-- 步骤5 -->
+        <section class="w-full px-[240px] pb-[120px]">
+          <div class="flex items-stretch h-[149px] overflow-hidden gap-[16px]">
+            <div class="w-[8px] bg-[#FFC16F]"></div>
+            <div>
+              <div
+                class="relative text-[60px] font-[700] leading-[1] text-[#FFC16F]"
+              >
+                05
+                <div
+                  class="absolute bottom-[5px] left-0 h-[14px] w-[93px]"
+                  style="
+                    background: linear-gradient(
+                      90deg,
+                      rgba(255, 193, 111, 0.4) 0%,
+                      rgba(255, 193, 111, 0.08) 100%
+                    );
+                  "
+                ></div>
+              </div>
+              <h2
+                class="mt-[3px] text-[50px] font-[600] leading-[1] text-white"
+              >
+                我要加入
+              </h2>
+              <div class="mt-[1px] text-[30px] font-[600] text-white/20">
+                TURNKEY IGAMING MARKET TRENDS
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="join-card-pc relative mt-[60px] h-[500px]"
+          >
+            <div class="absolute left-[100px] top-[100px]">
+              <div class="text-[50px] font-[600] text-white">
+                开启您的财富时代
+              </div>
+              <div
+                class="mt-[10px] text-xl font-[400] text-white"
+              >
+                现在，就是改变财富格局的开始。开启您的财富之路，<br />
+                抓住机遇，布局未来，让您的每一步都走在价值增长之前。
+              </div>
+              <button
+                type="button"
+                class="mt-[60px] w-[280px] h-[58px] rounded-[10px] border border-[#FFC16F] text-xl font-[600] text-[#FFC16F] transition hover:bg-[#FFC16F] hover:text-[#0D0C14]"
+                @click="handleJoin"
+              >
+                开启财富时代
+              </button>
+            </div>
+            <img
+              :src="iconPc"
+              alt=""
+              class="absolute bottom-0 right-[87px] h-[529px] object-contain"
+            />
           </div>
         </section>
       </div>
@@ -554,6 +614,58 @@
             </RouterLink>
           </div>
         </section>
+
+        <!-- 步骤5 -->
+        <section class="pb-[30px]">
+          <div class="flex flex-col items-center">
+            <div class="text-[25px] font-[700] leading-[1] text-[#FFC16F]">
+              05
+            </div>
+            <div
+              class="h-[5px] w-[31px]"
+              style="
+                background: linear-gradient(
+                  180deg,
+                  rgba(255, 193, 111, 0) 0%,
+                  rgba(255, 193, 111, 0.4) 100%
+                );
+              "
+            ></div>
+            <h2 class="mt-[10px] text-[22px] font-[600] text-white">
+              我要加入
+            </h2>
+            <div class="mt-[2px] text-xs font-[600] text-white/40">
+              I WANT TO JOIN
+            </div>
+          </div>
+
+          <div
+            class="join-card-h5 relative mt-[20px] h-[166px]"
+          >
+            <div class="absolute left-[14px] top-[14px] w-[150px]">
+              <div class="text-base font-[600] text-white">
+                开启您的财富时代
+              </div>
+              <div
+                class="mt-[5px] text-[10px] font-[400] text-[#C2C2C2]"
+              >
+                现在，就是改变财富格局的开始。开启您的财富之路，抓住机遇，布局未来，让您的每一步都走在价值增长之前。
+              </div>
+              <button
+                type="button"
+                class="mt-[20px] w-[110px] h-[30px] rounded-[7px] bg-[#FFC16F] text-sm font-[600] text-[#0D0C14]"
+                @click="handleJoin"
+              >
+                开启财富时代
+              </button>
+            </div>
+            <img
+              :src="iconH5"
+              alt=""
+              class="absolute bottom-0 right-[13px] h-[176px] object-contain"
+            />
+          </div>
+        </section>
       </div>
     </div>
   </div>
@@ -566,6 +678,7 @@ import { useStep1 } from "./step1";
 import { useStep2 } from "./step2";
 import { useStep3 } from "./step3";
 import { useStep4 } from "./step4";
+import { useStep5 } from "./step5";
 
 const statsRowPc = ref<HTMLElement | null>(null);
 const statsRowH5 = ref<HTMLElement | null>(null);
@@ -602,6 +715,8 @@ const {
 } = useStep3();
 
 const { articles } = useStep4();
+
+const { joinBgPc, joinBgH5, iconPc, iconH5, handleJoin } = useStep5();
 </script>
 
 <style scoped lang="scss">
@@ -633,6 +748,18 @@ const { articles } = useStep4();
 
 .feature-card-h5 {
   background-image: v-bind(featureBgH5);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.join-card-pc {
+  background-image: v-bind(joinBgPc);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.join-card-h5 {
+  background-image: v-bind(joinBgH5);
   background-size: 100% 100%;
   background-repeat: no-repeat;
 }

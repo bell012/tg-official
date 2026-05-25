@@ -44,7 +44,7 @@
 
         <button
           type="button"
-          class="flex items-center justify-center rounded-[10px] border border-[#FFC16F] min-w-[250px] h-[46px] py-[10px] px-[24px] text-xl font-[600] text-[#FFC16F] hover:bg-[#e0b674]/10"
+          class="flex items-center justify-center rounded-[10px] border border-[#FFC16F] min-w-[250px] h-[46px] py-[10px] px-[24px] text-xl font-[600] text-[#FFC16F] hover:bg-[#FFC16F] hover:text-[#0D0C14]"
           @click="handleJump"
         >
           联系官方TG：@Tg168
