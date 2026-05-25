@@ -318,16 +318,12 @@
             </div>
           </div>
 
-          <div
-            class="join-card-pc relative mt-[60px] h-[500px]"
-          >
+          <div class="join-card-pc relative mt-[60px] h-[500px]">
             <div class="absolute left-[100px] top-[100px]">
               <div class="text-[50px] font-[600] text-white">
                 开启您的财富时代
               </div>
-              <div
-                class="mt-[10px] text-xl font-[400] text-white"
-              >
+              <div class="mt-[10px] text-xl font-[400] text-white">
                 现在，就是改变财富格局的开始。开启您的财富之路，<br />
                 抓住机遇，布局未来，让您的每一步都走在价值增长之前。
               </div>
@@ -639,16 +635,12 @@
             </div>
           </div>
 
-          <div
-            class="join-card-h5 relative mt-[20px] h-[166px]"
-          >
+          <div class="join-card-h5 relative mt-[20px] h-[166px]">
             <div class="absolute left-[14px] top-[14px] w-[150px]">
               <div class="text-base font-[600] text-white">
                 开启您的财富时代
               </div>
-              <div
-                class="mt-[5px] text-[10px] font-[400] text-[#C2C2C2]"
-              >
+              <div class="mt-[5px] text-[10px] font-[400] text-[#C2C2C2]">
                 现在，就是改变财富格局的开始。开启您的财富之路，抓住机遇，布局未来，让您的每一步都走在价值增长之前。
               </div>
               <button
