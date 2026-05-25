@@ -1,10 +1,10 @@
 <template>
   <footer
-    class="relative z-20 bg-[#1A1921] md:fixed md:bottom-0 md:left-0 md:right-0 md:z-0"
+    class="relative z-20 bg-[#1A1921] lg:fixed lg:bottom-0 lg:left-0 lg:right-0 lg:z-0"
   >
     <!-- PC -->
     <div
-      class="mx-auto hidden h-[590px] w-full flex-col px-[140px] py-[60px] md:flex"
+      class="mx-auto hidden h-[590px] w-full flex-col px-[140px] py-[60px] lg:flex"
     >
       <div class="w-full flex flex-col items-center justify-center">
         <img :src="logoUrl" alt="TG包网" class="h-[50px] w-auto" />
@@ -21,8 +21,11 @@
           <ul class="flex flex-col gap-[6px] mt-[15px]">
             <li v-for="item in siteMenuItems" :key="item.label">
               <a
-                class="cursor-pointer text-lg font-[400] text-[#C2C2C2] hover:text-[#FFC16F]"
-                @click="item.handler"
+                :href="item.href"
+                :target="item.external ? '_blank' : undefined"
+                :rel="item.external ? 'noopener noreferrer' : undefined"
+                class="text-lg font-[400] text-[#C2C2C2] hover:text-[#FFC16F]"
+                @click="onFooterLinkClick($event, item)"
               >
                 {{ item.label }}
               </a>
@@ -35,8 +38,11 @@
           <ul class="flex flex-col gap-[6px] mt-[15px]">
             <li v-for="item in infoItems" :key="item.label">
               <a
-                class="cursor-pointer text-lg font-[400] text-[#C2C2C2] hover:text-[#FFC16F]"
-                @click="item.handler"
+                :href="item.href"
+                :target="item.external ? '_blank' : undefined"
+                :rel="item.external ? 'noopener noreferrer' : undefined"
+                class="text-lg font-[400] text-[#C2C2C2] hover:text-[#FFC16F]"
+                @click="onFooterLinkClick($event, item)"
               >
                 {{ item.label }}
               </a>
@@ -64,8 +70,11 @@
           <ul class="flex flex-col gap-[6px] mt-[15px]">
             <li v-for="s in socialItems" :key="s.label">
               <a
-                class="flex cursor-pointer items-center gap-[10px] text-[#C2C2C2] hover:text-[#FFC16F]"
-                @click="s.handler"
+                :href="s.href"
+                :target="s.external ? '_blank' : undefined"
+                :rel="s.external ? 'noopener noreferrer' : undefined"
+                class="flex items-center gap-[10px] text-[#C2C2C2] hover:text-[#FFC16F]"
+                @click="onFooterLinkClick($event, s)"
               >
                 <component :is="s.icon" class="h-[22px] w-[22px]" />
                 <span class="text-lg font-[400]">{{ s.label }}</span>
@@ -85,7 +94,7 @@
 
     <!-- H5 -->
     <div
-      class="block p-[20px] pb-[calc(20px+env(safe-area-inset-bottom,0px))] md:hidden"
+      class="block p-[20px] pb-[calc(20px+env(safe-area-inset-bottom,0px))] lg:hidden"
     >
       <div class="flex flex-col items-center">
         <img :src="logoUrl" alt="TG包网" class="h-[24px] w-auto" />
@@ -100,8 +109,11 @@
           <ul class="flex flex-col items-center justify-center gap-[10px]">
             <li v-for="item in siteMenuItems" :key="item.label">
               <a
-                class="text-sm font-[400] text-[#C2C2C2] hover:text-[#FFC16F]"
-                @click="item.handler"
+                :href="item.href"
+                :target="item.external ? '_blank' : undefined"
+                :rel="item.external ? 'noopener noreferrer' : undefined"
+                class="text-sm font-[400] text-[#C2C2C2]"
+                @click="onFooterLinkClick($event, item)"
               >
                 {{ item.label }}
               </a>
@@ -114,8 +126,11 @@
           <ul class="flex flex-col items-center justify-center gap-[10px]">
             <li v-for="item in infoItems" :key="item.label">
               <a
-                class="text-sm font-[400] text-[#C2C2C2] hover:text-[#FFC16F]"
-                @click="item.handler"
+                :href="item.href"
+                :target="item.external ? '_blank' : undefined"
+                :rel="item.external ? 'noopener noreferrer' : undefined"
+                class="text-sm font-[400] text-[#C2C2C2]"
+                @click="onFooterLinkClick($event, item)"
               >
                 {{ item.label }}
               </a>
@@ -141,8 +156,11 @@
           <ul class="w-full grid grid-cols-4 flex-col items-center justify-center gap-[10px]">
             <li v-for="s in socialItems" :key="s.label">
               <a
-                class="flex flex-col items-center justify-between gap-[7px] text-[#C2C2C2] hover:text-[#FFC16F]"
-                @click="s.handler"
+                :href="s.href"
+                :target="s.external ? '_blank' : undefined"
+                :rel="s.external ? 'noopener noreferrer' : undefined"
+                class="flex flex-col items-center justify-between gap-[7px] text-[#C2C2C2]"
+                @click="onFooterLinkClick($event, s)"
               >
                 <component :is="s.icon" class="h-[25px] w-[25px]" />
                 <span class="text-sm font-[400]">{{ s.label }}</span>
@@ -164,38 +182,52 @@
 
 <script setup lang="ts">
 import { markRaw, type Component } from "vue";
+import { useRouter } from "vue-router";
 import logoUrl from "@/static/home/logo.png";
 import Telegram from "@/static/home/svg/Telegram.svg?skipsvgo";
 import Whatsapp from "@/static/home/svg/Whatsapp.svg?skipsvgo";
 import Facebook from "@/static/home/svg/facebook.svg?skipsvgo";
 import Tiktok from "@/static/home/svg/Tiktok.svg?skipsvgo";
 
-interface MenuItem {
+interface FooterLinkItem {
   label: string;
-  handler: () => void;
+  href: string;
+  external?: boolean;
+}
+
+interface FooterSocialItem extends FooterLinkItem {
+  icon: Component;
 }
 
 interface ContactItem {
   label: string;
 }
 
-interface SocialItem {
-  label: string;
-  icon: Component;
-  handler: () => void;
-}
+const router = useRouter();
 
-const siteMenuItems: MenuItem[] = [
-  { label: "Home", handler: () => console.log("Home") },
-  { label: "Portfolio", handler: () => console.log("Portfolio") },
-  { label: "About Us", handler: () => console.log("About Us") },
-  { label: "TGgame", handler: () => console.log("TGgame") },
+const TG_GAME_URL = "https://web.txtvv9.top/";
+const TELEGRAM_URL = "https://t.me/tg168";
+
+const onFooterLinkClick = (
+  event: MouseEvent,
+  item: FooterLinkItem | FooterSocialItem
+) => {
+  if (item.external) return;
+  event.preventDefault();
+  router.push(item.href);
+};
+
+const siteMenuItems: FooterLinkItem[] = [
+  { label: "Home", href: "/" },
+  { label: "Portfolio", href: "/serve" },
+  { label: "About Us", href: "/about" },
+  { label: "TGgame", href: TG_GAME_URL, external: true },
 ];
 
-const infoItems: MenuItem[] = [
-  { label: "FAQ", handler: () => console.log("FAQ") },
-  { label: "Site Map", handler: () => console.log("Site Map") },
-  { label: "Contact Us", handler: () => console.log("Contact Us") },
+const infoItems: FooterLinkItem[] = [
+  { label: "FAQ", href: `/search?q=${encodeURIComponent("我们")}` },
+  { label: "Site Map", href: "/consult" },
+  { label: "Contact Us", href: "/connect" },
 ];
 
 const contactItems: ContactItem[] = [
@@ -204,26 +236,27 @@ const contactItems: ContactItem[] = [
   { label: "Contact us at: TGbw@mail.com" },
 ];
 
-const socialItems: SocialItem[] = [
+const socialItems: FooterSocialItem[] = [
   {
     label: "Telegram",
+    href: TELEGRAM_URL,
+    external: true,
     icon: markRaw(Telegram),
-    handler: () => console.log("Telegram"),
   },
   {
     label: "Whatsapp",
+    href: "/connect",
     icon: markRaw(Whatsapp),
-    handler: () => console.log("Whatsapp"),
   },
   {
     label: "Facebook",
+    href: "/connect",
     icon: markRaw(Facebook),
-    handler: () => console.log("Facebook"),
   },
   {
     label: "Tiktok",
+    href: "/connect",
     icon: markRaw(Tiktok),
-    handler: () => console.log("Tiktok"),
   },
 ];
 </script>

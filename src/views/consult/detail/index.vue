@@ -2,10 +2,10 @@
   <div v-if="detail" class="consult-detail-page relative min-h-screen overflow-x-hidden text-white">
     <ServePageBackground />
     <div class="relative z-[1]">
-      <div class="hidden md:block">
+      <div class="hidden lg:block">
         <ConsultDetailPc :detail="detail" />
       </div>
-      <div class="md:!hidden">
+      <div class="lg:!hidden">
         <ConsultDetailMobile :detail="detail" />
       </div>
     </div>
