@@ -163,6 +163,75 @@
             </div>
           </div>
         </section>
+
+        <!-- 步骤3 -->
+        <section class="w-full px-[240px] pb-[120px]">
+          <div class="flex items-stretch h-[149px] overflow-hidden gap-[16px]">
+            <div class="w-[8px] bg-[#FFC16F]"></div>
+            <div>
+              <div
+                class="relative text-[60px] font-[700] leading-[1] text-[#FFC16F]"
+              >
+                03
+                <div
+                  class="absolute bottom-[5px] left-0 h-[14px] w-[93px]"
+                  style="
+                    background: linear-gradient(
+                      90deg,
+                      rgba(255, 193, 111, 0.4) 0%,
+                      rgba(255, 193, 111, 0.08) 100%
+                    );
+                  "
+                ></div>
+              </div>
+              <h2
+                class="mt-[3px] text-[50px] font-[600] leading-[1] text-white"
+              >
+                海量游戏
+              </h2>
+              <div class="mt-[1px] text-[30px] font-[600] text-white/20">
+                MASSIVE GAMES
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-[60px] text-[36px] font-[600] text-white">
+            10,000+热门游戏全面覆盖
+          </div>
+          <p class="mt-[20px] text-[18px] font-[400] text-[#C2C2C2]">
+            TG包网集团长期与各大知名游戏厂商保持稳定合作，聚合超过10000+款热门游戏资源，覆盖多元娱乐需求。我们不仅追求游戏数量，更重视内容品质、用户体验与市场反馈，每一款上线游戏都经过严格筛选与专业测试。我们愿与您共同深耕市场，携手同行，共创最大商业价值。
+          </p>
+
+          <div class="mt-[60px] grid grid-cols-6 gap-[20px]">
+            <img
+              v-for="(src, i) in brandLogos"
+              :key="`brand-${i}`"
+              :src="src"
+              alt=""
+              class="w-full"
+            />
+          </div>
+
+          <div class="mt-[30px] grid grid-cols-6 gap-[20px]">
+            <img
+              v-for="(src, i) in sportsGames"
+              :key="`sport-${i}`"
+              :src="src"
+              alt=""
+              class="w-full"
+            />
+          </div>
+
+          <div class="mt-[30px] grid grid-cols-6 gap-[20px]">
+            <img
+              v-for="(src, i) in boardGames"
+              :key="`game-${i}`"
+              :src="src"
+              alt=""
+              class="w-full"
+            />
+          </div>
+        </section>
       </div>
     </div>
 
@@ -308,6 +377,78 @@
             </div>
           </div>
         </section>
+
+        <!-- 步骤3 -->
+        <section class="pb-[30px]">
+          <div class="flex flex-col items-center">
+            <div class="text-[25px] font-[700] leading-[1] text-[#FFC16F]">
+              03
+            </div>
+            <div
+              class="h-[5px] w-[31px]"
+              style="
+                background: linear-gradient(
+                  180deg,
+                  rgba(255, 193, 111, 0) 0%,
+                  rgba(255, 193, 111, 0.4) 100%
+                );
+              "
+            ></div>
+            <h2 class="mt-[10px] text-[22px] font-[600] text-white">
+              海量游戏
+            </h2>
+            <div class="mt-[2px] text-xs font-[600] text-white/40">
+              MASSIVE GAMES
+            </div>
+          </div>
+
+          <div
+            class="mt-[20px] text-center text-lg font-[600] text-white"
+          >
+            10,000+热门游戏全面覆盖
+          </div>
+          <p
+            class="mt-[10px] text-xs font-[400] leading-[20px] text-[#C2C2C2] text-center"
+          >
+            TG包网集团长期与各大知名游戏厂商保持稳定合作，聚合超过10000+款热门游戏资源，覆盖多元娱乐需求。我们不仅追求游戏数量，更重视内容品质、用户体验与市场反馈，每一款上线游戏都经过严格筛选与专业测试。我们愿与您共同深耕市场，携手同行，共创最大商业价值。
+          </p>
+
+          <div class="marquee mt-[20px]">
+            <div class="marquee-track marquee-rtl">
+              <div
+                v-for="(src, i) in brandLogosLoop"
+                :key="`b-${i}`"
+                class="marquee-item"
+              >
+                <img :src="src" alt="" class="h-[30px] w-auto" />
+              </div>
+            </div>
+          </div>
+
+          <div class="marquee mt-[10px]">
+            <div class="marquee-track marquee-ltr">
+              <div
+                v-for="(src, i) in sportsGamesLoop"
+                :key="`s-${i}`"
+                class="marquee-item"
+              >
+                <img :src="src" alt="" class="h-[74px] w-auto" />
+              </div>
+            </div>
+          </div>
+
+          <div class="marquee mt-[10px]">
+            <div class="marquee-track marquee-rtl">
+              <div
+                v-for="(src, i) in boardGamesLoop"
+                :key="`g-${i}`"
+                class="marquee-item"
+              >
+                <img :src="src" alt="" class="h-[74px] w-auto" />
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
     </div>
   </div>
@@ -317,6 +458,7 @@
 import { ref } from "vue";
 import { useStep1 } from "./step1";
 import { useStep2 } from "./step2";
+import { useStep3 } from "./step3";
 
 const statsRowPc = ref<HTMLElement | null>(null);
 const statsRowH5 = ref<HTMLElement | null>(null);
@@ -342,6 +484,15 @@ const {
   featureBgActive,
   featureBgH5,
 } = useStep2();
+
+const {
+  brandLogos,
+  sportsGames,
+  boardGames,
+  brandLogosLoop,
+  sportsGamesLoop,
+  boardGamesLoop,
+} = useStep3();
 </script>
 
 <style scoped lang="scss">
@@ -375,5 +526,43 @@ const {
   background-image: v-bind(featureBgH5);
   background-size: 100% 100%;
   background-repeat: no-repeat;
+}
+
+.marquee {
+  overflow: hidden;
+  width: 100%;
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation-duration: 25s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+.marquee-item {
+  flex-shrink: 0;
+  margin-right: 7px;
+}
+.marquee-rtl {
+  animation-name: marquee-rtl;
+}
+.marquee-ltr {
+  animation-name: marquee-ltr;
+}
+@keyframes marquee-rtl {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+@keyframes marquee-ltr {
+  0% {
+    transform: translate3d(-50%, 0, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
 }
 </style>
