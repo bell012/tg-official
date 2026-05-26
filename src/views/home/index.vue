@@ -2,7 +2,34 @@
   <div class="min-h-screen">
     <!-- PC -->
     <div class="hidden lg:block">
-      <div class="h-[970px] bg-[#0D0C14]">视频</div>
+      <!-- pc 视频 -->
+      <div class="relative h-[970px] w-full overflow-hidden bg-[#0D0C14]">
+        <video
+          :src="heroVideoUrl"
+          class="absolute inset-0 h-full w-full object-cover"
+          autoplay
+          muted
+          loop
+          playsinline
+        ></video>
+        <div
+          class="absolute inset-0 z-10 flex flex-col items-center justify-center text-center"
+        >
+          <h1 class="text-[90px] font-[400] text-white">赢在当下 赢在未来</h1>
+          <p class="mt-[20px] text-[30px] font-[400] text-white">
+            加入TG包网 开启您的财富时代
+          </p>
+          <button
+            type="button"
+            class="mt-[76px] inline-flex items-center gap-[10px] rounded-[12px] border border-[rgba(255,250,250,0.30)] bg-[rgba(255,193,111,0.10)] backdrop-blur-[15px] px-[40px] py-[9px] text-[30px] font-[400] text-white"
+            @click="handleTgClick"
+          >
+            <img :src="tgIconUrl" alt="" class="h-[36px] w-[36px]" />
+            财富之路请联系：
+            <span class="text-[30px] font-[400] text-[#FFC16F]">TG168</span>
+          </button>
+        </div>
+      </div>
       <div
         class="w-full h-full bg-[#0D0C14] bg-no-repeat bg-[length:100%_100%]"
         style="background-image: url('/src/static/home/homeBG_pc.png')"
@@ -359,7 +386,35 @@
 
     <!-- H5 -->
     <div class="block lg:hidden">
-      <div class="h-[667px] bg-[#0D0C14]">视频</div>
+      <!-- H5 视频 -->
+      <div class="relative h-[667px] w-full overflow-hidden bg-[#0D0C14]">
+        <video
+          :src="heroVideoUrl"
+          class="absolute inset-0 h-full w-full object-cover"
+          autoplay
+          muted
+          loop
+          playsinline
+        ></video>
+        <div
+          class="absolute inset-0 z-10 flex flex-col items-center justify-center text-center"
+        >
+          <h1 class="text-[30px] font-[600] text-white">赢在当下</h1>
+          <h2 class="mt-[2px] text-[30px] font-[600] text-white">赢在未来</h2>
+          <p class="mt-[7px] text-sm font-[500] text-white">
+            加入TG包网 开启您的财富时代
+          </p>
+          <div class="mt-[50px] text-base font-[500] text-white">财富之路请联系</div>
+          <button
+            type="button"
+            class="mt-[10px] w-[250px] h-[50px] flex items-center justify-center gap-[5px] rounded-[10px] bg-[#FFC16F]/60 backdrop-blur-[5px] text-[22px] font-[600] text-white"
+            @click="handleTgClick"
+          >
+            <img :src="tgIconUrl" alt="" class="h-[27px] w-[27px]" />
+            TG: @TG168
+          </button>
+        </div>
+      </div>
       <div
         class="w-full h-full bg-[#0D0C14] bg-no-repeat bg-[length:100%_100%] px-[14px]"
         style="background-image: url('/src/static/home/homeBG_H5.png')"
@@ -683,9 +738,15 @@ import { useStep2 } from "./step2";
 import { useStep3 } from "./step3";
 import { useStep4 } from "./step4";
 import { useStep5 } from "./step5";
+import heroVideoUrl from "@/static/home/mp4.mp4";
+import tgIconUrl from "@/static/home/Telegram.png";
 
 const statsRowPc = ref<HTMLElement | null>(null);
 const statsRowH5 = ref<HTMLElement | null>(null);
+
+const handleTgClick = () => {
+  console.log("TG168 clicked");
+};
 
 const {
   serviceCards,
