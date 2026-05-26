@@ -152,13 +152,19 @@
             <h3 class="about-pc__member-name">{{ member.name }}</h3>
             <p class="about-pc__member-role">{{ member.role }}</p>
             <div class="about-pc__member-social">
-              <a href="#" class="about-pc__social-link" aria-label="Telegram">
+              <a :href="LINK.telegram" target="_blank" rel="noopener noreferrer" class="about-pc__social-link" aria-label="Telegram">
                 <img :src="iconTg" alt="" />
               </a>
-              <a href="#" class="about-pc__social-link" aria-label="WhatsApp">
+              <a :href="LINK.whatsapp" target="_blank" rel="noopener noreferrer" class="about-pc__social-link" aria-label="WhatsApp">
                 <img :src="iconWhatsApp" alt="" />
               </a>
-              <a href="#" class="about-pc__social-link" aria-label="Facebook">
+              <a
+                :href="LINK.facebook"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="about-pc__social-link"
+                aria-label="Facebook"
+              >
                 <img :src="iconFacebook" alt="" />
               </a>
             </div>
@@ -177,7 +183,10 @@
           <p class="about-pc__promo-desc">{{ promo.desc1 }}</p>
           <p class="about-pc__promo-desc">{{ promo.desc2 }}</p>
           <p class="about-pc__promo-desc">{{ promo.desc3 }}</p>
-          <button type="button" class="about-pc__promo-btn">{{ promo.cta }}</button>
+         
+          <RouterLink to="/about">
+            <button type="button" class="about-pc__promo-btn">{{ promo.cta }}</button>
+          </RouterLink>
         </div>
       </div>
     </section>
@@ -214,6 +223,7 @@ import {
   teamMembers,
   testimonial,
 } from "./about-content";
+import { LINK } from "@/utils/jumpLink";
 
 const statIconMap: Record<string, Component> = {
   trophy: IconTrophy,
@@ -276,7 +286,7 @@ const statIconMap: Record<string, Component> = {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: "PingFang SC", sans-serif;
+  
   font-weight: 600;
   font-size: 100px;
   line-height: 1;
@@ -786,10 +796,6 @@ margin-bottom: 30px;
   width: 40px;
   height: 40px;
 
-  &:hover {
-    background: rgba(255, 193, 111, 0.15);
-  }
-
   img {
     width: 40px;
     height: 40px;
@@ -860,7 +866,7 @@ margin-bottom: 30px;
 
 .about-pc__promo-btn {
   margin-top: 32px;
-  padding: 12px 32px;
+  padding: 10px 80px;
   font-size: 16px;
   color: #ffc16f;
   background: transparent;

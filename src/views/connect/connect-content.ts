@@ -1,3 +1,5 @@
+import { LINK } from "@/utils/jumpLink";
+
 export const connectHeroIntro =
   "欢迎通过以下方式与我们取得联系，TG包网专业团队将为您提供包网咨询、技术对接与全天候运营支持。";
 
@@ -9,7 +11,7 @@ export const contactBlocks = [
   {
     title: "Telegram",
     lines: ["@Tg168"],
-    href: "https://t.me/tg168",
+    href: LINK.telegram,
   },
   {
     title: "联系电话",

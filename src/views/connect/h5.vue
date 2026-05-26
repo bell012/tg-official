@@ -1,102 +1,152 @@
 <template>
   <div class="connect-h5">
     <section class="connect-h5__hero">
-      <div class="connect-h5__title-box">
-        <span class="connect-h5__watermark" aria-hidden="true">联系我们</span>
-        <h1 class="connect-h5__title">联系我们</h1>
+      <div class="connect-h5__hero-title-box">
+        <span class="connect-h5__hero-watermark" aria-hidden="true">联系我们</span>
+        <h1 class="connect-h5__hero-title">联系我们</h1>
       </div>
-      <p class="connect-h5__subtitle">专注 专业 支持 稳定 实力交付</p>
+      <p class="connect-h5__hero-intro">
+        专业包网服务 / 棋牌游戏搭建 / API对接 / 独立后台<br />
+        立即联系官方客服获取专属合作方案
+      </p>
     </section>
 
-    <section class="connect-h5__cards">
-      <article v-for="item in contactCards" :key="item.title" class="connect-h5__card">
-        <img :src="cardBg" alt="" class="connect-h5__card-bg" aria-hidden="true" />
-        <div class="connect-h5__card-icon-wrap">
-          <img :src="item.icon" :alt="item.title" class="connect-h5__card-icon" />
+    <section class="connect-h5__cards" aria-label="联系方式">
+      <article
+        v-for="card in contactCards"
+        :key="card.title"
+        class="connect-h5__card"
+      >
+        <img :src="card.icon" alt="" class="connect-h5__card-icon" aria-hidden="true" />
+        <h2 class="connect-h5__card-title">{{ card.title }}</h2>
+        <div class="whitespace-nowrap">
+          <span
+            v-for="line in card.desc"
+            :key="line"
+            class="connect-h5__card-desc"
+          >
+            {{ line }}
+          </span>
         </div>
-        <h2 class="connect-h5__card-title">{{ item.title }}</h2>
-        <p class="connect-h5__card-desc">{{ item.desc }}</p>
-        <a :href="item.href" class="connect-h5__card-btn" target="_blank" rel="noopener noreferrer">
-          {{ item.cta }}
+        <a
+          :href="card.href"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="connect-h5__card-action"
+        >
+          <span>{{ card.action }}</span>
+          <img
+            :src="card.arrowIcon"
+            alt=""
+            class="connect-h5__card-arrow"
+            aria-hidden="true"
+          />
         </a>
       </article>
     </section>
 
     <section class="connect-h5__cooperate">
-      <p class="connect-h5__cooperate-label">与我们合作</p>
-      <h2 class="connect-h5__cooperate-title">打造属于您的彩娱乐平台</h2>
-      <p class="connect-h5__cooperate-desc">
-        我们提供成熟稳定的系统与全链路支持，助您快速落地、平稳运营。
-      </p>
-
-      <ul class="connect-h5__feature-list">
-        <li v-for="item in features" :key="item.title" class="connect-h5__feature-item">
-          <img :src="item.icon" :alt="item.title" class="connect-h5__feature-icon" />
-          <span>{{ item.title }}</span>
-        </li>
-      </ul>
-
-      <div class="connect-h5__action-row">
-        <a class="connect-h5__ghost-btn" href="https://t.me/tg168" target="_blank" rel="noopener noreferrer">
-          <img :src="iconTg" alt="" aria-hidden="true" />
-          <span>联系官方TG</span>
-        </a>
-        <a class="connect-h5__ghost-btn" href="https://t.me/tg168" target="_blank" rel="noopener noreferrer">
-          <img :src="iconKefu" alt="" aria-hidden="true" />
-          <span>商务合作咨询</span>
-        </a>
+      <img
+        :src="serviceImage"
+        alt=""
+        class="connect-h5__cooperate-bg"
+        aria-hidden="true"
+      />
+      <div class="connect-h5__cooperate-body">
+        <h2 class="connect-h5__cooperate-title">
+          与我们合作<br />打造属于您的<span class="connect-h5__cooperate-title-accent">娱乐平台</span>
+        </h2>
+        <p class="connect-h5__cooperate-desc">
+          无论您是运营方、代理商还是技术团队，我们都能为您提供最专业的解决方案
+        </p>
+        <ul class="connect-h5__features">
+          <li v-for="feat in features" :key="feat.title">
+            <img :src="feat.icon" alt="" aria-hidden="true" />
+            <strong>{{ feat.title }}</strong>
+            <span>{{ feat.desc }}</span>
+          </li>
+        </ul>
+        <div class="connect-h5__cooperate-actions">
+          <a
+            :href="LINK.telegram"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="connect-h5__btn connect-h5__btn--primary"
+          >
+            <img
+              :src="iconTg"
+              alt=""
+              class="connect-h5__btn-icon"
+              aria-hidden="true"
+            />
+            <span>联系官方客服</span>
+          </a>
+          <a
+            :href="LINK.telegram"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="connect-h5__btn connect-h5__btn--primary"
+          >
+            <img
+              :src="iconKefu"
+              alt=""
+              class="connect-h5__btn-icon connect-h5__btn-icon--kefu"
+              aria-hidden="true"
+            />
+            <span>商务合作咨询</span>
+          </a>
+        </div>
       </div>
-    </section>
-
-    <section class="connect-h5__banner">
-      <img :src="bottomBanner" alt="商务合作展示" />
     </section>
   </div>
 </template>
 
 <script setup lang="ts">
-import cardBg from "@/static/about/Group2.png";
-import bottomBanner from "@/static/about/Frame 18.png";
-import icon1 from "@/static/about/svg/icon1.svg?url";
-import icon2 from "@/static/about/svg/icon2.svg?url";
-import icon3 from "@/static/about/svg/icon3.svg?url";
-import icon4 from "@/static/about/svg/icon4.svg?url";
-import icon6 from "@/static/about/svg/icon6.svg?url";
-import icon7 from "@/static/about/svg/icon7.svg?url";
+import serviceImage from "@/static/about/Frame18.png";
+import iconTelegram from "@/static/about/svg/ico5.svg?url";
+import iconCooperate from "@/static/about/svg/icon6.svg?url";
+import iconService from "@/static/about/svg/icon7.svg?url";
+import iconStable from "@/static/about/svg/icon1.svg?url";
+import iconTeam from "@/static/about/svg/icon2.svg?url";
+import iconFast from "@/static/about/svg/icon3.svg?url";
+import iconAdd from "@/static/about/svg/add.svg?url";
+import iconArrowRight from "@/static/about/svg/arrowRight.svg?url";
+import iconTg from "@/static/about/svg/tg1.svg?url";
 import iconKefu from "@/static/about/svg/kefu.svg?url";
-import iconTg from "@/static/about/svg/tg.svg?url";
-import iconTgCircle from "@/static/about/svg/tgIcon.svg?url";
+import { LINK } from "@/utils/jumpLink";
 
 const contactCards = [
   {
-    title: "Telegram",
-    desc: "7x24小时在线服务，快速对接项目需求",
-    cta: "联系官方客服",
-    icon: iconTgCircle,
-    href: "https://t.me/tg168",
+    title: "官方 Telegram",
+    desc: ["7x24小时专属客服", "极速响应，高效解决您的问题"],
+    action: "联系官方商务",
+    arrowIcon: iconAdd,
+    href: LINK.telegram,
+    icon: iconTelegram,
   },
   {
     title: "商务合作",
-    desc: "产品接入、渠道合作、项目咨询一站式支持",
-    cta: "联系官方客服",
-    icon: icon4,
-    href: "https://t.me/tg168",
+    desc: ["API接入 / 包网代搭 / 技术支持", "商务合作请联系官方商务"],
+    action: "联系官方商务",
+    arrowIcon: iconArrowRight,
+    href: LINK.telegram,
+    icon: iconCooperate,
   },
   {
-    title: "客户服务",
-    desc: "售后反馈、系统维护、问题处理高效响应",
-    cta: "联系客服",
-    icon: icon7,
-    href: "https://t.me/tg168",
+    title: "在线客服",
+    desc: ["专属顾问一对一服务", "为您提供售前售后优质解决方案"],
+    action: "联系客服",
+    arrowIcon: iconAdd,
+    href: LINK.telegram,
+    icon: iconService,
   },
-] as const;
+];
 
 const features = [
-  { title: "全流程搭建", icon: icon1 },
-  { title: "专业技术支持", icon: icon2 },
-  { title: "高效运营方案", icon: icon3 },
-  { title: "专属售后团队", icon: icon6 },
-] as const;
+  { title: "安全稳定", desc: "多重安全防护", icon: iconStable },
+  { title: "专业团队", desc: "技术实力保障", icon: iconTeam },
+  { title: "快速响应", desc: "7x24小时服务", icon: iconFast },
+];
 </script>
 
 <style scoped lang="scss">
@@ -104,23 +154,27 @@ const features = [
 
 .connect-h5 {
   width: 100%;
-  padding: h5(36) h5(42) h5(80);
+  padding: h5(60) h5(42) h5(120);
   color: #fff;
 }
 
+/* Hero — 沿用关于我们 H5 同款字号比例 */
 .connect-h5__hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
-  margin-bottom: h5(28);
+  padding: h5(48) 0 h5(40);
 }
 
-.connect-h5__title-box {
+.connect-h5__hero-title-box {
   position: relative;
-  width: h5(540);
-  height: h5(176);
-  margin: 0 auto;
+  width: 100%;
+  max-width: h5(600);
+  height: h5(199);
 }
 
-.connect-h5__watermark {
+.connect-h5__hero-watermark {
   position: absolute;
   inset: 0;
   display: flex;
@@ -128,207 +182,252 @@ const features = [
   justify-content: center;
   font-family: MiSans, "PingFang SC", sans-serif;
   font-weight: 700;
-  font-size: h5(130);
+  font-size: h5(150);
   line-height: 1;
-  background: linear-gradient(180deg, #c2c2c2 14%, #0d0c14 84%);
+  white-space: nowrap;
+  background: linear-gradient(180deg, rgba(194, 194, 194, 1) 14%, rgba(13, 12, 20, 1) 84%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  opacity: 0.12;
+  opacity: 0.1;
+  pointer-events: none;
+  user-select: none;
 }
 
-.connect-h5__title {
+.connect-h5__hero-title {
   position: absolute;
-  left: 0;
-  right: 0;
-  top: h5(58);
+  left: 16.67%;
+  top: 25.63%;
+  width: 66.67%;
+  height: 70.35%;
   margin: 0;
-  font-size: h5(74);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
   font-weight: 600;
+  font-size: h5(100);
   line-height: 1;
+  color: #fff;
+  white-space: nowrap;
 }
 
-.connect-h5__subtitle {
-  margin: h5(8) 0 0;
-  font-size: h5(24);
-  line-height: 1.5;
-  color: rgba(255, 255, 255, 0.72);
+.connect-h5__hero-intro {
+  margin: h5(20) 0 0;
+  max-width: h5(930);
+  
+  font-size: h5(30);
+  font-weight: 400;
+  line-height: 1.58;
+  color: #c2c2c2;
 }
 
+/* 卡片 */
 .connect-h5__cards {
   display: flex;
   flex-direction: column;
-  gap: h5(20);
+  gap: h5(30);
+  margin: 0 0 h5(60);
 }
 
 .connect-h5__card {
   position: relative;
-  overflow: hidden;
-  border-radius: h5(22);
-  border: 1px solid rgba(255, 193, 111, 0.2);
-  padding: h5(24) h5(22) h5(26);
-  text-align: center;
-  background: #11111a;
-}
-
-.connect-h5__card-bg {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0.55;
-  pointer-events: none;
-}
-
-.connect-h5__card-icon-wrap {
-  position: relative;
-  z-index: 1;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  width: h5(118);
-  height: h5(118);
-  margin: 0 auto h5(12);
-  border-radius: 50%;
-  background: radial-gradient(circle at center, rgba(255, 193, 111, 0.25), rgba(255, 193, 111, 0.06));
-  border: 1px solid rgba(255, 193, 111, 0.35);
+  padding: h5(60) 0;
+  border: h5(1) solid #6F502A;
+  border-radius: h5(24);
+  background: url("@/static/about/h5Back.png") center / cover no-repeat #1a1921;
+  text-align: center;
+  overflow: hidden;
 }
 
 .connect-h5__card-icon {
-  width: h5(48);
-  height: h5(48);
+  width: h5(180);
+  height: h5(180);
+  object-fit: contain;
+  margin-bottom: h5(18);
 }
 
 .connect-h5__card-title {
-  position: relative;
-  z-index: 1;
-  margin: 0;
-  font-size: h5(40);
+  margin: 0 0;
+  
+  font-size: h5(48);
   font-weight: 600;
+  color: #fff;
 }
 
 .connect-h5__card-desc {
-  position: relative;
-  z-index: 1;
-  margin: h5(8) 0 h5(16);
-  font-size: h5(21);
-  line-height: 1.5;
-  color: rgba(255, 255, 255, 0.72);
+  margin: 0;
+  
+  font-size: h5(33);
+  font-weight: 400;
+  color: #c2c2c2;
 }
 
-.connect-h5__card-btn {
+.connect-h5__card-desc + .connect-h5__card-desc {
+  margin-top: h5(4);
+}
+
+.connect-h5__card-action {
   position: relative;
-  z-index: 1;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: h5(74);
-  border-radius: h5(12);
-  background: #ffc16f;
-  color: #0d0c14;
+  max-width: h5(600);
+  height: h5(96);
+  margin: h5(50) auto 0;
+  padding:  h5(23);
+  border-radius: h5(21);
+  color: #0D0C14;
+  
+  font-size: h5(42);
+  font-weight: 600;
   text-decoration: none;
-  font-size: h5(30);
-  font-weight: 600;
+  background-color: #FFC16F;
 }
 
-.connect-h5__cooperate {
-  margin-top: h5(30);
-  padding: h5(36) h5(24) h5(28);
-  border-radius: h5(20);
-  border: 1px solid rgba(255, 193, 111, 0.2);
-  background: rgba(16, 16, 24, 0.9);
-}
-
-.connect-h5__cooperate-label {
-  margin: 0;
+.connect-h5__card-action > span {
   text-align: center;
-  font-size: h5(28);
-  color: #ffc16f;
-  font-weight: 600;
+}
+
+.connect-h5__card-arrow {
+  position: absolute;
+  right: h5(36);
+  top: 50%;
+  transform: translateY(-50%);
+  display: block;
+  width: h5(34);
+  height: h5(34);
+  object-fit: contain;
+}
+
+/* 合作横幅 */
+.connect-h5__cooperate {
+  position: relative;
+  overflow: hidden;
+  border: h5(1) solid rgba(255, 193, 111, 0.22);
+  border-radius: h5(24);
+}
+
+.connect-h5__cooperate-bg {
+  display: block;
+  width: 100%;
+  height: auto;
+  pointer-events: none;
+}
+
+.connect-h5__cooperate-body {
+  position: absolute;
+  inset: 0;
+  padding: h5(56) h5(48) h5(60);
+  text-align: center;
+  z-index: 1;
 }
 
 .connect-h5__cooperate-title {
-  margin: h5(8) 0;
-  text-align: center;
-  font-size: h5(52);
-  line-height: 1.25;
-  font-weight: 700;
+  margin: 0 0 h5(36);
+  
+  font-size: h5(60);
+  font-weight: 600;
+  line-height: 1.3;
+  color: #fff;
+}
+
+.connect-h5__cooperate-title-accent {
+  color: #ffc16f;
 }
 
 .connect-h5__cooperate-desc {
-  margin: 0 auto;
-  max-width: h5(860);
-  text-align: center;
-  font-size: h5(23);
+  margin: 0 auto h5(54);
+  padding: 0 h5(42);
+  max-width: h5(820);
+  
+  font-size: h5(33);
+  font-weight: 400;
   line-height: 1.6;
-  color: rgba(255, 255, 255, 0.7);
+  color: #c2c2c2;
 }
 
-.connect-h5__feature-list {
+.connect-h5__features {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: h5(12);
-  margin: h5(20) 0 h5(24);
+  grid-template-columns: repeat(3, 1fr);
+  gap: h5(20);
+  margin: 0 0 h5(56);
   padding: 0;
   list-style: none;
 }
 
-.connect-h5__feature-item {
+.connect-h5__features li {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: h5(8);
-  text-align: center;
-  font-size: h5(20);
+}
+
+.connect-h5__features li > img {
+  display: block;
+  width: h5(105);
+  height: h5(105);
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.connect-h5__features strong {
+  display: block;
+  
+  font-size: h5(36);
+  font-weight: 600;
+  line-height: 1.2;
   color: #fff;
-
-  span {
-    line-height: 1.35;
-  }
 }
 
-.connect-h5__feature-icon {
-  width: h5(58);
-  height: h5(58);
+.connect-h5__features span {
+  display: block;
+  
+  font-size: h5(30);
+  font-weight: 400;
+  line-height: 1.2;
+  color: #c2c2c2;
 }
 
-.connect-h5__action-row {
+.connect-h5__cooperate-actions {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: h5(14);
+  gap: h5(24);
 }
 
-.connect-h5__ghost-btn {
-  display: flex;
+.connect-h5__btn {
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: h5(8);
-  height: h5(72);
-  border-radius: h5(12);
-  border: 1px solid #ffc16f;
-  color: #ffc16f;
-  text-decoration: none;
-  font-size: h5(24);
+  gap: h5(14);
+  height: h5(108);
+  border-radius: h5(21);
+  
+  font-size: h5(42);
   font-weight: 600;
-
-  img {
-    width: h5(28);
-    height: h5(28);
-  }
+  text-decoration: none;
 }
 
-.connect-h5__banner {
-  margin-top: h5(22);
-  border-radius: h5(14);
-  overflow: hidden;
-  border: 1px solid rgba(255, 193, 111, 0.18);
-
-  img {
-    display: block;
-    width: 100%;
-    height: auto;
-  }
+.connect-h5__btn-icon {
+  display: block;
+  width: h5(44);
+  height: h5(38);
+  flex-shrink: 0;
+  object-fit: contain;
 }
+
+.connect-h5__btn-icon--kefu {
+  width: h5(48);
+  height: h5(48);
+}
+
+.connect-h5__btn--primary {
+  background: #ffc16f;
+  color: #0d0c14;
+}
+
 </style>

@@ -93,13 +93,13 @@
             <p class="about-h5__member-name">{{ member.name }}</p>
             <p class="about-h5__member-role">{{ member.role }}</p>
             <div class="about-h5__member-social">
-              <a href="https://t.me/tg168" target="_blank" rel="noopener noreferrer" aria-label="Telegram">
+              <a :href="LINK.telegram" target="_blank" rel="noopener noreferrer" aria-label="Telegram">
                 <img :src="iconTg" alt="" aria-hidden="true" />
               </a>
-              <a href="https://wa.me/639999999999" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+              <a :href="LINK.whatsapp" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
                 <img :src="iconWhatsApp" alt="" aria-hidden="true" />
               </a>
-              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+              <a :href="LINK.facebook" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
                 <img :src="iconFacebook" alt="" aria-hidden="true" />
               </a>
             </div>
@@ -114,25 +114,8 @@
         <p class="about-h5__promo-tag">{{ promo.tag }}</p>
         <h2 class="about-h5__promo-title">{{ promo.title }}</h2>
         <p class="about-h5__promo-desc">{{ promo.desc1 }}{{ promo.desc2 }}{{ promo.desc3 }}</p>
-        <button type="button" class="about-h5__promo-btn">{{ promo.cta }}</button>
+        <RouterLink to="/about" class="about-h5__promo-btn">{{ promo.cta }}</RouterLink>
       </div>
-    </section>
-
-    <section class="about-h5__footer">
-      <img :src="brandIcon" alt="" class="about-h5__footer-logo" aria-hidden="true" />
-      <p class="about-h5__footer-brand">TG包网</p>
-      <a href="https://t.me/tg168" target="_blank" rel="noopener noreferrer" class="about-h5__footer-link">
-        <span>Telegram</span>
-        <span>@tg168</span>
-      </a>
-      <a href="https://wa.me/639999999999" target="_blank" rel="noopener noreferrer" class="about-h5__footer-link">
-        <span>WhatsApp</span>
-        <span>+63 999 999 9999</span>
-      </a>
-      <a href="mailto:TGbw@mail.com" class="about-h5__footer-link">
-        <span>Email</span>
-        <span>TGbw@mail.com</span>
-      </a>
     </section>
   </div>
 </template>
@@ -173,6 +156,7 @@ const statIconMap: Record<string, string> = {
   star: iconStarStat,
   trophy: iconTrophy,
 };
+import { LINK } from "@/utils/jumpLink";
 </script>
 
 <style scoped lang="scss">
@@ -635,6 +619,9 @@ const statIconMap: Record<string, string> = {
 }
 
 .about-h5__promo-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   margin-top: h5(60);
   width: h5(450);
   height: h5(105);
@@ -644,38 +631,7 @@ const statIconMap: Record<string, string> = {
   background: transparent;
   font-size: h5(42);
   font-weight: 400;
-}
-
-.about-h5__footer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: h5(8);
-  color: #c2c2c2;
-  text-align: center;
-}
-
-.about-h5__footer-logo {
-  width: h5(62);
-  height: h5(62);
-}
-
-.about-h5__footer-brand {
-  margin: h5(4) 0 h5(8);
-  color: #ffc16f;
-  font-size: h5(32);
-  font-weight: 600;
-}
-
-.about-h5__footer-link {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: h5(12) 0;
-  border-bottom: h5(1) solid rgba(255, 255, 255, 0.1);
-  color: #c2c2c2;
   text-decoration: none;
-  font-size: h5(22);
 }
+
 </style>
