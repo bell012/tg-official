@@ -26,7 +26,7 @@
           >
             <img :src="tgIconUrl" alt="" class="h-[36px] w-[36px]" />
             财富之路请联系：
-            <span class="text-[30px] font-[400] text-[#FFC16F]">TG168</span>
+            <span class="text-[30px] font-[400] text-[#FFC16F]">@TG168</span>
           </button>
         </div>
       </div>
@@ -740,12 +740,13 @@ import { useStep4 } from "./step4";
 import { useStep5 } from "./step5";
 import heroVideoUrl from "@/static/home/mp4.mp4";
 import tgIconUrl from "@/static/home/Telegram.png";
+import { LINK, openLink } from "@/utils/jumpLink";
 
 const statsRowPc = ref<HTMLElement | null>(null);
 const statsRowH5 = ref<HTMLElement | null>(null);
 
 const handleTgClick = () => {
-  console.log("TG168 clicked");
+  openLink(LINK.telegram);
 };
 
 const {

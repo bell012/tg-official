@@ -2,7 +2,7 @@
   <a
     class="consult-contact-btn"
     :class="`consult-contact-btn--${variant}`"
-    href="https://t.me/tg168"
+    :href="LINK.telegram"
     target="_blank"
     rel="noopener noreferrer"
   >
@@ -13,6 +13,7 @@
 
 <script setup lang="ts">
 import telegramIcon from "@/static/consult/telegram-icon.png";
+import { LINK } from "@/utils/jumpLink";
 
 defineProps<{
   variant: "pc" | "h5";

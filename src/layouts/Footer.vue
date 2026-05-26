@@ -188,6 +188,7 @@ import Telegram from "@/static/home/svg/Telegram.svg?skipsvgo";
 import Whatsapp from "@/static/home/svg/Whatsapp.svg?skipsvgo";
 import Facebook from "@/static/home/svg/facebook.svg?skipsvgo";
 import Tiktok from "@/static/home/svg/Tiktok.svg?skipsvgo";
+import { LINK } from "@/utils/jumpLink";
 
 interface FooterLinkItem {
   label: string;
@@ -205,15 +206,14 @@ interface ContactItem {
 
 const router = useRouter();
 
-const TG_GAME_URL = "https://web.txtvv9.top/";
-const TELEGRAM_URL = "https://t.me/tg168";
-const WHATSAPP_URL = "https://wa.me/639859888888";
-
 const onFooterLinkClick = (
   event: MouseEvent,
   item: FooterLinkItem | FooterSocialItem
 ) => {
-  if (item.external) return;
+  if (item.external) {
+    if (!item.href) event.preventDefault();
+    return;
+  }
   event.preventDefault();
   router.push(item.href);
 };
@@ -222,7 +222,7 @@ const siteMenuItems: FooterLinkItem[] = [
   { label: "Home", href: "/" },
   { label: "Portfolio", href: "/serve" },
   { label: "About Us", href: "/about" },
-  { label: "TGgame", href: TG_GAME_URL, external: true },
+  { label: "TGgame", href: LINK.TGgame, external: true },
 ];
 
 const infoItems: FooterLinkItem[] = [
@@ -240,24 +240,26 @@ const contactItems: ContactItem[] = [
 const socialItems: FooterSocialItem[] = [
   {
     label: "Telegram",
-    href: TELEGRAM_URL,
+    href: LINK.telegram,
     external: true,
     icon: markRaw(Telegram),
   },
   {
     label: "Whatsapp",
-    href: WHATSAPP_URL,
+    href: LINK.whatsapp,
     external: true,
     icon: markRaw(Whatsapp),
   },
   {
     label: "Facebook",
-    href: "/connect",
+    href: LINK.facebook,
+    external: true,
     icon: markRaw(Facebook),
   },
   {
     label: "Tiktok",
-    href: "/connect",
+    href: LINK.tiktok,
+    external: true,
     icon: markRaw(Tiktok),
   },
 ];
