@@ -1,7 +1,7 @@
 <template>
   <div class="about-pc">
     <!-- Hero -->
-    <section class="about-pc__hero">
+    <section class="about-pc__hero max-w-[1440px] mx-auto">
       <div class="about-pc__hero-title-box">
         <span class="about-pc__hero-watermark" aria-hidden="true">关于我们</span>
         <h1 class="about-pc__hero-title">关于我们</h1>
@@ -10,7 +10,7 @@
     </section>
 
     <!-- 集团介绍 -->
-    <section class="about-pc__intro">
+    <section class="about-pc__intro max-w-[1440px] mx-auto">
       <div class="about-pc__intro-image-wrap">
         <img :src="introImage" alt="集团总部夜景" class="about-pc__intro-image" />
       </div>
@@ -31,7 +31,7 @@
     </section>
 
     <!-- 核心价值观 -->
-    <section class="about-pc__values">
+    <section class="about-pc__values max-w-[1440px] mx-auto">
       <div class="about-pc__values-head">
         <span class="about-pc__values-label">{{ coreValuesSection.label }}</span>
         <h2 class="about-pc__values-title">
@@ -52,18 +52,22 @@
           class="about-pc__value-card"
         >
           <img :src="valueCardBg" alt="" class="about-pc__value-card-bg" aria-hidden="true" />
+          <img
+            :src="valueCardHoverBg"
+            alt=""
+            class="about-pc__value-card-bg about-pc__value-card-bg--hover"
+            aria-hidden="true"
+          />
           <div class="about-pc__value-card-inner">
             <img
               :src="item.icon"
               :alt="item.title"
               class="about-pc__value-icon"
-              :style="{
-                width: `${item.iconWidth}px`,
-                height: `${item.iconHeight}px`,
-              }"
+             
             />
             <h3 class="about-pc__value-title">{{ item.title }}</h3>
             <p class="about-pc__value-desc">{{ item.desc }}</p>
+            <p class="about-pc__value-desc">{{ item.desc2 }}</p>
           </div>
         </article>
       </div>
@@ -75,7 +79,7 @@
       <div class="about-pc__reviews-overlay" aria-hidden="true" />
       <div class="about-pc__reviews-inner">
         <div class="about-pc__reviews-left">
-          <span class="about-pc__label about-pc__label--cn">客户评价</span>
+          <span class="about-pc__label">客户评价</span>
           <h2 class="about-pc__reviews-title">
             客户满意  成就我们
           </h2>
@@ -86,13 +90,15 @@
               class="about-pc__quote-mark about-pc__quote-mark--left"
               aria-hidden="true"
             />
-            <p class="about-pc__reviews-quote-text">{{ reviewsQuote }}</p>
-            <img
-              :src="quoteRight"
-              alt=""
-              class="about-pc__quote-mark about-pc__quote-mark--right"
-              aria-hidden="true"
-            />
+            <p class="about-pc__reviews-quote-text">
+              <span class="about-pc__reviews-quote-content">{{ reviewsQuote }}</span>
+              <img
+                :src="quoteRight"
+                alt=""
+                class="about-pc__quote-mark about-pc__quote-mark--right"
+                aria-hidden="true"
+              />
+            </p>
           </blockquote>
           <ul class="about-pc__stats">
             <li v-for="stat in reviewStats" :key="stat.label" class="about-pc__stat">
@@ -122,7 +128,7 @@
     </section>
 
     <!-- 团队 -->
-    <section class="about-pc__team">
+    <section class="about-pc__team max-w-[1440px] mx-auto">
       <header class="about-pc__team-head">
         <img
           :src="teamTitleImage"
@@ -162,13 +168,15 @@
     </section>
 
     <!-- 促销横幅 -->
-    <section class="about-pc__promo">
+    <section class="about-pc__promo max-w-[1440px] mx-auto">
       <img :src="promoBg" alt="" class="about-pc__promo-bg" aria-hidden="true" />
       <div class="about-pc__promo-inner">
         <div class="about-pc__promo-content">
           <p class="about-pc__promo-tag">{{ promo.tag }}</p>
           <h2 class="about-pc__promo-title">{{ promo.title }}</h2>
-          <p class="about-pc__promo-desc">{{ promo.desc }}</p>
+          <p class="about-pc__promo-desc">{{ promo.desc1 }}</p>
+          <p class="about-pc__promo-desc">{{ promo.desc2 }}</p>
+          <p class="about-pc__promo-desc">{{ promo.desc3 }}</p>
           <button type="button" class="about-pc__promo-btn">{{ promo.cta }}</button>
         </div>
       </div>
@@ -181,16 +189,17 @@ import type { Component } from "vue";
 import introImage from "@/static/about/back.png";
 import introDivider from "@/static/about/Group3.png?url";
 import valueCardBg from "@/static/about/Group2.png";
-import reviewsBg from "@/static/about/back.png";
+import valueCardHoverBg from "@/static/about/hover.png";
+import reviewsBg from "@/static/about/evaluateBack.png";
 import quoteLeft from "@/static/about/svg/left.svg?url";
 import quoteRight from "@/static/about/svg/right.svg?url";
 import promoBg from "@/static/about/bottomBack.png";
 import teamTitleImage from "@/static/about/title.png";
 import founderPhoto from "@/static/about/founder.png";
 import starIcon from "@/static/about/star.svg?url";
-import iconTg from "@/static/about/tg.svg?url";
-import iconWhatsApp from "@/static/about/whatsApp.svg?url";
-import iconFacebook from "@/static/about/faceBook.svg?url";
+import iconTg from "@/static/about/svg/tg.svg?url";
+import iconWhatsApp from "@/static/about/svg/whatsApp.svg?url";
+import iconFacebook from "@/static/about/svg/faceBook.svg?url";
 import IconTrophy from "@/static/about/trophy.svg?component";
 import IconStar from "@/static/about/star.svg?component";
 import IconUsers from "@/static/about/doubleAvatar.svg?component";
@@ -216,9 +225,9 @@ const statIconMap: Record<string, Component> = {
 <style scoped lang="scss">
 .about-pc {
   position: relative;
-  max-width: 1440px;
+  // max-width: 1440px;
   margin: 0 auto;
-  padding: 0 32px 120px;
+  padding: 0 0 120px;
   color: #fff;
 }
 
@@ -305,13 +314,11 @@ const statIconMap: Record<string, Component> = {
 }
 
 .about-pc__label {
-  display: block;
-  margin-bottom: 12px;
-  font-size: 14px;
-  font-weight: 500;
-  letter-spacing: 0.12em;
-  color: #ffc16f;
-  text-transform: uppercase;
+  color: #FFC16F;
+  font-family: "PingFang SC";
+  font-size: 30px;
+  font-weight: 600;
+  margin-bottom: 18px;
 
   &--cn {
     text-transform: none;
@@ -457,6 +464,15 @@ const statIconMap: Record<string, Component> = {
   height: 100%;
   object-fit: cover;
   pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+
+.about-pc__value-card-bg--hover {
+  opacity: 0;
+}
+
+.about-pc__value-card:hover .about-pc__value-card-bg--hover {
+  opacity: 1;
 }
 
 .about-pc__value-card-inner {
@@ -465,7 +481,7 @@ const statIconMap: Record<string, Component> = {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 40px 28px 32px;
+  padding: 48px 30px;
   text-align: center;
   height: 100%;
 }
@@ -481,7 +497,7 @@ const statIconMap: Record<string, Component> = {
   margin: 0 0 16px;
   font-size: 24px;
   font-weight: 600;
-  color: #ffc16f;
+  color: #FFF;
 }
 
 .about-pc__value-desc {
@@ -494,8 +510,8 @@ const statIconMap: Record<string, Component> = {
 /* 客户评价 */
 .about-pc__reviews {
   position: relative;
-  margin: 0 -32px 120px;
-  padding: 84px 32px 120px;
+  min-height: 648px;
+  padding: 92px 32px 86px;
   overflow: hidden;
   border-radius: 0;
 }
@@ -506,39 +522,27 @@ const statIconMap: Record<string, Component> = {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: blur(2px);
-  transform: scale(1.05);
 }
 
 .about-pc__reviews-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    90deg,
-    rgba(13, 12, 20, 0.92) 0%,
-    rgba(13, 12, 20, 0.75) 50%,
-    rgba(13, 12, 20, 0.85) 100%
-  );
 }
 
 .about-pc__reviews-inner {
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(420px, 520px);
-  gap: 72px;
-  align-items: end;
+  grid-template-columns: minmax(0, 1fr) 592px;
+  gap: 32px;
+  align-items: center;
   max-width: 1440px;
-  margin: 0 auto;
-}
-
-.about-pc__reviews-left {
-  max-width: 760px;
+  margin: 50px auto 0;
 }
 
 .about-pc__reviews-title {
-  margin: 0 0 24px;
-  font-size: 48px;
+  margin: 20px 0 35px;
+  font-size: 60px;
   font-weight: 600;
   line-height: 1.2;
 }
@@ -547,7 +551,7 @@ const statIconMap: Record<string, Component> = {
   display: flex;
   align-items: flex-start;
   gap: 16px;
-  margin: 0 0 40px;
+  margin: 0 0 34px;
   padding: 0;
   border: none;
 }
@@ -564,6 +568,10 @@ const statIconMap: Record<string, Component> = {
   white-space: pre-line;
 }
 
+.about-pc__reviews-quote-content {
+  display: inline;
+}
+
 .about-pc__quote-mark {
   flex-shrink: 0;
   width: 22px;
@@ -573,8 +581,10 @@ const statIconMap: Record<string, Component> = {
 }
 
 .about-pc__quote-mark--right {
-  align-self: flex-end;
-  margin-top: auto;
+  display: inline-block;
+  vertical-align: baseline;
+  margin-left: 2ch;
+  transform: translateY(-1px);
 }
 
 .about-pc__stats {
@@ -621,11 +631,10 @@ const statIconMap: Record<string, Component> = {
 }
 
 .about-pc__testimonial {
-  justify-self: end;
-  align-self: end;
-  width: 100%;
-  max-width: 520px;
-  transform: translateY(24px);
+  width: 592px;
+  
+  justify-self: start;
+  margin-bottom: 8px;
   padding: 48px;
   border-radius: 30px;
   border: 1px solid #FFC16F;
@@ -644,7 +653,7 @@ const statIconMap: Record<string, Component> = {
 }
 
 .about-pc__testimonial-title {
-  margin: 0 0 16px;
+  margin: 0 0 24px;
   font-size: 30px;
   
   font-weight: 600;
@@ -695,6 +704,7 @@ font-weight: 400;
 
 /* 团队 */
 .about-pc__team {
+  margin-top: 140px;
   margin-bottom: 120px;
 }
 
@@ -741,40 +751,48 @@ font-weight: 400;
 }
 
 .about-pc__member-name {
-  margin: 0 0 8px;
-  font-size: 20px;
-  font-weight: 600;
+text-align: center;
+font-family: "PingFang SC";
+font-size: 30px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+text-transform: capitalize;
 }
 
 .about-pc__member-role {
-  margin: 0 0 20px;
-  font-size: 14px;
-  color: #ffc16f;
+  color: var(---, #FFC16F);
+text-align: center;
+font-family: "PingFang SC";
+font-size: 18px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+text-transform: capitalize;
+margin-top: 10px;
+margin-bottom: 30px;
 }
 
 .about-pc__member-social {
   display: flex;
   justify-content: center;
-  gap: 16px;
+  gap: 24px;
 }
 
 .about-pc__social-link {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.06);
-  transition: background 0.2s;
+  width: 40px;
+  height: 40px;
 
   &:hover {
     background: rgba(255, 193, 111, 0.15);
   }
 
   img {
-    width: 18px;
-    height: 18px;
+    width: 40px;
+    height: 40px;
     object-fit: contain;
   }
 }
@@ -797,39 +815,51 @@ font-weight: 400;
 }
 
 .about-pc__promo-inner {
+  height: 500px;
   position: relative;
   z-index: 1;
   display: flex;
   align-items: center;
   min-height: 320px;
-  padding: 48px 56px;
+  padding: 0 100px;
 }
 
 .about-pc__promo-content {
-  max-width: 480px;
+  max-width: 560px;
 }
 
 .about-pc__promo-tag {
-  margin: 0 0 12px;
-  font-size: 16px;
-  color: #ffc16f;
+  color: #FFC16F;
+  font-family: "PingFang SC";
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  text-transform: capitalize;
 }
 
 .about-pc__promo-title {
-  margin: 0 0 16px;
-  font-size: 48px;
+  color: #FFF;
+  font-family: "PingFang SC";
+  font-size: 50px;
+  font-style: normal;
   font-weight: 600;
-  line-height: 1.2;
+  line-height: normal;
+  letter-spacing: 4px;
+  text-transform: capitalize;
 }
 
 .about-pc__promo-desc {
-  margin: 0 0 28px;
-  font-size: 16px;
-  line-height: 1.6;
-  color: rgba(255, 255, 255, 0.8);
+  color: #C2C2C2;
+  font-family: "PingFang SC";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+
 }
 
 .about-pc__promo-btn {
+  margin-top: 32px;
   padding: 12px 32px;
   font-size: 16px;
   color: #ffc16f;

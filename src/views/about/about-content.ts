@@ -1,4 +1,4 @@
-import iconCooperate from "@/static/about/cooperate.png";
+import iconCooperate from "@/static/about/cooperate.svg?url";
 import iconDiamond from "@/static/about/diamond.svg?url";
 import iconInnovation from "@/static/about/innovation.svg?url";
 import founderPhoto from "@/static/about/founder.png";
@@ -18,27 +18,33 @@ export const groupIntro = {
 
 export const coreValues = [
   {
+    
     icon: iconInnovation,
     title: "创新",
-    desc: "持续探索前沿技术，以创新驱动产品迭代，为合作伙伴打造更具竞争力的包网体验。",
+    desc: "我们不断探索创新技术，为客户提供独特定制的",
+    desc2: "包网解决方案，助力客户在竞争激烈的市场中脱颖而出。",
     iconWidth: 100,
     iconHeight: 100,
     iconWidthH5: 160,
     iconHeightH5: 160,
   },
   {
+    
     icon: iconDiamond,
     title: "效率",
-    desc: "优化流程与系统架构，缩短上线周期，提升运营效率，让每一分投入都产生更大价值。",
+    desc: "我们将质量视为生命，严格把控每一个开发环节，",
+    desc2: "确保为客户提供高品质、可靠的包网服务。",
     iconWidth: 100,
     iconHeight: 100,
     iconWidthH5: 160,
     iconHeightH5: 160,
   },
   {
+    
     icon: iconCooperate,
     title: "合作",
-    desc: "以长期共赢为目标，与客户建立深度信任，提供全天候专业支持与定制化服务。",
+    desc: "我们不断探索创新技术，为客户提供独特定制的",
+    desc2: "包网解决方案，助力客户在竞争激烈的市场中脱颖而出。",
     iconWidth: 100,
     iconHeight: 100,
     iconWidthH5: 160,
@@ -62,10 +68,10 @@ export const reviewsQuote =
   "他们的团队专业、高效，能够真正理解我们的需求，\n并提供超出预期的解决方案与支持。";
 
 export const testimonial = {
-  title: "令人愉快的合作伙伴！",
+  title: "令人愉快的合作体验！",
   body: "从沟通到交付，每一个环节都尽善尽美，团队专业、响应迅速，最终成果远超我们的逾期。",
-  name: "TOM MARSHALL",
-  role: "首席执行官",
+  name: "ROY MARSHALL",
+  role: "创始人，PX-4S50",
 };
 
 export const teamMembers = [
@@ -87,8 +93,10 @@ export const teamMembers = [
 ] as const;
 
 export const promo = {
-  tag: "针对新注册用户！",
+  tag: "限时专属福利来袭！",
   title: "尊享30%折扣",
-  desc: "新客专享包网方案限时优惠，助力您快速启动品牌、抢占市场先机。",
+  desc1: "无论是搭建、运营还是推广服务，现下单即可享超值优惠，助您",
+  desc2: "低成本快速开启盈利模式。",
+  desc3: "活动时间有限，错过再等一年，立即咨询抢占先机！",
   cta: "立即参与",
 };
