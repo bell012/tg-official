@@ -222,6 +222,7 @@ import telegramIcon from "@/static/home/Telegram.png";
 import whatsappIcon from "@/static/home/Whatsapp.png";
 import facebookIcon from "@/static/home/Facebook.png";
 import tiktokIcon from "@/static/home/Tiktok.png";
+import { LINK, openLink } from "@/utils/jumpLink";
 
 interface SocialItem {
   label: string;
@@ -230,10 +231,10 @@ interface SocialItem {
 }
 
 const socialItems: SocialItem[] = [
-  { label: "Telegram", icon: telegramIcon, handler: () => console.log("Telegram") },
-  { label: "Whatsapp", icon: whatsappIcon, handler: () => window.open('https://wa.me/639859888888', '_blank')},
-  { label: "Facebook", icon: facebookIcon, handler: () => console.log("Facebook") },
-  { label: "Tiktok",   icon: tiktokIcon,   handler: () => console.log("Tiktok") },
+  { label: "Telegram", icon: telegramIcon, handler: () => openLink(LINK.telegram) },
+  { label: "Whatsapp", icon: whatsappIcon, handler: () => openLink(LINK.whatsapp) },
+  { label: "Facebook", icon: facebookIcon, handler: () => openLink(LINK.facebook) },
+  { label: "Tiktok",   icon: tiktokIcon,   handler: () => openLink(LINK.tiktok) },
 ];
 
 interface NavItem {
@@ -290,10 +291,10 @@ const submitSearch = () => {
 
 const goSearchMore = () => submitSearch();
 const handleJump = () => {
-  console.log("联系官方TG");
+  openLink(LINK.telegram);
 };
 const handleTelegrim = () => {
-  console.log("handleTelegrim");
+  openLink(LINK.telegram);
 }
 const goAndClose = (path: string) => {
   mobileOpen.value = false;
