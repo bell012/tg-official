@@ -52,6 +52,42 @@ export const coreValues = [
   },
 ] as const;
 
+export const coreValuesH5 = [
+  {
+    
+    icon: iconInnovation,
+    title: "创新",
+    desc: "我们不断探索创新技术，为客户提供独特定制的包网解决方案，助",
+    desc2: "力客户在竞争激烈的市场中脱颖而出。",
+    iconWidth: 100,
+    iconHeight: 100,
+    iconWidthH5: 160,
+    iconHeightH5: 160,
+  },
+  {
+    
+    icon: iconDiamond,
+    title: "效率",
+    desc: "我们将质量视为生命，严格把控每一个开发环节，确保为客户提",
+    desc2: "供高品质、可靠的包网服务。",
+    iconWidth: 100,
+    iconHeight: 100,
+    iconWidthH5: 160,
+    iconHeightH5: 160,
+  },
+  {
+    
+    icon: iconCooperate,
+    title: "合作",
+    desc: "我们不断探索创新技术，为客户提供独特定制的包网解决方案，",
+    desc2: "助力客户在竞争激烈的市场中脱颖而出。",
+    iconWidth: 100,
+    iconHeight: 100,
+    iconWidthH5: 160,
+    iconHeightH5: 160,
+  },
+] as const;
+
 export const coreValuesSection = {
   label: "OUR CORE VALUES",
   title: "核心价值观",
@@ -82,12 +118,12 @@ export const teamMembers = [
   },
   {
     name: "Sara Varges",
-    role: "COO",
+    role: "设计总监",
     photo: figure2,
   },
   {
     name: "Philip Gilbert",
-    role: "CMO",
+    role: "视觉艺术总监",
     photo: figure3,
   },
 ] as const;
@@ -98,5 +134,5 @@ export const promo = {
   desc1: "无论是搭建、运营还是推广服务，现下单即可享超值优惠，助您",
   desc2: "低成本快速开启盈利模式。",
   desc3: "活动时间有限，错过再等一年，立即咨询抢占先机！",
-  cta: "立即参与",
+  cta: "了解更多",
 };

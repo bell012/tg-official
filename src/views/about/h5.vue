@@ -27,7 +27,7 @@
       <p class="about-h5__values-subtitle">{{ coreValuesSection.subtitle }}</p>
 
       <div class="about-h5__value-list">
-        <article v-for="item in coreValues" :key="item.title" class="about-h5__value-card">
+        <article v-for="item in coreValuesH5" :key="item.title" class="about-h5__value-card">
           <img :src="valueCardBg" alt="" class="about-h5__value-card-bg" aria-hidden="true" />
           <img
             :src="valueCardHoverBg"
@@ -50,20 +50,17 @@
       <div class="about-h5__reviews-mask" aria-hidden="true" />
       <div class="about-h5__reviews-inner">
         <p class="about-h5__reviews-label">客户评价</p>
-        <h2 class="about-h5__reviews-title">
-          客户满意<br />
-          成就我们
-        </h2>
+        <h2 class="about-h5__reviews-title">客户满意 成就我们</h2>
         <blockquote class="about-h5__reviews-quote">
-          <img :src="quoteLeft" alt="" aria-hidden="true" />
+          <img :src="quoteLeft" class="mr-1" alt="" aria-hidden="true" />
           <p>{{ reviewsQuote }}</p>
-          <img :src="quoteRight" alt="" aria-hidden="true" />
+          <img :src="quoteRight" class="mt-5" alt="" aria-hidden="true" />
         </blockquote>
 
         <ul class="about-h5__stats">
           <li v-for="stat in reviewStats" :key="stat.label" class="about-h5__stat">
             <img :src="statIconMap[stat.icon]" alt="" aria-hidden="true" />
-            <div>
+            <div class="about-h5__stat-content">
               <strong>{{ stat.value }}</strong>
               <span>{{ stat.label }}</span>
             </div>
@@ -116,9 +113,7 @@
       <div class="about-h5__promo-inner">
         <p class="about-h5__promo-tag">{{ promo.tag }}</p>
         <h2 class="about-h5__promo-title">{{ promo.title }}</h2>
-        <p class="about-h5__promo-desc">{{ promo.desc1 }}</p>
-        <p class="about-h5__promo-desc">{{ promo.desc2 }}</p>
-        <p class="about-h5__promo-desc">{{ promo.desc3 }}</p>
+        <p class="about-h5__promo-desc">{{ promo.desc1 }}{{ promo.desc2 }}{{ promo.desc3 }}</p>
         <button type="button" class="about-h5__promo-btn">{{ promo.cta }}</button>
       </div>
     </section>
@@ -147,23 +142,23 @@ import introImage from "@/static/about/back.png";
 import introDivider from "@/static/about/Group3.png?url";
 import valueCardBg from "@/static/about/Group2.png";
 import valueCardHoverBg from "@/static/about/hover.png";
-import reviewsBg from "@/static/about/evaluateBack.png";
+import reviewsBg from "@/static/about/h5EvaluateBack.png";
 import quoteLeft from "@/static/about/svg/left.svg?url";
 import quoteRight from "@/static/about/svg/right.svg?url";
-import promoBg from "@/static/about/Frame 18.png";
+import promoBg from "@/static/about/H5bottomBack.png";
 import brandIcon from "@/static/about/svg/tgIcon.svg?url";
-import iconTg from "@/static/about/svg/tg.svg?url";
-import iconWhatsApp from "@/static/about/svg/whatsApp.svg?url";
-import iconFacebook from "@/static/about/svg/faceBook.svg?url";
+import iconTg from "@/static/about/svg/H5tg.svg?url";
+import iconWhatsApp from "@/static/about/svg/H5whatsApp.svg?url";
+import iconFacebook from "@/static/about/svg/H5faceBook.svg?url";
 import starIcon from "@/static/about/star.svg?url";
 import founderPhoto from "@/static/about/founder.png";
-import teamTitleImage from "@/static/about/title.png";
+import teamTitleImage from "@/static/about/h5Title.png";
 import iconUsers from "@/static/about/doubleAvatar.svg?url";
 import iconStarStat from "@/static/about/star.svg?url";
 import iconTrophy from "@/static/about/trophy.svg?url";
 import {
   aboutHeroIntro,
-  coreValues,
+  coreValuesH5,
   coreValuesSection,
   groupIntro,
   promo,
@@ -226,7 +221,7 @@ const statIconMap: Record<string, string> = {
 .about-h5__group-title {
   position: relative;
   display: inline-flex;
-  margin: 0 0 h5(26);
+  margin: 0 0;
   font-family: "PingFang SC", -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: h5(66);
   font-weight: 600;
@@ -235,7 +230,7 @@ const statIconMap: Record<string, string> = {
   img {
     position: absolute;
     left: h5(3);
-    bottom: 0;
+    bottom: 2px;
     width: h5(230);
     height: h5(10);
   }
@@ -265,13 +260,12 @@ const statIconMap: Record<string, string> = {
 }
 
 .about-h5__values-label {
-  margin: 0 0 h5(12);
+  margin: 0 0 h5(30);
   color: #ffc16f;
   text-align: center;
   font-family: "PingFang SC", -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: h5(36);
   font-weight: 400;
-  line-height: 1.2;
 }
 
 .about-h5__values-title {
@@ -287,7 +281,7 @@ const statIconMap: Record<string, string> = {
   img {
     position: absolute;
     left: 50%;
-    bottom: -3px;
+    bottom: 2px;
     width: h5(265);
     height: h5(10);
     transform: translateX(-50%);
@@ -295,11 +289,11 @@ const statIconMap: Record<string, string> = {
 }
 
 .about-h5__values-subtitle {
-  margin: 0 0 h5(32);
+  margin: 0 0 h5(60);
   text-align: center;
   font-family: "PingFang SC", -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: h5(27);
-  line-height: 1.58;
+  font-size: h5(33);
+  font-weight: 400;
   color: #c2c2c2;
 }
 
@@ -346,15 +340,17 @@ const statIconMap: Record<string, string> = {
 
 .about-h5__value-title {
   margin: 0 0 h5(16);
-  font-family: "PingFang SC", -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: h5(36);
+  font-size: h5(48);
   font-weight: 600;
+  text-transform: capitalize;
 }
 
 .about-h5__value-desc {
   margin: 0;
   font-family: "PingFang SC", -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: h5(24);
+  font-size: h5(30);
+  font-weight: 400;
+  text-align: center;
   line-height: 1.58;
   color: #c2c2c2;
 }
@@ -377,9 +373,6 @@ const statIconMap: Record<string, string> = {
 .about-h5__reviews-mask {
   position: absolute;
   inset: 0;
-  background:
-    linear-gradient(180deg, rgba(13, 12, 20, 0.72), rgba(13, 12, 20, 0.95)),
-    linear-gradient(90deg, rgba(13, 12, 20, 0.94), rgba(13, 12, 20, 0.42));
 }
 
 .about-h5__reviews-inner {
@@ -388,23 +381,25 @@ const statIconMap: Record<string, string> = {
 }
 
 .about-h5__reviews-label {
-  margin: 0 0 h5(16);
+  text-align: center;
+  margin: 0 0 h5(30);
   color: #ffc16f;
-  font-size: h5(30);
+  font-size: h5(36);
   font-weight: 600;
 }
 
 .about-h5__reviews-title {
-  margin: 0 0 h5(34);
-  font-size: h5(56);
+  text-align: center;
+  margin: 0 0 h5(30);
+  font-size: h5(60);
   font-weight: 600;
   line-height: 1.18;
 }
 
 .about-h5__reviews-quote {
-  display: grid;
-  grid-template-columns: h5(38) 1fr h5(38);
-  gap: h5(10);
+  text-align: center;
+  display: flex;
+  justify-content: center;
   align-items: start;
   margin: 0 0 h5(34);
   padding: 0;
@@ -419,46 +414,47 @@ const statIconMap: Record<string, string> = {
   p {
     margin: 0;
     color: #c2c2c2;
-    font-size: h5(27);
+    font-size: h5(30);
     line-height: 1.6;
     white-space: pre-line;
   }
 }
 
 .about-h5__stats {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: h5(12);
-  margin: 0 0 h5(36);
+  display: flex;
+  justify-content: space-between;
+  margin: 0 h5(16) h5(36);
   padding: 0;
   list-style: none;
 }
 
 .about-h5__stat {
   display: flex;
-  flex-direction: column;
   align-items: center;
   gap: h5(6);
   text-align: center;
 
   img {
-    width: h5(50);
-    height: h5(50);
+    width: h5(75);
+    height: h5(75);
   }
-
+  .about-h5__stat-content{
+    text-align: left;
+    margin-left: h5(15);
+  }
   strong {
     display: block;
     color: #ffc16f;
-    font-size: h5(25);
+    font-size: h5(30);
     font-weight: 600;
-    line-height: 1.25;
   }
 
   span {
     display: block;
     margin-top: h5(2);
     color: #c2c2c2;
-    font-size: h5(21);
+    font-size: h5(30);
+    font-weight: 400;
     line-height: 1.3;
   }
 }
@@ -473,16 +469,14 @@ const statIconMap: Record<string, string> = {
 
   h3 {
     margin: h5(16) 0 h5(18);
-    font-size: h5(34);
+    font-size: h5(36);
     font-weight: 600;
-    line-height: 1.25;
   }
 
   p {
-    margin: 0 0 h5(28);
-    color: #f0e5d6;
-    font-size: h5(25);
-    line-height: 1.55;
+    margin: 0 0 h5(30);
+    color: #C2C2C2;
+    font-size: h5(36);
   }
 
   footer {
@@ -492,47 +486,47 @@ const statIconMap: Record<string, string> = {
   }
 
   footer > img {
-    width: h5(72);
-    height: h5(72);
+    width: h5(105);
+    height: h5(105);
     border-radius: 50%;
     object-fit: cover;
   }
 
   strong {
     display: block;
-    color: #ffc16f;
-    font-size: h5(25);
+    color: #FFC16F;
+    font-size: h5(30);
     font-weight: 600;
-    line-height: 1.2;
   }
 
   span {
     display: block;
     margin-top: h5(4);
-    color: #f0e5d6;
-    font-size: h5(21);
+    color: #C2C2C2;
+    font-size: h5(30);
+    font-weight: 400;
   }
 }
 
 .about-h5__stars {
   display: flex;
-  gap: h5(4);
+  gap: h5(15);
 
   img {
-    width: h5(30);
-    height: h5(30);
+    width: h5(33);
+    height: h5(32);
   }
 }
 
 .about-h5__team {
-  margin-bottom: h5(54);
+  margin-bottom: h5(90);
 }
 
 .about-h5__team-title-image {
   display: block;
-  width: h5(335);
+  width: h5(269);
   height: auto;
-  margin: 0 auto h5(36);
+  margin: 0 auto h5(60);
 }
 
 .about-h5__member-list {
@@ -559,33 +553,33 @@ const statIconMap: Record<string, string> = {
 }
 
 .about-h5__member-info {
-  padding: h5(26) h5(18) h5(30);
+  padding: h5(60) 0;
   text-align: center;
 }
 
 .about-h5__member-name {
   margin: 0;
   font-family: "PingFang SC", -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: h5(34);
+  font-size: h5(48);
   font-weight: 600;
 }
 
 .about-h5__member-role {
-  margin: h5(10) 0 h5(24);
+  margin: h5(15) 0 h5(42);
   font-family: "PingFang SC", -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: h5(25);
+  font-size: h5(36);
   color: #ffc16f;
 }
 
 .about-h5__member-social {
   display: flex;
   justify-content: center;
-  gap: h5(26);
+  gap: h5(60);
 
   a {
     display: flex;
-    width: h5(58);
-    height: h5(58);
+    width: h5(120);
+    height: h5(120);
   }
 
   img {
@@ -596,6 +590,7 @@ const statIconMap: Record<string, string> = {
 
 .about-h5__promo {
   position: relative;
+  height: h5(1217);
   border-radius: h5(16);
   overflow: hidden;
   margin-bottom: h5(54);
@@ -613,44 +608,42 @@ const statIconMap: Record<string, string> = {
 }
 
 .about-h5__promo-inner {
+  text-align: center;
   position: relative;
   z-index: 1;
-  padding: h5(36) h5(34) h5(430);
+  padding: h5(60) h5(42);
 }
 
 .about-h5__promo-tag {
   margin: 0;
   color: #ffc16f;
-  font-family: "PingFang SC", -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: h5(28);
+  font-size: h5(42);
   font-weight: 600;
 }
 
 .about-h5__promo-title {
-  margin: h5(12) 0 h5(16);
-  font-family: "PingFang SC", -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: h5(54);
+  margin: h5(21) 0 h5(30);
+  font-size: h5(60);
   font-weight: 600;
 }
 
 .about-h5__promo-desc {
   margin: 0;
   font-family: "PingFang SC", -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: h5(25);
-  line-height: 1.6;
-  color: #c2c2c2;
+  font-size: h5(30);
+  color: #C2C2C2;
 }
 
 .about-h5__promo-btn {
-  margin-top: h5(28);
-  width: h5(230);
-  height: h5(70);
-  border-radius: h5(12);
-  border: h5(1) solid #ffc16f;
+  margin-top: h5(60);
+  width: h5(450);
+  height: h5(105);
+  border-radius: h5(30);
+  border: h5(1) solid #FFC16F;
   color: #ffc16f;
   background: transparent;
-  font-size: h5(25);
-  font-weight: 600;
+  font-size: h5(42);
+  font-weight: 400;
 }
 
 .about-h5__footer {
