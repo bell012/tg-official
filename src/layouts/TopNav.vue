@@ -231,7 +231,7 @@ interface SocialItem {
 
 const socialItems: SocialItem[] = [
   { label: "Telegram", icon: telegramIcon, handler: () => console.log("Telegram") },
-  { label: "Whatsapp", icon: whatsappIcon, handler: () => console.log("Whatsapp") },
+  { label: "Whatsapp", icon: whatsappIcon, handler: () => window.open('https://wa.me/639859888888', '_blank')},
   { label: "Facebook", icon: facebookIcon, handler: () => console.log("Facebook") },
   { label: "Tiktok",   icon: tiktokIcon,   handler: () => console.log("Tiktok") },
 ];

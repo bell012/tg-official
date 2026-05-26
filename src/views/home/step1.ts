@@ -17,6 +17,7 @@ import stat2H5 from "@/static/home/step_1_5_H5.png";
 import stat3H5 from "@/static/home/step_1_6_H5.png";
 import stat4H5 from "@/static/home/step_1_7_H5.png";
 import cardBgDefaultH5 from "@/static/home/step_1_default_H5.png";
+import router from "@/router";
 
 interface ServiceCard {
   icon: string;
@@ -88,7 +89,7 @@ export function useStep1(refs: {
   const cardBgActive = `url('${cardBgActivePc}')`;
   const cardBgH5 = `url('${cardBgDefaultH5}')`;
 
-  const handleViewAll = () => console.log("查看全部服务");
+  const handleViewAll = () => router.push("/serve");
 
   const countPc = ref(0);
   const countH5 = ref(0);

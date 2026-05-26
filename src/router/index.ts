@@ -65,9 +65,10 @@ const router = createRouter({
   },
 })
 
+
 router.beforeEach((to, _from, next) => {
-  const title = (to.meta?.title as string | undefined) ?? 'tg-official'
-  document.title = title
+  // const pageTitle = to.meta?.title as string | undefined
+  // document.title = pageTitle ? `${pageTitle} - ${SITE_NAME}` : SITE_NAME
   next()
 })
 
