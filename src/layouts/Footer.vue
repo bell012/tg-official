@@ -207,6 +207,7 @@ const router = useRouter();
 
 const TG_GAME_URL = "https://web.txtvv9.top/";
 const TELEGRAM_URL = "https://t.me/tg168";
+const WHATSAPP_URL = "https://wa.me/639859888888";
 
 const onFooterLinkClick = (
   event: MouseEvent,
@@ -245,7 +246,8 @@ const socialItems: FooterSocialItem[] = [
   },
   {
     label: "Whatsapp",
-    href: "/connect",
+    href: WHATSAPP_URL,
+    external: true,
     icon: markRaw(Whatsapp),
   },
   {
