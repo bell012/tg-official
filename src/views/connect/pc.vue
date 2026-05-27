@@ -77,7 +77,7 @@
             <span>联系官方客服</span>
           </a>
           <a
-            :href="LINK.telegram"
+            :href="LINK.whatsapp"
             target="_blank"
             rel="noopener noreferrer"
             class="connect-pc__btn connect-pc__btn--ghost"
@@ -123,7 +123,7 @@ const contactCards = [
     desc: ["API接入 / 包网代搭 / 技术支持", "商务合作请联系官方商务"],
     action: "联系商务",
     arrowIcon: iconArrowRight,
-    href: LINK.telegram,
+    href: LINK.whatsapp,
     icon: iconCooperate,
   },
   {
