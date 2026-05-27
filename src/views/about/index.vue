@@ -2,10 +2,10 @@
   <div class="about-page relative min-h-screen overflow-x-hidden text-white">
     <ServePageBackground />
     <div class="relative z-[1]">
-      <div class="hidden md:block">
+      <div class="hidden lg:block">
         <AboutPc />
       </div>
-      <div class="md:hidden">
+      <div class="lg:hidden">
         <AboutH5 />
       </div>
     </div>
