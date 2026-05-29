@@ -1,4 +1,4 @@
-import { ref, onMounted, onBeforeUnmount, type Ref } from "vue";
+import { ref, onMounted, onBeforeUnmount } from "vue";
 import card1Pc from "@/static/home/step_1_1_pc.png";
 import card2Pc from "@/static/home/step_1_2_pc.png";
 import card3Pc from "@/static/home/step_1_3_pc.png";
@@ -30,11 +30,7 @@ interface StatItem {
   label: string;
 }
 
-export function useStep1(refs: {
-  statsRowPc: Ref<HTMLElement | null>;
-  statsRowH5: Ref<HTMLElement | null>;
-}) {
-  const { statsRowPc, statsRowH5 } = refs;
+export function useStep1() {
   const serviceCards: ServiceCard[] = [
     {
       icon: card1Pc,
@@ -93,22 +89,18 @@ export function useStep1(refs: {
 
   const countPc = ref(0);
   const countH5 = ref(0);
+  const cardsVisiblePc = ref(false);
+  const cardsVisibleH5 = ref(false);
+  const step1RootPc = ref<HTMLElement | null>(null);
+  const step1RootH5 = ref<HTMLElement | null>(null);
 
   const COUNT_TARGET = 100;
   const COUNT_DURATION = 2000;
 
-  let pcToken = 0;
-  let h5Token = 0;
-
-  const runCountUp = (
-    state: { value: number },
-    getToken: () => number,
-    myToken: number,
-  ) => {
+  const runCountUp = (state: { value: number }) => {
     state.value = 0;
     const start = performance.now();
     const tick = (now: number) => {
-      if (myToken !== getToken()) return;
       const progress = Math.min((now - start) / COUNT_DURATION, 1);
       state.value = Math.round(progress * COUNT_TARGET);
       if (progress < 1) requestAnimationFrame(tick);
@@ -122,29 +114,29 @@ export function useStep1(refs: {
   onMounted(() => {
     observerPc = new IntersectionObserver(
       (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            pcToken += 1;
-            runCountUp(countPc, () => pcToken, pcToken);
-          }
-        });
+        if (entries.some((e) => e.isIntersecting)) {
+          cardsVisiblePc.value = true;
+          runCountUp(countPc);
+          observerPc?.disconnect();
+          observerPc = null;
+        }
       },
-      { threshold: 0.3 },
+      { rootMargin: "0px 0px -50% 0px", threshold: 0 },
     );
-    if (statsRowPc.value) observerPc.observe(statsRowPc.value);
+    if (step1RootPc.value) observerPc.observe(step1RootPc.value);
 
     observerH5 = new IntersectionObserver(
       (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            h5Token += 1;
-            runCountUp(countH5, () => h5Token, h5Token);
-          }
-        });
+        if (entries.some((e) => e.isIntersecting)) {
+          cardsVisibleH5.value = true;
+          runCountUp(countH5);
+          observerH5?.disconnect();
+          observerH5 = null;
+        }
       },
-      { threshold: 0.3 },
+      { rootMargin: "0px 0px -50% 0px", threshold: 0 },
     );
-    if (statsRowH5.value) observerH5.observe(statsRowH5.value);
+    if (step1RootH5.value) observerH5.observe(step1RootH5.value);
   });
 
   onBeforeUnmount(() => {
@@ -163,5 +155,9 @@ export function useStep1(refs: {
     handleViewAll,
     countPc,
     countH5,
+    cardsVisiblePc,
+    cardsVisibleH5,
+    step1RootPc,
+    step1RootH5,
   };
 }

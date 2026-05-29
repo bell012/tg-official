@@ -36,6 +36,7 @@
       >
         <!-- PC步骤1 -->
         <section
+          ref="step1RootPc"
           class="w-full h-full px-[40px] xl:px-[120px] 2xl:px-[240px] pt-[60px] pb-[120px]"
         >
           <div class="flex items-end justify-between h-[149px] overflow-hidden">
@@ -77,9 +78,11 @@
 
           <div class="mt-[60px] grid grid-cols-3 gap-[20px]">
             <div
-              v-for="card in serviceCards"
+              v-for="(card, i) in serviceCards"
               :key="card.title"
-              class="service-card flex h-[388px] flex-col items-center justify-center px-[64px] text-center"
+              class="service-card reveal-card flex h-[388px] flex-col items-center justify-center px-[64px] text-center"
+              :class="{ 'is-visible': cardsVisiblePc }"
+              :style="{ transitionDelay: `${i * 200}ms` }"
             >
               <img
                 :src="card.icon"
@@ -96,8 +99,9 @@
           </div>
 
           <div
-            ref="statsRowPc"
-            class="mt-[39px] rounded-[30px] bg-[#1A1921] border border-[#322E28] pt-[40px] pb-[80px]"
+            class="reveal-card mt-[39px] rounded-[30px] bg-[#1A1921] border border-[#322E28] pt-[40px] pb-[80px]"
+            :class="{ 'is-visible': cardsVisiblePc }"
+            :style="{ transitionDelay: '600ms' }"
           >
             <div class="grid grid-cols-4 gap-[0px]">
               <div
@@ -237,34 +241,40 @@
             TG包网集团长期与各大知名游戏厂商保持稳定合作，聚合超过10000+款热门游戏资源，覆盖多元娱乐需求。我们不仅追求游戏数量，更重视内容品质、用户体验与市场反馈，每一款上线游戏都经过严格筛选与专业测试。我们愿与您共同深耕市场，携手同行，共创最大商业价值。
           </p>
 
-          <div class="mt-[60px] grid grid-cols-6 gap-[20px]">
-            <img
-              v-for="(src, i) in brandLogos"
-              :key="`brand-${i}`"
-              :src="src"
-              alt=""
-              class="w-full"
-            />
+          <div class="marquee marquee-pc mt-[60px]">
+            <div class="marquee-track marquee-rtl">
+              <div
+                v-for="(src, i) in brandLogosLoop"
+                :key="`pc-brand-${i}`"
+                class="marquee-item"
+              >
+                <img :src="src" alt="" class="h-[100px] w-auto" />
+              </div>
+            </div>
           </div>
 
-          <div class="mt-[30px] grid grid-cols-6 gap-[20px]">
-            <img
-              v-for="(src, i) in sportsGames"
-              :key="`sport-${i}`"
-              :src="src"
-              alt=""
-              class="w-full"
-            />
+          <div class="marquee marquee-pc mt-[30px]">
+            <div class="marquee-track marquee-ltr">
+              <div
+                v-for="(src, i) in sportsGamesLoop"
+                :key="`pc-sport-${i}`"
+                class="marquee-item"
+              >
+                <img :src="src" alt="" class="h-[220px] w-auto" />
+              </div>
+            </div>
           </div>
 
-          <div class="mt-[30px] grid grid-cols-6 gap-[20px]">
-            <img
-              v-for="(src, i) in boardGames"
-              :key="`game-${i}`"
-              :src="src"
-              alt=""
-              class="w-full"
-            />
+          <div class="marquee marquee-pc mt-[30px]">
+            <div class="marquee-track marquee-rtl">
+              <div
+                v-for="(src, i) in boardGamesLoop"
+                :key="`pc-game-${i}`"
+                class="marquee-item"
+              >
+                <img :src="src" alt="" class="h-[220px] w-auto" />
+              </div>
+            </div>
           </div>
         </section>
 
@@ -420,7 +430,10 @@
         style="background-image: url('/src/static/home/homeBG_H5.png')"
       >
         <!-- H5步骤1 -->
-        <section class="w-full h-full pt-[16px] pb-[30px]">
+        <section
+          ref="step1RootH5"
+          class="w-full h-full pt-[16px] pb-[30px]"
+        >
           <div class="flex flex-col items-center">
             <div class="text-[25px] font-[700] leading-[1] text-[#FFC16F]">
               01
@@ -451,9 +464,11 @@
 
           <div class="mt-[20px] grid grid-cols-3 gap-[10px]">
             <div
-              v-for="card in serviceCardsH5"
+              v-for="(card, i) in serviceCardsH5"
               :key="card.title"
-              class="service-card-h5 min-h-[182px] flex flex-col items-center px-[10px] pb-[12px] pt-[16px] text-center"
+              class="service-card-h5 reveal-card min-h-[182px] flex flex-col items-center px-[10px] pb-[12px] pt-[16px] text-center"
+              :class="{ 'is-visible': cardsVisibleH5 }"
+              :style="{ transitionDelay: `${i * 200}ms` }"
             >
               <img
                 :src="card.icon"
@@ -470,8 +485,9 @@
           </div>
 
           <div
-            ref="statsRowH5"
-            class="mt-[10px] rounded-[10px] bg-[#1A1921] border border-[#322E28] py-[14px]"
+            class="reveal-card mt-[10px] rounded-[10px] bg-[#1A1921] border border-[#322E28] py-[14px]"
+            :class="{ 'is-visible': cardsVisibleH5 }"
+            :style="{ transitionDelay: '600ms' }"
           >
             <div class="grid grid-cols-4 gap-[0px]">
               <div
@@ -731,7 +747,6 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
 import { RouterLink } from "vue-router";
 import { useStep1 } from "./step1";
 import { useStep2 } from "./step2";
@@ -741,9 +756,6 @@ import { useStep5 } from "./step5";
 import heroVideoUrl from "@/static/home/mp4.mp4";
 import tgIconUrl from "@/static/home/Telegram.png";
 import { LINK, openLink } from "@/utils/jumpLink";
-
-const statsRowPc = ref<HTMLElement | null>(null);
-const statsRowH5 = ref<HTMLElement | null>(null);
 
 const handleTgClick = () => {
   openLink(LINK.telegram);
@@ -760,7 +772,11 @@ const {
   handleViewAll,
   countPc,
   countH5,
-} = useStep1({ statsRowPc, statsRowH5 });
+  cardsVisiblePc,
+  cardsVisibleH5,
+  step1RootPc,
+  step1RootH5,
+} = useStep1();
 
 const {
   featureCards,
@@ -772,9 +788,6 @@ const {
 } = useStep2();
 
 const {
-  brandLogos,
-  sportsGames,
-  boardGames,
   brandLogosLoop,
   sportsGamesLoop,
   boardGamesLoop,
@@ -830,6 +843,17 @@ const { joinBgPc, joinBgH5, iconPc, iconH5, handleJoin } = useStep5();
   background-repeat: no-repeat;
 }
 
+.reveal-card {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: opacity 400ms ease, transform 400ms ease;
+  will-change: opacity, transform;
+}
+.reveal-card.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .marquee {
   overflow: hidden;
   width: 100%;
@@ -841,9 +865,15 @@ const { joinBgPc, joinBgH5, iconPc, iconH5, handleJoin } = useStep5();
   animation-iteration-count: infinite;
   animation-timing-function: linear;
 }
+.marquee-pc .marquee-track {
+  animation-duration: 40s;
+}
 .marquee-item {
   flex-shrink: 0;
   margin-right: 7px;
+}
+.marquee-pc .marquee-item {
+  margin-right: 20px;
 }
 .marquee-rtl {
   animation-name: marquee-rtl;
