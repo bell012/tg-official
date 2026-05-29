@@ -258,45 +258,57 @@
             </div>
           </div>
 
-          <div class="mt-[60px] text-[36px] font-[600] text-white">
-            10,000+热门游戏全面覆盖
+          <div
+            class="reveal-card mt-[60px]"
+            :class="{ 'is-visible': step3VisiblePc }"
+            :style="{ transitionDelay: '200ms' }"
+          >
+            <div class="text-[36px] font-[600] text-white">
+              10,000+热门游戏全面覆盖
+            </div>
+            <p class="mt-[20px] text-[18px] font-[400] text-[#C2C2C2]">
+              TG包网集团长期与各大知名游戏厂商保持稳定合作，聚合超过10000+款热门游戏资源，覆盖多元娱乐需求。我们不仅追求游戏数量，更重视内容品质、用户体验与市场反馈，每一款上线游戏都经过严格筛选与专业测试。我们愿与您共同深耕市场，携手同行，共创最大商业价值。
+            </p>
           </div>
-          <p class="mt-[20px] text-[18px] font-[400] text-[#C2C2C2]">
-            TG包网集团长期与各大知名游戏厂商保持稳定合作，聚合超过10000+款热门游戏资源，覆盖多元娱乐需求。我们不仅追求游戏数量，更重视内容品质、用户体验与市场反馈，每一款上线游戏都经过严格筛选与专业测试。我们愿与您共同深耕市场，携手同行，共创最大商业价值。
-          </p>
 
-          <div class="marquee marquee-pc mt-[60px]">
-            <div class="marquee-track marquee-rtl">
-              <div
-                v-for="(src, i) in brandLogosLoop"
-                :key="`pc-brand-${i}`"
-                class="marquee-item"
-              >
-                <img :src="src" alt="" class="h-[100px] w-auto" />
+          <div
+            class="reveal-card mt-[60px]"
+            :class="{ 'is-visible': step3VisiblePc }"
+            :style="{ transitionDelay: '400ms' }"
+          >
+            <div class="marquee marquee-pc">
+              <div class="marquee-track marquee-rtl">
+                <div
+                  v-for="(src, i) in brandLogosLoop"
+                  :key="`pc-brand-${i}`"
+                  class="marquee-item"
+                >
+                  <img :src="src" alt="" class="h-[100px] w-auto" />
+                </div>
               </div>
             </div>
-          </div>
 
-          <div class="marquee marquee-pc mt-[30px]">
-            <div class="marquee-track marquee-ltr">
-              <div
-                v-for="(src, i) in sportsGamesLoop"
-                :key="`pc-sport-${i}`"
-                class="marquee-item"
-              >
-                <img :src="src" alt="" class="h-[220px] w-auto" />
+            <div class="marquee marquee-pc mt-[30px]">
+              <div class="marquee-track marquee-ltr">
+                <div
+                  v-for="(src, i) in sportsGamesLoop"
+                  :key="`pc-sport-${i}`"
+                  class="marquee-item"
+                >
+                  <img :src="src" alt="" class="h-[220px] w-auto" />
+                </div>
               </div>
             </div>
-          </div>
 
-          <div class="marquee marquee-pc mt-[30px]">
-            <div class="marquee-track marquee-rtl">
-              <div
-                v-for="(src, i) in boardGamesLoop"
-                :key="`pc-game-${i}`"
-                class="marquee-item"
-              >
-                <img :src="src" alt="" class="h-[220px] w-auto" />
+            <div class="marquee marquee-pc mt-[30px]">
+              <div class="marquee-track marquee-rtl">
+                <div
+                  v-for="(src, i) in boardGamesLoop"
+                  :key="`pc-game-${i}`"
+                  class="marquee-item"
+                >
+                  <img :src="src" alt="" class="h-[220px] w-auto" />
+                </div>
               </div>
             </div>
           </div>
@@ -657,47 +669,59 @@
             </div>
           </div>
 
-          <div class="mt-[20px] text-center text-lg font-[600] text-white">
-            10,000+热门游戏全面覆盖
-          </div>
-          <p
-            class="mt-[10px] text-xs font-[400] leading-[20px] text-[#C2C2C2] text-center"
+          <div
+            class="reveal-card mt-[20px]"
+            :class="{ 'is-visible': step3VisibleH5 }"
+            :style="{ transitionDelay: '200ms' }"
           >
-            TG包网集团长期与各大知名游戏厂商保持稳定合作，聚合超过10000+款热门游戏资源，覆盖多元娱乐需求。我们不仅追求游戏数量，更重视内容品质、用户体验与市场反馈，每一款上线游戏都经过严格筛选与专业测试。我们愿与您共同深耕市场，携手同行，共创最大商业价值。
-          </p>
-
-          <div class="marquee mt-[20px]">
-            <div class="marquee-track marquee-rtl">
-              <div
-                v-for="(src, i) in brandLogosLoop"
-                :key="`b-${i}`"
-                class="marquee-item"
-              >
-                <img :src="src" alt="" class="h-[30px] w-auto" />
-              </div>
+            <div class="text-center text-lg font-[600] text-white">
+              10,000+热门游戏全面覆盖
             </div>
+            <p
+              class="mt-[10px] text-xs font-[400] leading-[20px] text-[#C2C2C2] text-center"
+            >
+              TG包网集团长期与各大知名游戏厂商保持稳定合作，聚合超过10000+款热门游戏资源，覆盖多元娱乐需求。我们不仅追求游戏数量，更重视内容品质、用户体验与市场反馈，每一款上线游戏都经过严格筛选与专业测试。我们愿与您共同深耕市场，携手同行，共创最大商业价值。
+            </p>
           </div>
 
-          <div class="marquee mt-[10px]">
-            <div class="marquee-track marquee-ltr">
-              <div
-                v-for="(src, i) in sportsGamesLoop"
-                :key="`s-${i}`"
-                class="marquee-item"
-              >
-                <img :src="src" alt="" class="h-[74px] w-auto" />
+          <div
+            class="reveal-card mt-[20px]"
+            :class="{ 'is-visible': step3VisibleH5 }"
+            :style="{ transitionDelay: '400ms' }"
+          >
+            <div class="marquee">
+              <div class="marquee-track marquee-rtl">
+                <div
+                  v-for="(src, i) in brandLogosLoop"
+                  :key="`b-${i}`"
+                  class="marquee-item"
+                >
+                  <img :src="src" alt="" class="h-[30px] w-auto" />
+                </div>
               </div>
             </div>
-          </div>
 
-          <div class="marquee mt-[10px]">
-            <div class="marquee-track marquee-rtl">
-              <div
-                v-for="(src, i) in boardGamesLoop"
-                :key="`g-${i}`"
-                class="marquee-item"
-              >
-                <img :src="src" alt="" class="h-[74px] w-auto" />
+            <div class="marquee mt-[10px]">
+              <div class="marquee-track marquee-ltr">
+                <div
+                  v-for="(src, i) in sportsGamesLoop"
+                  :key="`s-${i}`"
+                  class="marquee-item"
+                >
+                  <img :src="src" alt="" class="h-[74px] w-auto" />
+                </div>
+              </div>
+            </div>
+
+            <div class="marquee mt-[10px]">
+              <div class="marquee-track marquee-rtl">
+                <div
+                  v-for="(src, i) in boardGamesLoop"
+                  :key="`g-${i}`"
+                  class="marquee-item"
+                >
+                  <img :src="src" alt="" class="h-[74px] w-auto" />
+                </div>
               </div>
             </div>
           </div>
