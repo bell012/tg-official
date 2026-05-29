@@ -1,3 +1,4 @@
+import { onBeforeUnmount, onMounted, ref } from "vue";
 import logo1 from "@/static/home/step_3/step_3_1.png";
 import logo2 from "@/static/home/step_3/step_3_2.png";
 import logo3 from "@/static/home/step_3/step_3_3.png";
@@ -28,6 +29,45 @@ export function useStep3() {
   const sportsGamesLoop = [...sportsGames, ...sportsGames];
   const boardGamesLoop = [...boardGames, ...boardGames];
 
+  const step3RootPc = ref<HTMLElement | null>(null);
+  const step3RootH5 = ref<HTMLElement | null>(null);
+  const step3VisiblePc = ref(false);
+  const step3VisibleH5 = ref(false);
+
+  let observerPc: IntersectionObserver | null = null;
+  let observerH5: IntersectionObserver | null = null;
+
+  onMounted(() => {
+    observerPc = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((e) => e.isIntersecting)) {
+          step3VisiblePc.value = true;
+          observerPc?.disconnect();
+          observerPc = null;
+        }
+      },
+      { rootMargin: "0px 0px -50% 0px", threshold: 0 },
+    );
+    if (step3RootPc.value) observerPc.observe(step3RootPc.value);
+
+    observerH5 = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((e) => e.isIntersecting)) {
+          step3VisibleH5.value = true;
+          observerH5?.disconnect();
+          observerH5 = null;
+        }
+      },
+      { rootMargin: "0px 0px -50% 0px", threshold: 0 },
+    );
+    if (step3RootH5.value) observerH5.observe(step3RootH5.value);
+  });
+
+  onBeforeUnmount(() => {
+    observerPc?.disconnect();
+    observerH5?.disconnect();
+  });
+
   return {
     brandLogos,
     sportsGames,
@@ -35,5 +75,9 @@ export function useStep3() {
     brandLogosLoop,
     sportsGamesLoop,
     boardGamesLoop,
+    step3RootPc,
+    step3RootH5,
+    step3VisiblePc,
+    step3VisibleH5,
   };
 }

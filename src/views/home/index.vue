@@ -39,7 +39,10 @@
           ref="step1RootPc"
           class="w-full h-full px-[40px] xl:px-[120px] 2xl:px-[240px] pt-[60px] pb-[120px]"
         >
-          <div class="flex items-end justify-between h-[149px] overflow-hidden">
+          <div
+            class="reveal-card flex items-end justify-between h-[149px] overflow-hidden"
+            :class="{ 'is-visible': cardsVisiblePc }"
+          >
             <div class="flex items-stretch gap-[16px]">
               <div class="w-[8px] bg-[#FFC16F]"></div>
               <div>
@@ -82,7 +85,7 @@
               :key="card.title"
               class="service-card reveal-card flex h-[388px] flex-col items-center justify-center px-[64px] text-center"
               :class="{ 'is-visible': cardsVisiblePc }"
-              :style="{ transitionDelay: `${i * 200}ms` }"
+              :style="{ transitionDelay: `${(i + 1) * 200}ms` }"
             >
               <img
                 :src="card.icon"
@@ -101,7 +104,7 @@
           <div
             class="reveal-card mt-[39px] rounded-[30px] bg-[#1A1921] border border-[#322E28] pt-[40px] pb-[80px]"
             :class="{ 'is-visible': cardsVisiblePc }"
-            :style="{ transitionDelay: '600ms' }"
+            :style="{ transitionDelay: '800ms' }"
           >
             <div class="grid grid-cols-4 gap-[0px]">
               <div
@@ -130,7 +133,10 @@
           ref="step2RootPc"
           class="w-full px-[40px] xl:px-[120px] 2xl:px-[240px] pb-[120px]"
         >
-          <div class="flex items-stretch h-[149px] overflow-hidden gap-[16px]">
+          <div
+            class="reveal-card flex items-stretch h-[149px] overflow-hidden gap-[16px]"
+            :class="{ 'is-visible': step2VisiblePc }"
+          >
             <div class="w-[8px] bg-[#FFC16F]"></div>
             <div>
               <div
@@ -167,12 +173,12 @@
               alt="APP/H5演示"
               class="reveal-card w-full h-[821px]"
               :class="{ 'is-visible': step2VisiblePc }"
-              :style="{ transitionDelay: '0ms' }"
+              :style="{ transitionDelay: '200ms' }"
             />
             <div
               class="reveal-card rounded-[10px] border border-[#322E28] bg-[#1A1921] px-[43px] pt-[60px] pb-[50px]"
               :class="{ 'is-visible': step2VisiblePc }"
-              :style="{ transitionDelay: '200ms' }"
+              :style="{ transitionDelay: '400ms' }"
             >
               <h3 class="text-center text-[36px] font-[600] text-white">
                 APP体验流畅稳定，H5访问轻便快捷<br />一站式整合全玩法，畅玩体验全面升级
@@ -217,9 +223,13 @@
 
         <!-- PC步骤3 -->
         <section
+          ref="step3RootPc"
           class="w-full px-[40px] xl:px-[120px] 2xl:px-[240px] pb-[120px]"
         >
-          <div class="flex items-stretch h-[149px] overflow-hidden gap-[16px]">
+          <div
+            class="reveal-card flex items-stretch h-[149px] overflow-hidden gap-[16px]"
+            :class="{ 'is-visible': step3VisiblePc }"
+          >
             <div class="w-[8px] bg-[#FFC16F]"></div>
             <div>
               <div
@@ -297,7 +307,10 @@
           ref="step4RootPc"
           class="w-full px-[40px] xl:px-[120px] 2xl:px-[240px] pb-[120px]"
         >
-          <div class="flex items-stretch h-[149px] overflow-hidden gap-[16px]">
+          <div
+            class="reveal-card flex items-stretch h-[149px] overflow-hidden gap-[16px]"
+            :class="{ 'is-visible': step4VisiblePc }"
+          >
             <div class="w-[8px] bg-[#FFC16F]"></div>
             <div>
               <div
@@ -333,7 +346,7 @@
               :to="`/consult/${article.id}`"
               class="group reveal-card flex w-full flex-col overflow-hidden rounded-[30px] border border-[#322E28] bg-[#1A1921] text-inherit no-underline cursor-pointer"
               :class="{ 'is-visible': step4VisiblePc }"
-              :style="{ transitionDelay: `${i * 200}ms` }"
+              :style="{ transitionDelay: `${(i + 1) * 200}ms` }"
             >
               <div class="w-full h-[456px] flex-shrink-0 overflow-hidden">
                 <img
@@ -356,7 +369,10 @@
           ref="step5RootPc"
           class="w-full px-[40px] xl:px-[120px] 2xl:px-[240px] pb-[120px]"
         >
-          <div class="flex items-stretch h-[149px] overflow-hidden gap-[16px]">
+          <div
+            class="reveal-card flex items-stretch h-[149px] overflow-hidden gap-[16px]"
+            :class="{ 'is-visible': step5VisiblePc }"
+          >
             <div class="w-[8px] bg-[#FFC16F]"></div>
             <div>
               <div
@@ -388,6 +404,7 @@
           <div
             class="join-card-pc reveal-card relative mt-[60px] h-[500px]"
             :class="{ 'is-visible': step5VisiblePc }"
+            :style="{ transitionDelay: '200ms' }"
           >
             <div class="absolute left-[100px] top-[100px]">
               <div class="text-[50px] font-[600] text-white">
@@ -455,7 +472,10 @@
           ref="step1RootH5"
           class="w-full h-full pt-[16px] pb-[30px]"
         >
-          <div class="flex flex-col items-center">
+          <div
+            class="reveal-card flex flex-col items-center"
+            :class="{ 'is-visible': cardsVisibleH5 }"
+          >
             <div class="text-[25px] font-[700] leading-[1] text-[#FFC16F]">
               01
             </div>
@@ -489,7 +509,7 @@
               :key="card.title"
               class="service-card-h5 reveal-card min-h-[182px] flex flex-col items-center px-[10px] pb-[12px] pt-[16px] text-center"
               :class="{ 'is-visible': cardsVisibleH5 }"
-              :style="{ transitionDelay: `${i * 200}ms` }"
+              :style="{ transitionDelay: `${(i + 1) * 200}ms` }"
             >
               <img
                 :src="card.icon"
@@ -508,7 +528,7 @@
           <div
             class="reveal-card mt-[10px] rounded-[10px] bg-[#1A1921] border border-[#322E28] py-[14px]"
             :class="{ 'is-visible': cardsVisibleH5 }"
-            :style="{ transitionDelay: '600ms' }"
+            :style="{ transitionDelay: '800ms' }"
           >
             <div class="grid grid-cols-4 gap-[0px]">
               <div
@@ -534,7 +554,10 @@
 
         <!-- H5步骤2 -->
         <section ref="step2RootH5" class="pb-[30px]">
-          <div class="flex flex-col items-center">
+          <div
+            class="reveal-card flex flex-col items-center"
+            :class="{ 'is-visible': step2VisibleH5 }"
+          >
             <div class="text-[25px] font-[700] leading-[1] text-[#FFC16F]">
               02
             </div>
@@ -559,7 +582,7 @@
           <div
             class="reveal-card mt-[20px] rounded-[10px] bg-[#1A1921] border border-[#322E28] p-[14px]"
             :class="{ 'is-visible': step2VisibleH5 }"
-            :style="{ transitionDelay: '0ms' }"
+            :style="{ transitionDelay: '200ms' }"
           >
             <h3 class="text-base font-[600] text-white text-left">
               APP体验流畅稳定，H5访问轻便快捷，一站式整合全玩法，畅玩体验全面升级
@@ -574,7 +597,7 @@
             alt="APP/H5演示"
             class="reveal-card mt-[20px] w-[282px] h-full mx-auto"
             :class="{ 'is-visible': step2VisibleH5 }"
-            :style="{ transitionDelay: '200ms' }"
+            :style="{ transitionDelay: '400ms' }"
           />
 
           <div class="mt-[20px] text-center text-base font-[600] text-white">
@@ -608,8 +631,11 @@
         </section>
 
         <!-- H5步骤3 -->
-        <section class="pb-[30px]">
-          <div class="flex flex-col items-center">
+        <section ref="step3RootH5" class="pb-[30px]">
+          <div
+            class="reveal-card flex flex-col items-center"
+            :class="{ 'is-visible': step3VisibleH5 }"
+          >
             <div class="text-[25px] font-[700] leading-[1] text-[#FFC16F]">
               03
             </div>
@@ -679,7 +705,10 @@
 
         <!-- H5步骤4 -->
         <section ref="step4RootH5" class="pb-[30px]">
-          <div class="flex flex-col items-center">
+          <div
+            class="reveal-card flex flex-col items-center"
+            :class="{ 'is-visible': step4VisibleH5 }"
+          >
             <div class="text-[25px] font-[700] leading-[1] text-[#FFC16F]">
               04
             </div>
@@ -708,7 +737,7 @@
               :to="`/consult/${article.id}`"
               class="group reveal-card flex w-full flex-col overflow-hidden rounded-[10px] border border-[#322E28] bg-[#1A1921]"
               :class="{ 'is-visible': step4VisibleH5 }"
-              :style="{ transitionDelay: `${i * 200}ms` }"
+              :style="{ transitionDelay: `${(i + 1) * 200}ms` }"
             >
               <div class="h-[195px] w-full flex-shrink-0 overflow-hidden">
                 <img
@@ -728,7 +757,10 @@
 
         <!-- H5步骤5 -->
         <section ref="step5RootH5" class="pb-[30px]">
-          <div class="flex flex-col items-center">
+          <div
+            class="reveal-card flex flex-col items-center"
+            :class="{ 'is-visible': step5VisibleH5 }"
+          >
             <div class="text-[25px] font-[700] leading-[1] text-[#FFC16F]">
               05
             </div>
@@ -753,6 +785,7 @@
           <div
             class="join-card-h5 reveal-card relative mt-[20px] h-[166px]"
             :class="{ 'is-visible': step5VisibleH5 }"
+            :style="{ transitionDelay: '200ms' }"
           >
             <div class="absolute left-[14px] top-[14px] w-[150px]">
               <div class="text-base font-[600] text-white">
@@ -834,6 +867,10 @@ const {
   brandLogosLoop,
   sportsGamesLoop,
   boardGamesLoop,
+  step3RootPc,
+  step3RootH5,
+  step3VisiblePc,
+  step3VisibleH5,
 } = useStep3();
 
 const {
