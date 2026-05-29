@@ -127,6 +127,7 @@
 
         <!-- PC步骤2 -->
         <section
+          ref="step2RootPc"
           class="w-full px-[40px] xl:px-[120px] 2xl:px-[240px] pb-[120px]"
         >
           <div class="flex items-stretch h-[149px] overflow-hidden gap-[16px]">
@@ -161,9 +162,17 @@
           <div
             class="mt-[60px] grid grid-cols-2 items-center gap-[40px] xl:gap-[80px] 2xl:gap-[120px]"
           >
-            <img :src="phonePc" alt="APP/H5演示" class="w-full h-[821px]" />
+            <img
+              :src="phonePc"
+              alt="APP/H5演示"
+              class="reveal-card w-full h-[821px]"
+              :class="{ 'is-visible': step2VisiblePc }"
+              :style="{ transitionDelay: '0ms' }"
+            />
             <div
-              class="rounded-[10px] border border-[#322E28] bg-[#1A1921] px-[43px] pt-[60px] pb-[50px]"
+              class="reveal-card rounded-[10px] border border-[#322E28] bg-[#1A1921] px-[43px] pt-[60px] pb-[50px]"
+              :class="{ 'is-visible': step2VisiblePc }"
+              :style="{ transitionDelay: '200ms' }"
             >
               <h3 class="text-center text-[36px] font-[600] text-white">
                 APP体验流畅稳定，H5访问轻便快捷<br />一站式整合全玩法，畅玩体验全面升级
@@ -178,11 +187,16 @@
             四大核心优势，驱动平台增长
           </div>
 
-          <div class="mt-[20px] grid grid-cols-2 gap-[20px] xl:grid-cols-4">
+          <div
+            ref="step2CardsRootPc"
+            class="mt-[20px] grid grid-cols-2 gap-[20px] xl:grid-cols-4"
+          >
             <div
-              v-for="card in featureCards"
+              v-for="(card, i) in featureCards"
               :key="card.title"
-              class="feature-card flex h-[500px] flex-col items-center pt-[60px] text-center"
+              class="feature-card reveal-card flex h-[500px] flex-col items-center pt-[60px] text-center"
+              :class="{ 'is-visible': step2CardsVisiblePc }"
+              :style="{ transitionDelay: `${i * 200}ms` }"
             >
               <h3 class="text-[30px] font-[600] text-white">
                 {{ card.title }}
@@ -280,6 +294,7 @@
 
         <!-- PC步骤4 -->
         <section
+          ref="step4RootPc"
           class="w-full px-[40px] xl:px-[120px] 2xl:px-[240px] pb-[120px]"
         >
           <div class="flex items-stretch h-[149px] overflow-hidden gap-[16px]">
@@ -313,10 +328,12 @@
 
           <div class="mt-[60px] grid grid-cols-3 gap-[39px]">
             <RouterLink
-              v-for="article in articles"
+              v-for="(article, i) in articles"
               :key="article.id"
               :to="`/consult/${article.id}`"
-              class="group flex w-full flex-col overflow-hidden rounded-[30px] border border-[#322E28] bg-[#1A1921] text-inherit no-underline cursor-pointer"
+              class="group reveal-card flex w-full flex-col overflow-hidden rounded-[30px] border border-[#322E28] bg-[#1A1921] text-inherit no-underline cursor-pointer"
+              :class="{ 'is-visible': step4VisiblePc }"
+              :style="{ transitionDelay: `${i * 200}ms` }"
             >
               <div class="w-full h-[456px] flex-shrink-0 overflow-hidden">
                 <img
@@ -336,6 +353,7 @@
 
         <!-- PC步骤5 -->
         <section
+          ref="step5RootPc"
           class="w-full px-[40px] xl:px-[120px] 2xl:px-[240px] pb-[120px]"
         >
           <div class="flex items-stretch h-[149px] overflow-hidden gap-[16px]">
@@ -367,7 +385,10 @@
             </div>
           </div>
 
-          <div class="join-card-pc relative mt-[60px] h-[500px]">
+          <div
+            class="join-card-pc reveal-card relative mt-[60px] h-[500px]"
+            :class="{ 'is-visible': step5VisiblePc }"
+          >
             <div class="absolute left-[100px] top-[100px]">
               <div class="text-[50px] font-[600] text-white">
                 开启您的财富时代
@@ -512,7 +533,7 @@
         </section>
 
         <!-- H5步骤2 -->
-        <section class="pb-[30px]">
+        <section ref="step2RootH5" class="pb-[30px]">
           <div class="flex flex-col items-center">
             <div class="text-[25px] font-[700] leading-[1] text-[#FFC16F]">
               02
@@ -536,7 +557,9 @@
           </div>
 
           <div
-            class="mt-[20px] rounded-[10px] bg-[#1A1921] border border-[#322E28] p-[14px]"
+            class="reveal-card mt-[20px] rounded-[10px] bg-[#1A1921] border border-[#322E28] p-[14px]"
+            :class="{ 'is-visible': step2VisibleH5 }"
+            :style="{ transitionDelay: '0ms' }"
           >
             <h3 class="text-base font-[600] text-white text-left">
               APP体验流畅稳定，H5访问轻便快捷，一站式整合全玩法，畅玩体验全面升级
@@ -549,18 +572,25 @@
           <img
             :src="phoneH5"
             alt="APP/H5演示"
-            class="mt-[20px] w-[282px] h-full mx-auto"
+            class="reveal-card mt-[20px] w-[282px] h-full mx-auto"
+            :class="{ 'is-visible': step2VisibleH5 }"
+            :style="{ transitionDelay: '200ms' }"
           />
 
           <div class="mt-[20px] text-center text-base font-[600] text-white">
             四大核心优势，驱动平台增长
           </div>
 
-          <div class="mt-[14px] grid grid-cols-2 gap-[14px]">
+          <div
+            ref="step2CardsRootH5"
+            class="mt-[14px] grid grid-cols-2 gap-[14px]"
+          >
             <div
-              v-for="card in featureCards"
+              v-for="(card, i) in featureCards"
               :key="card.title"
-              class="feature-card-h5 flex h-[197px] flex-col items-center pt-[20px] text-center"
+              class="feature-card-h5 reveal-card flex h-[197px] flex-col items-center pt-[20px] text-center"
+              :class="{ 'is-visible': step2CardsVisibleH5 }"
+              :style="{ transitionDelay: `${i * 200}ms` }"
             >
               <h3 class="text-base font-[600] text-white">
                 {{ card.title }}
@@ -648,7 +678,7 @@
         </section>
 
         <!-- H5步骤4 -->
-        <section class="pb-[30px]">
+        <section ref="step4RootH5" class="pb-[30px]">
           <div class="flex flex-col items-center">
             <div class="text-[25px] font-[700] leading-[1] text-[#FFC16F]">
               04
@@ -673,10 +703,12 @@
 
           <div class="mt-[20px] flex flex-col gap-[10px]">
             <RouterLink
-              v-for="article in articles"
+              v-for="(article, i) in articles"
               :key="article.id"
               :to="`/consult/${article.id}`"
-              class="group flex w-full flex-col overflow-hidden rounded-[10px] border border-[#322E28] bg-[#1A1921]"
+              class="group reveal-card flex w-full flex-col overflow-hidden rounded-[10px] border border-[#322E28] bg-[#1A1921]"
+              :class="{ 'is-visible': step4VisibleH5 }"
+              :style="{ transitionDelay: `${i * 200}ms` }"
             >
               <div class="h-[195px] w-full flex-shrink-0 overflow-hidden">
                 <img
@@ -695,7 +727,7 @@
         </section>
 
         <!-- H5步骤5 -->
-        <section class="pb-[30px]">
+        <section ref="step5RootH5" class="pb-[30px]">
           <div class="flex flex-col items-center">
             <div class="text-[25px] font-[700] leading-[1] text-[#FFC16F]">
               05
@@ -718,7 +750,10 @@
             </div>
           </div>
 
-          <div class="join-card-h5 relative mt-[20px] h-[166px]">
+          <div
+            class="join-card-h5 reveal-card relative mt-[20px] h-[166px]"
+            :class="{ 'is-visible': step5VisibleH5 }"
+          >
             <div class="absolute left-[14px] top-[14px] w-[150px]">
               <div class="text-base font-[600] text-white">
                 开启您的财富时代
@@ -785,6 +820,14 @@ const {
   featureBgDefault,
   featureBgActive,
   featureBgH5,
+  step2RootPc,
+  step2RootH5,
+  step2VisiblePc,
+  step2VisibleH5,
+  step2CardsRootPc,
+  step2CardsRootH5,
+  step2CardsVisiblePc,
+  step2CardsVisibleH5,
 } = useStep2();
 
 const {
@@ -793,9 +836,25 @@ const {
   boardGamesLoop,
 } = useStep3();
 
-const { articles } = useStep4();
+const {
+  articles,
+  step4RootPc,
+  step4RootH5,
+  step4VisiblePc,
+  step4VisibleH5,
+} = useStep4();
 
-const { joinBgPc, joinBgH5, iconPc, iconH5, handleJoin } = useStep5();
+const {
+  joinBgPc,
+  joinBgH5,
+  iconPc,
+  iconH5,
+  handleJoin,
+  step5RootPc,
+  step5RootH5,
+  step5VisiblePc,
+  step5VisibleH5,
+} = useStep5();
 </script>
 
 <style scoped lang="scss">
