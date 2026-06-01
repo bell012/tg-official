@@ -26,7 +26,7 @@
           >
             <img :src="tgIconUrl" alt="" class="h-[36px] w-[36px]" />
             财富之路请联系：
-            <span class="text-[30px] font-[400] text-[#FFC16F]">@TG168</span>
+            <span class="text-[30px] font-[400] text-[#FFC16F]">@TGbw88888888</span>
           </button>
         </div>
       </div>
@@ -467,11 +467,11 @@
           <div class="mt-[50px] text-base font-[500] text-white">财富之路请联系</div>
           <button
             type="button"
-            class="mt-[10px] w-[250px] h-[50px] flex items-center justify-center gap-[5px] rounded-[10px] bg-[#FFC16F]/60 backdrop-blur-[5px] text-[22px] font-[600] text-white"
+            class="mt-[10px] w-[280px] h-[50px] flex items-center justify-center gap-[5px] rounded-[10px] bg-[#FFC16F]/60 backdrop-blur-[5px] text-[22px] font-[600] text-white"
             @click="handleTgClick"
           >
             <img :src="tgIconUrl" alt="" class="h-[27px] w-[27px]" />
-            TG: @TG168
+            TG: @TGbw88888888
           </button>
         </div>
       </div>

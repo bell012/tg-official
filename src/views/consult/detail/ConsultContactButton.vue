@@ -7,7 +7,7 @@
     rel="noopener noreferrer"
   >
     <img :src="telegramIcon" alt="" class="consult-contact-btn__icon" />
-    <span>TG包网开站联系：@tg168</span>
+    <span>TG包网开站联系：@TGbw88888888</span>
   </a>
 </template>
 

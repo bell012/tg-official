@@ -10,7 +10,7 @@ export const contactBlocks = [
   },
   {
     title: "Telegram",
-    lines: ["@Tg168"],
+    lines: ["@TGbw88888888"],
     href: LINK.telegram,
   },
   {

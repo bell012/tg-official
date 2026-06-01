@@ -113,7 +113,7 @@ const contactCards = [
   {
     title: "官方 Telegram",
     desc: ["7x24小时专属客服", "极速响应，高效解决您的问题"],
-    action: "@Tg168",
+    action: "@TGbw88888888",
     arrowIcon: iconAdd,
     href: LINK.telegram,
     icon: iconTelegram,

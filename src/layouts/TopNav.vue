@@ -54,7 +54,7 @@
           class="flex items-center justify-center rounded-[10px] border border-[#FFC16F] h-[46px] py-[10px] font-[600] text-[#FFC16F] hover:bg-[#FFC16F] hover:text-[#0D0C14] whitespace-nowrap min-w-[180px] xl:min-w-[220px] 2xl:min-w-[250px] px-[14px] xl:px-[20px] 2xl:px-[24px] text-sm xl:text-base 2xl:text-xl"
           @click="handleJump"
         >
-          联系官方TG：@Tg168
+          联系官方TG：@TGbw88888888
         </button>
       </div>
     </div>
