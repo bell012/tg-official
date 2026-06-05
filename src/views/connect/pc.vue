@@ -98,7 +98,7 @@
 
 <script setup lang="ts">
 import cooperateBg from "@/static/about/bottomBack1.png";
-import iconTelegram from "@/static/about/svg/ico5.svg?url";
+import iconTelegram from "@/static/about/svg/icon5.svg?url";
 import iconCooperate from "@/static/about/svg/icon6.svg?url";
 import iconService from "@/static/about/svg/icon7.svg?url";
 import iconStable from "@/static/about/svg/icon1.svg?url";
@@ -129,9 +129,9 @@ const contactCards = [
   {
     title: "在线客服",
     desc: ["专属顾问一对一服务", "为您提供售前售后优质解决方案"],
-    action: "@12345678",
+    action: "联系WhatsApp",
     arrowIcon: iconAdd,
-    href: LINK.telegram,
+    href: LINK.whatsapp,
     icon: iconService,
   },
 ];
