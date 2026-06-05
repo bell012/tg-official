@@ -49,8 +49,8 @@ defineProps<{
   -webkit-tap-highlight-color: transparent;
 }
 
-.consult-card-link:hover .consult-card__image,
-.consult-card-link:focus-visible .consult-card__image {
+.consult-card-link--pc:hover .consult-card__image,
+.consult-card-link--pc:focus-visible .consult-card__image {
   transform: scale(1.22);
 }
 
@@ -93,6 +93,21 @@ defineProps<{
 }
 
 /* Figma H5 — 1041 宽，图高 585，标题 padding 42，字号 42 */
+.consult-card-link--h5 {
+  contain: content;
+}
+
+.consult-card-link--h5 :deep(.motion-reveal) {
+  transform: translate3d(0, h5(80), 0);
+  transition:
+    opacity 0.6s cubic-bezier(0.2, 1, 0.2, 1),
+    transform 0.6s cubic-bezier(0.2, 1, 0.2, 1);
+}
+
+.consult-card-link--h5 :deep(.motion-reveal.is-revealed) {
+  transform: none;
+}
+
 .consult-card--h5 {
   display: flex;
   flex-direction: column;
@@ -114,7 +129,6 @@ defineProps<{
     height: 100%;
     object-fit: cover;
     display: block;
-    transition: transform 0.5s cubic-bezier(0.2, 1, 0.2, 1);
   }
 
   .consult-card__title {
@@ -133,8 +147,8 @@ defineProps<{
     transition: none;
   }
 
-  .consult-card-link:hover .consult-card__image,
-  .consult-card-link:focus-visible .consult-card__image {
+  .consult-card-link--pc:hover .consult-card__image,
+  .consult-card-link--pc:focus-visible .consult-card__image {
     transform: none;
   }
 }

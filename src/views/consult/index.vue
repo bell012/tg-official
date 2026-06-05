@@ -26,12 +26,11 @@
       <!-- H5 — Figma 164:2454 -->
       <div class="consult-h5-layout lg:!hidden">
         <ConsultArticleCard
-          v-for="(article, index) in consultAllArticles"
+          v-for="article in consultAllArticles"
           :key="`h5-${article.id}`"
           :article="article"
           :image="article.h5Image"
           variant="h5"
-          :stagger-index="index"
         />
       </div>
     </div>
