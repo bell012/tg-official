@@ -1,7 +1,7 @@
 <template>
   <div
     class="relative lg:pb-[590px]"
-    :class="isDarkPage ? 'bg-[#0d0c14]' : 'bg-white'"
+    :class="isDarkPage ? 'bg-[#0d0c14]' : ''"
   >
     <TopNav />
     <main class="relative z-10 pt-[40px] lg:pt-[110px]" :class="mainBgClass">
@@ -20,6 +20,7 @@ const route = useRoute();
 
 const isDarkPage = computed(
   () =>
+    route.path === "/" ||
     ["/serve", "/about", "/connect", "/search"].includes(route.path) ||
     route.path === "/consult" ||
     route.path.startsWith("/consult/")
