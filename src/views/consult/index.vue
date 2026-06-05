@@ -31,7 +31,8 @@
           :article="article"
           :image="article.h5Image"
           variant="h5"
-          :reveal="false"
+          :stagger-index="index % 3"
+          :stagger-step="0.12"
           :image-loading="index < 2 ? 'eager' : 'lazy'"
         />
       </div>
