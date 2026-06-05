@@ -24,14 +24,14 @@ import decor05 from "@/static/serve/decor-05-chess-bl.png";
 import decor06 from "@/static/serve/decor-06-fishing-br.png";
 import decor07 from "@/static/serve/decor-07-lottery-bl.png";
 import decor08 from "@/static/serve/decor-08-security-bl.png";
-import h5Visual01 from "@/static/serve/h5-visual-01-coupon.webp";
-import h5Visual02 from "@/static/serve/h5-visual-02-sports.webp";
-import h5Visual03 from "@/static/serve/h5-visual-03-electronic.webp";
-import h5Visual04 from "@/static/serve/h5-visual-04-live.webp";
-import h5Visual05 from "@/static/serve/h5-visual-05-chess.webp";
-import h5Visual06 from "@/static/serve/h5-visual-06-fishing.webp";
-import h5Visual07 from "@/static/serve/h5-visual-07-lottery.webp";
-import h5Visual08 from "@/static/serve/h5-visual-08-security.webp";
+import h5Visual01 from "@/static/serve/h5-visual-01-coupon.png";
+import h5Visual02 from "@/static/serve/h5-visual-02-sports.png";
+import h5Visual03 from "@/static/serve/h5-visual-03-electronic.png";
+import h5Visual04 from "@/static/serve/h5-visual-04-live.png";
+import h5Visual05 from "@/static/serve/h5-visual-05-chess.png";
+import h5Visual06 from "@/static/serve/h5-visual-06-fishing.png";
+import h5Visual07 from "@/static/serve/h5-visual-07-lottery.png";
+import h5Visual08 from "@/static/serve/h5-visual-08-security.png";
 
 export interface ServeCouponVisual {
   phones: {
