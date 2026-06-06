@@ -1,8 +1,8 @@
 import { onBeforeUnmount, onMounted, ref } from "vue";
-import bgPc from "@/static/home/step5/bg_pc.png";
-import bgH5 from "@/static/home/step5/bg_h5.png";
-import iconPc from "@/static/home/step5/icon_pc.png";
-import iconH5 from "@/static/home/step5/icon_h5.png";
+import bgPc from "@/static/home/step5/bg_pc.avif";
+import bgH5 from "@/static/home/step5/bg_h5.avif";
+import iconPc from "@/static/home/step5/icon_pc.avif";
+import iconH5 from "@/static/home/step5/icon_h5.avif";
 import router from "@/router";
 
 export function useStep5() {

@@ -183,7 +183,7 @@
 <script setup lang="ts">
 import { markRaw, type Component } from "vue";
 import { useRouter } from "vue-router";
-import logoUrl from "@/static/home/logo.png";
+import logoUrl from "@/static/home/logo.avif";
 import Telegram from "@/static/home/svg/Telegram.svg?skipsvgo";
 import Whatsapp from "@/static/home/svg/Whatsapp.svg?skipsvgo";
 import Facebook from "@/static/home/svg/facebook.svg?skipsvgo";

@@ -1,10 +1,10 @@
 import iconCooperate from "@/static/about/cooperate.svg?url";
 import iconDiamond from "@/static/about/diamond.svg?url";
 import iconInnovation from "@/static/about/innovation.svg?url";
-import founderPhoto from "@/static/about/founder.png";
-import figure1 from "@/static/about/figure1.png?url";
-import figure2 from "@/static/about/figure2.png?url";
-import figure3 from "@/static/about/figure3.png?url";
+import founderPhoto from "@/static/about/founder.avif";
+import figure1 from "@/static/about/figure1.avif?url";
+import figure2 from "@/static/about/figure2.avif?url";
+import figure3 from "@/static/about/figure3.avif?url";
 
 export const aboutHeroIntro =
   "我们专注于为客户提供高效、稳定、安全的数字化解决方案，覆盖产品设计、系统开发、平台部署与后期维护等多个环节。";

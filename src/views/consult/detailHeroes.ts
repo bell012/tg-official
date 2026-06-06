@@ -4,19 +4,19 @@ import {
 } from "@/utils/loadNumberedAssets";
 
 const detailPcHeroMap = loadNumberedAssets(
-  import.meta.glob("@/static/consult/detail/pc/hero-*.webp", {
+  import.meta.glob("@/static/consult/detail/pc/hero-*.avif", {
     eager: true,
     import: "default",
   }),
-  /hero-(\d+)\.webp$/
+  /hero-(\d+)\.avif$/
 );
 
 const detailH5HeroMap = loadNumberedAssets(
-  import.meta.glob("@/static/consult/detail/h5/hero-*.webp", {
+  import.meta.glob("@/static/consult/detail/h5/hero-*.avif", {
     eager: true,
     import: "default",
   }),
-  /hero-(\d+)\.webp$/
+  /hero-(\d+)\.avif$/
 );
 
 function detailPcHero(id: number) {

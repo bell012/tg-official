@@ -12,7 +12,7 @@
 </template>
 
 <script setup lang="ts">
-import telegramIcon from "@/static/consult/telegram-icon.png";
+import telegramIcon from "@/static/consult/telegram-icon.avif";
 import { LINK } from "@/utils/jumpLink";
 
 defineProps<{

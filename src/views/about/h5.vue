@@ -121,21 +121,21 @@
 </template>
 
 <script setup lang="ts">
-import introImage from "@/static/about/back.png";
-import introDivider from "@/static/about/Group3.png?url";
-import valueCardBg from "@/static/about/Group2.png";
-import valueCardHoverBg from "@/static/about/hover.png";
-import reviewsBg from "@/static/about/h5EvaluateBack.png";
+import introImage from "@/static/about/back.avif";
+import introDivider from "@/static/about/Group3.avif?url";
+import valueCardBg from "@/static/about/Group2.avif";
+import valueCardHoverBg from "@/static/about/hover.avif";
+import reviewsBg from "@/static/about/h5EvaluateBack.avif";
 import quoteLeft from "@/static/about/svg/left.svg?url";
 import quoteRight from "@/static/about/svg/right.svg?url";
-import promoBg from "@/static/about/H5bottomBack.png";
+import promoBg from "@/static/about/H5bottomBack.avif";
 import brandIcon from "@/static/about/svg/tgIcon.svg?url";
 import iconTg from "@/static/about/svg/H5tg.svg?url";
 import iconWhatsApp from "@/static/about/svg/H5whatsApp.svg?url";
 import iconFacebook from "@/static/about/svg/H5faceBook.svg?url";
 import starIcon from "@/static/about/star.svg?url";
-import founderPhoto from "@/static/about/founder.png";
-import teamTitleImage from "@/static/about/h5Title.png";
+import founderPhoto from "@/static/about/founder.avif";
+import teamTitleImage from "@/static/about/h5Title.avif";
 import iconUsers from "@/static/about/doubleAvatar.svg?url";
 import iconStarStat from "@/static/about/star.svg?url";
 import iconTrophy from "@/static/about/trophy.svg?url";

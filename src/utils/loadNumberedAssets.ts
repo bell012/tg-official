@@ -1,4 +1,4 @@
-/** 从 import.meta.glob 结果中按文件名序号加载资源，如 article-01.webp → 1 */
+/** 从 import.meta.glob 结果中按文件名序号加载资源，如 article-01.avif → 1 */
 export function loadNumberedAssets(
   modules: Record<string, unknown>,
   pattern: RegExp

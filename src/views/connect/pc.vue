@@ -97,7 +97,7 @@
 </template>
 
 <script setup lang="ts">
-import cooperateBg from "@/static/about/bottomBack1.png";
+import cooperateBg from "@/static/about/bottomBack1.avif";
 import iconTelegram from "@/static/about/svg/icon5.svg?url";
 import iconCooperate from "@/static/about/svg/icon6.svg?url";
 import iconService from "@/static/about/svg/icon7.svg?url";
@@ -239,7 +239,7 @@ const features = [
   transition: background 0.25s ease, border-color 0.25s ease;
 
   &:hover {
-    background: url("@/static/about/hoverBack.png") center / cover no-repeat;
+    background: url("@/static/about/hoverBack.avif") center / cover no-repeat;
     border-color: rgba(255, 193, 111, 0.35);
   }
 

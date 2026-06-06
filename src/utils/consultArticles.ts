@@ -4,19 +4,19 @@ import {
 } from "@/utils/loadNumberedAssets";
 
 const pcArticleMap = loadNumberedAssets(
-  import.meta.glob("@/static/consult/pc/article-*.webp", {
+  import.meta.glob("@/static/consult/pc/article-*.avif", {
     eager: true,
     import: "default",
   }),
-  /article-(\d+)\.webp$/
+  /article-(\d+)\.avif$/
 );
 
 const h5ArticleMap = loadNumberedAssets(
-  import.meta.glob("@/static/consult/h5/article-*.webp", {
+  import.meta.glob("@/static/consult/h5/article-*.avif", {
     eager: true,
     import: "default",
   }),
-  /article-(\d+)\.webp$/
+  /article-(\d+)\.avif$/
 );
 
 function pcArticle(id: number) {

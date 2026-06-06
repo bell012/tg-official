@@ -32,7 +32,7 @@
       </div>
       <div
         class="w-full h-full bg-[#0D0C14] bg-no-repeat bg-[length:100%_100%]"
-        style="background-image: url('/src/static/home/homeBG_pc.png')"
+        style="background-image: url('/src/static/home/homeBG_pc.avif')"
       >
         <!-- PC步骤1 -->
         <section
@@ -477,7 +477,7 @@
       </div>
       <div
         class="w-full h-full bg-[#0D0C14] bg-no-repeat bg-[length:100%_100%] px-[14px]"
-        style="background-image: url('/src/static/home/homeBG_H5.png')"
+        style="background-image: url('/src/static/home/homeBG_H5.avif')"
       >
         <!-- H5步骤1 -->
         <section
@@ -846,7 +846,7 @@ import { useStep3 } from "./step3";
 import { useStep4 } from "./step4";
 import { useStep5 } from "./step5";
 import heroVideoUrl from "@/static/home/mp4.mp4";
-import tgIconUrl from "@/static/home/Telegram.png";
+import tgIconUrl from "@/static/home/Telegram.avif";
 import { LINK, openLink } from "@/utils/jumpLink";
 
 const handleTgClick = () => {

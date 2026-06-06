@@ -195,16 +195,16 @@
 
 <script setup lang="ts">
 import type { Component } from "vue";
-import introImage from "@/static/about/back.png";
-import introDivider from "@/static/about/Group3.png?url";
-import valueCardBg from "@/static/about/Group2.png";
-import valueCardHoverBg from "@/static/about/hover.png";
-import reviewsBg from "@/static/about/evaluateBack.png";
+import introImage from "@/static/about/back.avif";
+import introDivider from "@/static/about/Group3.avif?url";
+import valueCardBg from "@/static/about/Group2.avif";
+import valueCardHoverBg from "@/static/about/hover.avif";
+import reviewsBg from "@/static/about/evaluateBack.avif";
 import quoteLeft from "@/static/about/svg/left.svg?url";
 import quoteRight from "@/static/about/svg/right.svg?url";
-import promoBg from "@/static/about/bottomBack.png";
-import teamTitleImage from "@/static/about/title.png";
-import founderPhoto from "@/static/about/founder.png";
+import promoBg from "@/static/about/bottomBack.avif";
+import teamTitleImage from "@/static/about/title.avif";
+import founderPhoto from "@/static/about/founder.avif";
 import starIcon from "@/static/about/star.svg?url";
 import iconTg from "@/static/about/svg/tg.svg?url";
 import iconWhatsApp from "@/static/about/svg/whatsApp.svg?url";

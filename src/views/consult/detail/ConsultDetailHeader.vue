@@ -12,7 +12,7 @@
 </template>
 
 <script setup lang="ts">
-import logoUrl from "@/static/home/logo.png";
+import logoUrl from "@/static/home/logo.avif";
 import type { ConsultDetailViewModel } from "../data";
 
 defineProps<{

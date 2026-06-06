@@ -102,7 +102,7 @@
 </template>
 
 <script setup lang="ts">
-import serviceImage from "@/static/about/Frame18.png";
+import serviceImage from "@/static/about/Frame18.avif";
 import iconTelegram from "@/static/about/svg/icon5.svg?url";
 import iconCooperate from "@/static/about/svg/icon6.svg?url";
 import iconService from "@/static/about/svg/icon7.svg?url";
@@ -238,7 +238,7 @@ const features = [
   padding: h5(60) 0;
   border: h5(1) solid #6F502A;
   border-radius: h5(24);
-  background: url("@/static/about/h5Back.png") center / cover no-repeat #1a1921;
+  background: url("@/static/about/h5Back.avif") center / cover no-repeat #1a1921;
   text-align: center;
   overflow: hidden;
 }

@@ -1,22 +1,22 @@
 import { ref, onMounted, onBeforeUnmount } from "vue";
-import card1Pc from "@/static/home/step_1_1_pc.png";
-import card2Pc from "@/static/home/step_1_2_pc.png";
-import card3Pc from "@/static/home/step_1_3_pc.png";
-import stat1Pc from "@/static/home/step_1_4_pc.png";
-import stat2Pc from "@/static/home/step_1_5_pc.png";
-import stat3Pc from "@/static/home/step_1_6_pc.png";
-import stat4Pc from "@/static/home/step_1_7_pc.png";
-import cardBgDefaultPc from "@/static/home/step_1_default_pc.png";
-import cardBgActivePc from "@/static/home/step_1_active_pc.png";
+import card1Pc from "@/static/home/step_1_1_pc.avif";
+import card2Pc from "@/static/home/step_1_2_pc.avif";
+import card3Pc from "@/static/home/step_1_3_pc.avif";
+import stat1Pc from "@/static/home/step_1_4_pc.avif";
+import stat2Pc from "@/static/home/step_1_5_pc.avif";
+import stat3Pc from "@/static/home/step_1_6_pc.avif";
+import stat4Pc from "@/static/home/step_1_7_pc.avif";
+import cardBgDefaultPc from "@/static/home/step_1_default_pc.avif";
+import cardBgActivePc from "@/static/home/step_1_active_pc.avif";
 
-import card1H5 from "@/static/home/step_1_1_H5.png";
-import card2H5 from "@/static/home/step_1_2_H5.png";
-import card3H5 from "@/static/home/step_1_3_H5.png";
-import stat1H5 from "@/static/home/step_1_4_H5.png";
-import stat2H5 from "@/static/home/step_1_5_H5.png";
-import stat3H5 from "@/static/home/step_1_6_H5.png";
-import stat4H5 from "@/static/home/step_1_7_H5.png";
-import cardBgDefaultH5 from "@/static/home/step_1_default_H5.png";
+import card1H5 from "@/static/home/step_1_1_H5.avif";
+import card2H5 from "@/static/home/step_1_2_H5.avif";
+import card3H5 from "@/static/home/step_1_3_H5.avif";
+import stat1H5 from "@/static/home/step_1_4_H5.avif";
+import stat2H5 from "@/static/home/step_1_5_H5.avif";
+import stat3H5 from "@/static/home/step_1_6_H5.avif";
+import stat4H5 from "@/static/home/step_1_7_H5.avif";
+import cardBgDefaultH5 from "@/static/home/step_1_default_H5.avif";
 import router from "@/router";
 
 interface ServiceCard {

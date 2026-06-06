@@ -212,16 +212,16 @@
 import { ref, computed } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { consultAllArticles } from "@/utils/consultArticles";
-import logoUrl from "@/static/home/logo.png";
-import logoUrl_h5 from "@/static/home/logo_h5.png";
+import logoUrl from "@/static/home/logo.avif";
+import logoUrl_h5 from "@/static/home/logo_h5.avif";
 import Search from "@/static/home/svg/search.svg?component";
 import Menu from "@/static/home/svg/menu.svg?component";
 import Telegrim from "@/static/home/svg/Telegrim.svg?component";
 import Close from "@/static/home/svg/close.svg?component";
-import telegramIcon from "@/static/home/Telegram.png";
-import whatsappIcon from "@/static/home/Whatsapp.png";
-import facebookIcon from "@/static/home/Facebook.png";
-import tiktokIcon from "@/static/home/Tiktok.png";
+import telegramIcon from "@/static/home/Telegram.avif";
+import whatsappIcon from "@/static/home/Whatsapp.avif";
+import facebookIcon from "@/static/home/Facebook.avif";
+import tiktokIcon from "@/static/home/Tiktok.avif";
 import { LINK, openLink } from "@/utils/jumpLink";
 
 interface SocialItem {

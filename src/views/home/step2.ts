@@ -1,13 +1,13 @@
 import { onBeforeUnmount, onMounted, ref } from "vue";
-import phonePc from "@/static/home/step_2/step_2_1_pc.png";
-import phoneH5 from "@/static/home/step_2/step_2_1_H5.png";
+import phonePc from "@/static/home/step_2/step_2_1_pc.avif";
+import phoneH5 from "@/static/home/step_2/step_2_1_H5.avif";
 import icon1 from "@/static/home/step_2/step_2_icon_1.svg?url";
 import icon2 from "@/static/home/step_2/step_2_icon_2.svg?url";
 import icon3 from "@/static/home/step_2/step_2_icon_3.svg?url";
 import icon4 from "@/static/home/step_2/step_2_icon_4.svg?url";
-import featureBgDefaultPc from "@/static/home/step_2/step_2_default_pc.png";
-import featureBgActivePc from "@/static/home/step_2/step_2_active_pc.png";
-import featureBgDefaultH5 from "@/static/home/step_2/step_2_default_H5.png";
+import featureBgDefaultPc from "@/static/home/step_2/step_2_default_pc.avif";
+import featureBgActivePc from "@/static/home/step_2/step_2_active_pc.avif";
+import featureBgDefaultH5 from "@/static/home/step_2/step_2_default_H5.avif";
 
 interface FeatureCard {
   icon: string;
