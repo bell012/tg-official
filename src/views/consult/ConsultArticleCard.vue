@@ -85,12 +85,11 @@ withDefaults(
   transform: scale(1.22);
 }
 
-/* Figma PC — 454×620，圆角 30，边框 #322E28，背景 #1A1921 */
+/* Figma PC — 454×620，圆角 30，边框 #322E28，背景 #1A1921；图区固定 1:1 自适应宽度 */
 .consult-card--pc {
   display: flex;
   flex-direction: column;
   width: 100%;
-  min-height: 620px;
   border: 1px solid #322e28;
   border-radius: 30px;
   background: #1a1921;
@@ -98,7 +97,7 @@ withDefaults(
 
   .consult-card__media {
     width: 100%;
-    height: 455px;
+    aspect-ratio: 1 / 1;
     flex-shrink: 0;
     overflow: hidden;
   }

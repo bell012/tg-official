@@ -26,7 +26,9 @@
           >
             <img :src="tgIconUrl" alt="" class="h-[36px] w-[36px]" />
             财富之路请联系：
-            <span class="text-[30px] font-[400] text-[#FFC16F]">@TGbw88888888</span>
+            <span class="text-[30px] font-[400] text-[#FFC16F]"
+              >@TGbw88888888</span
+            >
           </button>
         </div>
       </div>
@@ -171,12 +173,12 @@
             <img
               :src="phonePc"
               alt="APP/H5演示"
-              class="reveal-card w-full h-[821px]"
+              class="reveal-card w-full min-h-[800px]"
               :class="{ 'is-visible': step2VisiblePc }"
               :style="{ transitionDelay: '200ms' }"
             />
             <div
-              class="reveal-card rounded-[10px] border border-[#322E28] bg-[#1A1921] px-[43px] pt-[60px] pb-[50px]"
+              class="reveal-card rounded-[30px] border border-[#322E28] bg-[#1A1921] px-[43px] pt-[60px] pb-[50px]"
               :class="{ 'is-visible': step2VisiblePc }"
               :style="{ transitionDelay: '400ms' }"
             >
@@ -277,7 +279,10 @@
             :style="{ transitionDelay: '400ms' }"
           >
             <div class="marquee marquee-pc">
-              <div class="marquee-track marquee-rtl">
+              <div
+                class="marquee-track"
+                v-marquee="{ direction: 'rtl', speed: 40 }"
+              >
                 <div
                   v-for="(src, i) in brandLogosLoop"
                   :key="`pc-brand-${i}`"
@@ -289,7 +294,10 @@
             </div>
 
             <div class="marquee marquee-pc mt-[30px]">
-              <div class="marquee-track marquee-ltr">
+              <div
+                class="marquee-track"
+                v-marquee="{ direction: 'ltr', speed: 40 }"
+              >
                 <div
                   v-for="(src, i) in sportsGamesLoop"
                   :key="`pc-sport-${i}`"
@@ -301,7 +309,10 @@
             </div>
 
             <div class="marquee marquee-pc mt-[30px]">
-              <div class="marquee-track marquee-rtl">
+              <div
+                class="marquee-track"
+                v-marquee="{ direction: 'rtl', speed: 40 }"
+              >
                 <div
                   v-for="(src, i) in boardGamesLoop"
                   :key="`pc-game-${i}`"
@@ -360,7 +371,7 @@
               :class="{ 'is-visible': step4VisiblePc }"
               :style="{ transitionDelay: `${(i + 1) * 200}ms` }"
             >
-              <div class="w-full h-[456px] flex-shrink-0 overflow-hidden">
+              <div class="w-full aspect-square flex-shrink-0 overflow-hidden">
                 <img
                   :src="article.pcImage"
                   :alt="article.title"
@@ -464,7 +475,9 @@
           <p class="mt-[7px] text-sm font-[500] text-white">
             加入TG包网 开启您的财富时代
           </p>
-          <div class="mt-[50px] text-base font-[500] text-white">财富之路请联系</div>
+          <div class="mt-[50px] text-base font-[500] text-white">
+            财富之路请联系
+          </div>
           <button
             type="button"
             class="mt-[10px] w-[280px] h-[50px] flex items-center justify-center gap-[5px] rounded-[10px] bg-[#FFC16F]/60 backdrop-blur-[5px] text-[22px] font-[600] text-white"
@@ -480,10 +493,7 @@
         style="background-image: url('/src/static/home/homeBG_H5.avif')"
       >
         <!-- H5步骤1 -->
-        <section
-          ref="step1RootH5"
-          class="w-full h-full pt-[16px] pb-[30px]"
-        >
+        <section ref="step1RootH5" class="w-full h-full pt-[16px] pb-[30px]">
           <div
             class="reveal-card flex flex-col items-center"
             :class="{ 'is-visible': cardsVisibleH5 }"
@@ -690,7 +700,10 @@
             :style="{ transitionDelay: '400ms' }"
           >
             <div class="marquee">
-              <div class="marquee-track marquee-rtl">
+              <div
+                class="marquee-track"
+                v-marquee="{ direction: 'rtl', speed: 20 }"
+              >
                 <div
                   v-for="(src, i) in brandLogosLoop"
                   :key="`b-${i}`"
@@ -702,7 +715,10 @@
             </div>
 
             <div class="marquee mt-[10px]">
-              <div class="marquee-track marquee-ltr">
+              <div
+                class="marquee-track"
+                v-marquee="{ direction: 'ltr', speed: 20 }"
+              >
                 <div
                   v-for="(src, i) in sportsGamesLoop"
                   :key="`s-${i}`"
@@ -714,7 +730,10 @@
             </div>
 
             <div class="marquee mt-[10px]">
-              <div class="marquee-track marquee-rtl">
+              <div
+                class="marquee-track"
+                v-marquee="{ direction: 'rtl', speed: 20 }"
+              >
                 <div
                   v-for="(src, i) in boardGamesLoop"
                   :key="`g-${i}`"
@@ -763,7 +782,10 @@
               :class="{ 'is-visible': step4VisibleH5 }"
               :style="{ transitionDelay: `${(i + 1) * 200}ms` }"
             >
-              <div class="h-[195px] w-full flex-shrink-0 overflow-hidden">
+              <!-- h-[calc(585/1125*100vw)] -->
+              <div
+                class="consult-card__media w-full flex-shrink-0 overflow-hidden"
+              >
                 <img
                   :src="article.h5Image"
                   :alt="article.title"
@@ -839,6 +861,7 @@
 </template>
 
 <script setup lang="ts">
+import type { DirectiveBinding } from "vue";
 import { RouterLink } from "vue-router";
 import { useStep1 } from "./step1";
 import { useStep2 } from "./step2";
@@ -851,6 +874,47 @@ import { LINK, openLink } from "@/utils/jumpLink";
 
 const handleTgClick = () => {
   openLink(LINK.telegram);
+};
+
+// JS 驱动的跑马灯，避开 iOS WebKit 对 CSS infinite 动画的节流，确保各端速度一致
+interface MarqueeOptions {
+  speed?: number;
+  direction?: "rtl" | "ltr";
+}
+const vMarquee = {
+  mounted(el: HTMLElement, binding: DirectiveBinding<MarqueeOptions | undefined>) {
+    const speed = binding.value?.speed ?? 60;
+    const direction = binding.value?.direction ?? "rtl";
+    let rafId = 0;
+    let lastTime = 0;
+    let offset = 0;
+    let halfWidth = 0;
+    const measure = () => {
+      halfWidth = el.scrollWidth / 2;
+    };
+    const tick = (now: number) => {
+      if (!halfWidth) measure();
+      const dt = lastTime ? Math.min((now - lastTime) / 1000, 0.1) : 0;
+      lastTime = now;
+      if (halfWidth > 0) {
+        offset = (offset + speed * dt) % halfWidth;
+        const x = direction === "rtl" ? -offset : offset - halfWidth;
+        el.style.transform = `translate3d(${x}px, 0, 0)`;
+      }
+      rafId = requestAnimationFrame(tick);
+    };
+    const ro = new ResizeObserver(measure);
+    ro.observe(el);
+    measure();
+    rafId = requestAnimationFrame(tick);
+    (el as HTMLElement & { __marqueeStop?: () => void }).__marqueeStop = () => {
+      cancelAnimationFrame(rafId);
+      ro.disconnect();
+    };
+  },
+  beforeUnmount(el: HTMLElement) {
+    (el as HTMLElement & { __marqueeStop?: () => void }).__marqueeStop?.();
+  },
 };
 
 const {
@@ -897,13 +961,8 @@ const {
   step3VisibleH5,
 } = useStep3();
 
-const {
-  articles,
-  step4RootPc,
-  step4RootH5,
-  step4VisiblePc,
-  step4VisibleH5,
-} = useStep4();
+const { articles, step4RootPc, step4RootH5, step4VisiblePc, step4VisibleH5 } =
+  useStep4();
 
 const {
   joinBgPc,
@@ -981,12 +1040,8 @@ const {
 .marquee-track {
   display: flex;
   width: max-content;
-  animation-duration: 25s;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
-}
-.marquee-pc .marquee-track {
-  animation-duration: 40s;
+  will-change: transform;
+  backface-visibility: hidden;
 }
 .marquee-item {
   flex-shrink: 0;
@@ -995,26 +1050,7 @@ const {
 .marquee-pc .marquee-item {
   margin-right: 20px;
 }
-.marquee-rtl {
-  animation-name: marquee-rtl;
-}
-.marquee-ltr {
-  animation-name: marquee-ltr;
-}
-@keyframes marquee-rtl {
-  0% {
-    transform: translate3d(0, 0, 0);
-  }
-  100% {
-    transform: translate3d(-50%, 0, 0);
-  }
-}
-@keyframes marquee-ltr {
-  0% {
-    transform: translate3d(-50%, 0, 0);
-  }
-  100% {
-    transform: translate3d(0, 0, 0);
-  }
+.consult-card__media {
+  height: h5(585);
 }
 </style>
