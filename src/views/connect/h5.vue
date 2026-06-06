@@ -237,7 +237,7 @@ const features = [
   align-items: center;
   padding: h5(60) 0;
   border: h5(1) solid #6F502A;
-  border-radius: h5(24);
+  border-radius: h5(30);
   background: url("@/static/about/h5Back.avif") center / cover no-repeat #1a1921;
   text-align: center;
   overflow: hidden;
@@ -248,6 +248,10 @@ const features = [
   height: h5(180);
   object-fit: contain;
   margin-bottom: h5(18);
+  fill: rgba(255, 193, 111, 0.10);
+  stroke-width: 2.455px;
+  stroke: rgba(255, 193, 111, 0.00);
+  filter: drop-shadow(0 0 98.182px rgba(255, 193, 111, 0.30));
 }
 
 .connect-h5__card-title {
@@ -309,7 +313,7 @@ const features = [
   position: relative;
   overflow: hidden;
   border: h5(1) solid rgba(255, 193, 111, 0.22);
-  border-radius: h5(24);
+  border-radius: h5(30);
 }
 
 .connect-h5__cooperate-bg {

@@ -344,7 +344,7 @@ import { LINK } from "@/utils/jumpLink";
 .about-h5__value-card {
   position: relative;
   overflow: hidden;
-  border-radius: h5(16);
+  border-radius: h5(30);
   min-height: h5(300);
   border: h5(1) solid rgba(255, 193, 111, 0.12);
   background: #12121b;
@@ -374,6 +374,10 @@ import { LINK } from "@/utils/jumpLink";
   width: h5(180);
   height: h5(180);
   margin: 0 auto h5(14);
+  fill: rgba(255, 193, 111, 0.10);
+  stroke-width: 2.455px;
+  stroke: rgba(255, 193, 111, 0.00);
+  filter: drop-shadow(0 0 98.182px rgba(255, 193, 111, 0.30));
 }
 
 .about-h5__value-title {
@@ -500,7 +504,7 @@ import { LINK } from "@/utils/jumpLink";
 .about-h5__testimonial {
   margin: 0;
   padding: h5(36) h5(34);
-  border-radius: h5(24);
+  border-radius: h5(30);
   border: h5(1) solid #ffc16f;
   background: rgba(159, 116, 59, 0.58);
   box-shadow: 0 h5(12) h5(30) rgba(0, 0, 0, 0.24);
@@ -574,7 +578,7 @@ import { LINK } from "@/utils/jumpLink";
 }
 
 .about-h5__member-card {
-  border-radius: h5(18);
+  border-radius: h5(30);
   overflow: hidden;
   background: rgba(255, 255, 255, 0.04);
   border: h5(1) solid rgba(255, 255, 255, 0.08);
@@ -629,7 +633,7 @@ import { LINK } from "@/utils/jumpLink";
 .about-h5__promo {
   position: relative;
   height: h5(1217);
-  border-radius: h5(16);
+  border-radius: h5(30);
   overflow: hidden;
   margin-bottom: h5(54);
   min-height: h5(760);

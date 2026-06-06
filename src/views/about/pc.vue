@@ -562,6 +562,10 @@ const statIconMap: Record<string, Component> = {
   max-width: none;
   object-fit: contain;
   margin-bottom: 20px;
+  fill: rgba(255, 193, 111, 0.10);
+  stroke-width: 1.364px;
+  stroke: rgba(255, 193, 111, 0.00);
+  filter: drop-shadow(0 0 54.545px rgba(255, 193, 111, 0.30));
 }
 
 .about-pc__value-title {
@@ -793,7 +797,7 @@ const statIconMap: Record<string, Component> = {
 }
 
 .about-pc__member-card {
-  border-radius: 16px;
+  border-radius: 30px;
   overflow: hidden;
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.06);
@@ -863,7 +867,7 @@ const statIconMap: Record<string, Component> = {
 /* 促销 */
 .about-pc__promo {
   position: relative;
-  border-radius: 16px;
+  border-radius: 30px;
   overflow: hidden;
   min-height: 320px;
 }

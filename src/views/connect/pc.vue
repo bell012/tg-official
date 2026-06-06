@@ -285,6 +285,10 @@ const features = [
   height: 96px;
   object-fit: contain;
   margin-bottom: 10px;
+  fill: rgba(255, 193, 111, 0.10);
+  stroke-width: 1.364px;
+  stroke: rgba(255, 193, 111, 0.00);
+  filter: drop-shadow(0 0 54.545px rgba(255, 193, 111, 0.30));
 }
 
 .connect-pc__card-title {
@@ -320,7 +324,7 @@ const features = [
   padding: 15px 42px;
   height: 42px;
   border: 1px solid rgba(255, 193, 111, 0.7);
-  border-radius: 6px;
+  border-radius: 10px;
   color: #ffc16f;
   
   font-size: 20px;
@@ -451,7 +455,7 @@ const features = [
   gap: 10px;
   height: 44px;
   padding: 10px 66px;
-  border-radius: 6px;
+  border-radius: 10px;
   font-size: 20px;
   font-weight: 600;
   text-decoration: none;
