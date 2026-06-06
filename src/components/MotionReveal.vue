@@ -3,9 +3,10 @@
     ref="el"
     class="motion-reveal"
     :class="{ 'is-revealed': isRevealed }"
-    :style="delayStyle"
   >
-    <slot />
+    <div class="motion-reveal__inner" :style="delayStyle">
+      <slot />
+    </div>
   </div>
 </template>
 

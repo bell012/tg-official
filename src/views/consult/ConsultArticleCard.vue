@@ -1,5 +1,5 @@
 <template>
-  <MotionReveal :stagger-index="staggerIndex">
+  <MotionReveal v-if="reveal" :stagger-index="staggerIndex">
     <RouterLink
       :to="`/consult/${article.id}`"
       class="consult-card-link"
@@ -11,7 +11,9 @@
             class="consult-card__image"
             :src="image"
             :alt="article.title"
-            loading="lazy"
+            width="1041"
+            height="585"
+            :loading="imageLoading"
             decoding="async"
           />
         </div>
@@ -19,6 +21,27 @@
       </article>
     </RouterLink>
   </MotionReveal>
+  <RouterLink
+    v-else
+    :to="`/consult/${article.id}`"
+    class="consult-card-link"
+    :class="`consult-card-link--${variant}`"
+  >
+    <article class="consult-card" :class="`consult-card--${variant}`">
+      <div class="consult-card__media">
+        <img
+          class="consult-card__image"
+          :src="image"
+          :alt="article.title"
+          width="1041"
+          height="585"
+          :loading="imageLoading"
+          decoding="async"
+        />
+      </div>
+      <h2 class="consult-card__title">{{ article.title }}</h2>
+    </article>
+  </RouterLink>
 </template>
 
 <script setup lang="ts">
@@ -26,12 +49,20 @@ import { RouterLink } from "vue-router";
 import MotionReveal from "@/components/MotionReveal.vue";
 import type { ConsultArticle } from "./articles";
 
-defineProps<{
-  article: ConsultArticle;
-  image: string;
-  variant: "pc" | "h5";
-  staggerIndex?: number;
-}>();
+withDefaults(
+  defineProps<{
+    article: ConsultArticle;
+    image: string;
+    variant: "pc" | "h5";
+    staggerIndex?: number;
+    reveal?: boolean;
+    imageLoading?: "eager" | "lazy";
+  }>(),
+  {
+    reveal: true,
+    imageLoading: "lazy",
+  }
+);
 </script>
 
 <style scoped lang="scss">
@@ -49,8 +80,8 @@ defineProps<{
   -webkit-tap-highlight-color: transparent;
 }
 
-.consult-card-link:hover .consult-card__image,
-.consult-card-link:focus-visible .consult-card__image {
+.consult-card-link--pc:hover .consult-card__image,
+.consult-card-link--pc:focus-visible .consult-card__image {
   transform: scale(1.22);
 }
 
@@ -97,6 +128,7 @@ defineProps<{
   display: flex;
   flex-direction: column;
   width: 100%;
+  min-height: calc(#{h5(585)} + #{h5(200)});
   border: 1px solid #322e28;
   border-radius: h5(30);
   background: #1a1921;
@@ -114,7 +146,6 @@ defineProps<{
     height: 100%;
     object-fit: cover;
     display: block;
-    transition: transform 0.5s cubic-bezier(0.2, 1, 0.2, 1);
   }
 
   .consult-card__title {
@@ -133,8 +164,8 @@ defineProps<{
     transition: none;
   }
 
-  .consult-card-link:hover .consult-card__image,
-  .consult-card-link:focus-visible .consult-card__image {
+  .consult-card-link--pc:hover .consult-card__image,
+  .consult-card-link--pc:focus-visible .consult-card__image {
     transform: none;
   }
 }

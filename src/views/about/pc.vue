@@ -3,7 +3,9 @@
     <!-- Hero -->
     <section class="about-pc__hero max-w-[1440px] mx-auto">
       <div class="about-pc__hero-title-box">
-        <span class="about-pc__hero-watermark" aria-hidden="true">关于我们</span>
+        <span class="about-pc__hero-watermark" aria-hidden="true"
+          >关于我们</span
+        >
         <h1 class="about-pc__hero-title">关于我们</h1>
       </div>
       <p class="about-pc__hero-intro">{{ aboutHeroIntro }}</p>
@@ -12,7 +14,11 @@
     <!-- 集团介绍 -->
     <section class="about-pc__intro max-w-[1440px] mx-auto">
       <div class="about-pc__intro-image-wrap">
-        <img :src="introImage" alt="集团总部夜景" class="about-pc__intro-image" />
+        <img
+          :src="introImage"
+          alt="集团总部夜景"
+          class="about-pc__intro-image"
+        />
       </div>
       <div class="about-pc__intro-content">
         <span class="about-pc__intro-label">{{ groupIntro.label }}</span>
@@ -33,9 +39,13 @@
     <!-- 核心价值观 -->
     <section class="about-pc__values max-w-[1440px] mx-auto">
       <div class="about-pc__values-head">
-        <span class="about-pc__values-label">{{ coreValuesSection.label }}</span>
+        <span class="about-pc__values-label">{{
+          coreValuesSection.label
+        }}</span>
         <h2 class="about-pc__values-title">
-          <span class="about-pc__values-title-text">{{ coreValuesSection.title }}</span>
+          <span class="about-pc__values-title-text">{{
+            coreValuesSection.title
+          }}</span>
           <img
             :src="introDivider"
             alt=""
@@ -51,7 +61,12 @@
           :key="item.title"
           class="about-pc__value-card"
         >
-          <img :src="valueCardBg" alt="" class="about-pc__value-card-bg" aria-hidden="true" />
+          <img
+            :src="valueCardBg"
+            alt=""
+            class="about-pc__value-card-bg"
+            aria-hidden="true"
+          />
           <img
             :src="valueCardHoverBg"
             alt=""
@@ -63,7 +78,6 @@
               :src="item.icon"
               :alt="item.title"
               class="about-pc__value-icon"
-             
             />
             <h3 class="about-pc__value-title">{{ item.title }}</h3>
             <p class="about-pc__value-desc">{{ item.desc }}</p>
@@ -75,14 +89,17 @@
 
     <!-- 客户评价 -->
     <section class="about-pc__reviews">
-      <img :src="reviewsBg" alt="" class="about-pc__reviews-bg" aria-hidden="true" />
+      <img
+        :src="reviewsBg"
+        alt=""
+        class="about-pc__reviews-bg"
+        aria-hidden="true"
+      />
       <div class="about-pc__reviews-overlay" aria-hidden="true" />
       <div class="about-pc__reviews-inner">
         <div class="about-pc__reviews-left">
           <span class="about-pc__label">客户评价</span>
-          <h2 class="about-pc__reviews-title">
-            客户满意  成就我们
-          </h2>
+          <h2 class="about-pc__reviews-title">客户满意 成就我们</h2>
           <blockquote class="about-pc__reviews-quote">
             <img
               :src="quoteLeft"
@@ -91,7 +108,9 @@
               aria-hidden="true"
             />
             <p class="about-pc__reviews-quote-text">
-              <span class="about-pc__reviews-quote-content">{{ reviewsQuote }}</span>
+              <span class="about-pc__reviews-quote-content">{{
+                reviewsQuote
+              }}</span>
               <img
                 :src="quoteRight"
                 alt=""
@@ -101,8 +120,16 @@
             </p>
           </blockquote>
           <ul class="about-pc__stats">
-            <li v-for="stat in reviewStats" :key="stat.label" class="about-pc__stat">
-              <component :is="statIconMap[stat.icon]" class="about-pc__stat-icon" aria-hidden="true" />
+            <li
+              v-for="stat in reviewStats"
+              :key="stat.label"
+              class="about-pc__stat"
+            >
+              <component
+                :is="statIconMap[stat.icon]"
+                class="about-pc__stat-icon"
+                aria-hidden="true"
+              />
               <div>
                 <strong class="about-pc__stat-value">{{ stat.value }}</strong>
                 <span class="about-pc__stat-label">{{ stat.label }}</span>
@@ -112,12 +139,22 @@
         </div>
         <article class="about-pc__testimonial">
           <div class="about-pc__stars" aria-label="五星好评">
-            <img v-for="n in 5" :key="n" :src="starIcon" alt="" class="about-pc__star" />
+            <img
+              v-for="n in 5"
+              :key="n"
+              :src="starIcon"
+              alt=""
+              class="about-pc__star"
+            />
           </div>
           <h3 class="about-pc__testimonial-title">{{ testimonial.title }}</h3>
           <p class="about-pc__testimonial-body">{{ testimonial.body }}</p>
           <footer class="about-pc__testimonial-author">
-            <img :src="founderPhoto" :alt="testimonial.name" class="about-pc__author-avatar" />
+            <img
+              :src="founderPhoto"
+              :alt="testimonial.name"
+              class="about-pc__author-avatar"
+            />
             <div>
               <p class="about-pc__author-name">{{ testimonial.name }}</p>
               <p class="about-pc__author-role">{{ testimonial.role }}</p>
@@ -152,14 +189,26 @@
             <h3 class="about-pc__member-name">{{ member.name }}</h3>
             <p class="about-pc__member-role">{{ member.role }}</p>
             <div class="about-pc__member-social">
-              <a :href="LINK.telegram" target="_blank" rel="noopener noreferrer" class="about-pc__social-link" aria-label="Telegram">
+              <a
+                :href="LINK.telegram"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="about-pc__social-link"
+                aria-label="Telegram"
+              >
                 <img :src="iconTg" alt="" />
               </a>
-              <a :href="LINK.whatsapp" target="_blank" rel="noopener noreferrer" class="about-pc__social-link" aria-label="WhatsApp">
+              <a
+                :href="LINK.whatsapp"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="about-pc__social-link"
+                aria-label="WhatsApp"
+              >
                 <img :src="iconWhatsApp" alt="" />
               </a>
               <a
-                :href="LINK.facebook"
+                href="/about"
                 target="_blank"
                 rel="noopener noreferrer"
                 class="about-pc__social-link"
@@ -175,7 +224,12 @@
 
     <!-- 促销横幅 -->
     <section class="about-pc__promo max-w-[1440px] mx-auto">
-      <img :src="promoBg" alt="" class="about-pc__promo-bg" aria-hidden="true" />
+      <img
+        :src="promoBg"
+        alt=""
+        class="about-pc__promo-bg"
+        aria-hidden="true"
+      />
       <div class="about-pc__promo-inner">
         <div class="about-pc__promo-content">
           <p class="about-pc__promo-tag">{{ promo.tag }}</p>
@@ -183,9 +237,11 @@
           <p class="about-pc__promo-desc">{{ promo.desc1 }}</p>
           <p class="about-pc__promo-desc">{{ promo.desc2 }}</p>
           <p class="about-pc__promo-desc">{{ promo.desc3 }}</p>
-         
+
           <RouterLink to="/about">
-            <button type="button" class="about-pc__promo-btn">{{ promo.cta }}</button>
+            <button type="button" class="about-pc__promo-btn">
+              {{ promo.cta }}
+            </button>
           </RouterLink>
         </div>
       </div>
@@ -267,7 +323,11 @@ const statIconMap: Record<string, Component> = {
   font-weight: 700;
   font-size: 150px;
   line-height: 1;
-  background: linear-gradient(180deg, rgba(194, 194, 194, 1) 14%, rgba(13, 12, 20, 1) 84%);
+  background: linear-gradient(
+    180deg,
+    rgba(194, 194, 194, 1) 14%,
+    rgba(13, 12, 20, 1) 84%
+  );
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -286,7 +346,7 @@ const statIconMap: Record<string, Component> = {
   display: flex;
   align-items: center;
   justify-content: center;
-  
+
   font-weight: 600;
   font-size: 100px;
   line-height: 1;
@@ -324,7 +384,7 @@ const statIconMap: Record<string, Component> = {
 }
 
 .about-pc__label {
-  color: #FFC16F;
+  color: #ffc16f;
   font-family: "PingFang SC";
   font-size: 30px;
   font-weight: 600;
@@ -342,12 +402,12 @@ const statIconMap: Record<string, Component> = {
   margin-bottom: 12px;
   font-size: 14px;
   font-weight: 400;
-  
+
   text-transform: uppercase;
-  color: #FFC16F;
+  color: #ffc16f;
 }
 
-.about-pc__intro-title {  
+.about-pc__intro-title {
   position: relative;
   display: inline-flex;
   flex-direction: column;
@@ -360,7 +420,6 @@ const statIconMap: Record<string, Component> = {
 }
 
 .about-pc__intro-title-text {
-
   display: block;
   font-size: 50px;
   line-height: 1;
@@ -411,7 +470,7 @@ const statIconMap: Record<string, Component> = {
   margin-bottom: 12px;
   font-size: 14px;
   font-weight: 400;
-  
+
   text-transform: uppercase;
   color: #ffc16f;
 }
@@ -507,7 +566,7 @@ const statIconMap: Record<string, Component> = {
   margin: 0 0 16px;
   font-size: 24px;
   font-weight: 600;
-  color: #FFF;
+  color: #fff;
 }
 
 .about-pc__value-desc {
@@ -609,46 +668,45 @@ const statIconMap: Record<string, Component> = {
   display: flex;
   align-items: center;
   gap: 12px;
-  
 }
 
 .about-pc__stat-icon {
   width: 42px;
   height: 42px;
   flex-shrink: 0;
-  color: #FFC16F;
+  color: #ffc16f;
 }
 
 .about-pc__stat-value {
-  color: #FFC16F;
+  color: #ffc16f;
   font-family: "PingFang SC";
   font-size: 18px;
-  
+
   font-weight: 600;
-  
+
   text-transform: capitalize;
 }
 
 .about-pc__stat-label {
   display: block;
-  color: #C2C2C2;
+  color: #c2c2c2;
   font-family: "PingFang SC";
   font-size: 18px;
-  
+
   font-weight: 400;
-  
+
   margin-top: 2px;
 }
 
 .about-pc__testimonial {
   width: 592px;
-  
+
   justify-self: start;
   margin-bottom: 8px;
   padding: 48px;
   border-radius: 30px;
-  border: 1px solid #FFC16F;
-  background: rgba(159, 116, 59, 0.50);
+  border: 1px solid #ffc16f;
+  background: rgba(159, 116, 59, 0.5);
 }
 
 .about-pc__stars {
@@ -665,18 +723,17 @@ const statIconMap: Record<string, Component> = {
 .about-pc__testimonial-title {
   margin: 0 0 24px;
   font-size: 30px;
-  
+
   font-weight: 600;
 }
 
 .about-pc__testimonial-body {
   margin: 0 0 24px;
-  color: #C2C2C2;
+  color: #c2c2c2;
   font-family: "PingFang SC";
   font-size: 18px;
-  
+
   font-weight: 400;
-  
 }
 
 .about-pc__testimonial-author {
@@ -697,19 +754,17 @@ const statIconMap: Record<string, Component> = {
   font-size: 18px;
   font-weight: 600;
   letter-spacing: 0.04em;
-  color: #FFC16F;
+  color: #ffc16f;
   font-family: "PingFang SC";
   font-weight: 600;
-  
 }
 
 .about-pc__author-role {
   margin: 4px 0 0;
-  color: #C2C2C2;
-font-family: "PingFang SC";
-font-size: 18px;
-font-weight: 400;
-
+  color: #c2c2c2;
+  font-family: "PingFang SC";
+  font-size: 18px;
+  font-weight: 400;
 }
 
 /* 团队 */
@@ -761,26 +816,26 @@ font-weight: 400;
 }
 
 .about-pc__member-name {
-text-align: center;
-font-family: "PingFang SC";
-font-size: 30px;
-font-style: normal;
-font-weight: 600;
-line-height: normal;
-text-transform: capitalize;
+  text-align: center;
+  font-family: "PingFang SC";
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  text-transform: capitalize;
 }
 
 .about-pc__member-role {
-  color: var(---, #FFC16F);
-text-align: center;
-font-family: "PingFang SC";
-font-size: 18px;
-font-style: normal;
-font-weight: 400;
-line-height: normal;
-text-transform: capitalize;
-margin-top: 10px;
-margin-bottom: 30px;
+  color: var(---, #ffc16f);
+  text-align: center;
+  font-family: "PingFang SC";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-transform: capitalize;
+  margin-top: 10px;
+  margin-bottom: 30px;
 }
 
 .about-pc__member-social {
@@ -835,7 +890,7 @@ margin-bottom: 30px;
 }
 
 .about-pc__promo-tag {
-  color: #FFC16F;
+  color: #ffc16f;
   font-family: "PingFang SC";
   font-size: 30px;
   font-style: normal;
@@ -845,7 +900,7 @@ margin-bottom: 30px;
 }
 
 .about-pc__promo-title {
-  color: #FFF;
+  color: #fff;
   font-family: "PingFang SC";
   font-size: 50px;
   font-style: normal;
@@ -856,12 +911,11 @@ margin-bottom: 30px;
 }
 
 .about-pc__promo-desc {
-  color: #C2C2C2;
+  color: #c2c2c2;
   font-family: "PingFang SC";
   font-size: 20px;
   font-style: normal;
   font-weight: 400;
-
 }
 
 .about-pc__promo-btn {

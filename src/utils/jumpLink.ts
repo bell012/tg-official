@@ -1,8 +1,8 @@
 export const LINK = {
   telegram: "https://t.me/TGbw88888888",
   whatsapp: "https://wa.me/639859888888",
-  facebook: "",
-  tiktok: "",
+  facebook: "/",
+  tiktok: "/",
   TGgame: "https://web.txtvv9.top",
 };
 

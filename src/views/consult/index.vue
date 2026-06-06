@@ -1,5 +1,5 @@
 <template>
-  <div class="consult-page page-motion relative min-h-screen overflow-x-hidden text-white">
+  <div class="consult-page relative min-h-screen overflow-x-hidden text-white">
     <ServePageBackground />
     <div class="relative z-[1]">
       <!-- PC — Figma 84:915 -->
@@ -31,7 +31,9 @@
           :article="article"
           :image="article.h5Image"
           variant="h5"
-          :stagger-index="index"
+          :stagger-index="index % 3"
+          :stagger-step="0.12"
+          :image-loading="index < 2 ? 'eager' : 'lazy'"
         />
       </div>
     </div>

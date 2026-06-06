@@ -21,7 +21,7 @@
 </template>
 
 <script setup lang="ts">
-import cardGlow from "@/static/serve/coupon-card-glow.svg";
+import cardGlow from "@/static/serve/coupon-card-glow.svg?url";
 
 defineOptions({ inheritAttrs: false });
 </script>

@@ -1,20 +1,37 @@
 $motion-ease-out: cubic-bezier(0.2, 1, 0.2, 1);
 $motion-reveal-duration: 1.5s;
+$motion-reveal-duration-mobile: 1.2s;
+$motion-reveal-offset: 60px;
+$motion-reveal-offset-mobile: 48px;
 
 .page-motion {
   scroll-behavior: smooth;
 }
 
+/* 外层裁剪位移溢出，避免 transform 撑大滚动区域 */
 .motion-reveal {
+  overflow: hidden;
+}
+
+.motion-reveal__inner {
   opacity: 0.01;
-  transform: translate3d(0, 100px, 0);
+  transform: translate3d(0, $motion-reveal-offset, 0);
   transition:
     opacity $motion-reveal-duration $motion-ease-out,
     transform $motion-reveal-duration $motion-ease-out;
+  will-change: opacity, transform;
 
-  &.is-revealed {
+  .motion-reveal.is-revealed & {
     opacity: 1;
     transform: none;
+    will-change: auto;
+  }
+}
+
+@media (max-width: 1023px) {
+  .motion-reveal__inner {
+    transform: translate3d(0, $motion-reveal-offset-mobile, 0);
+    transition-duration: $motion-reveal-duration-mobile;
   }
 }
 
@@ -23,9 +40,10 @@ $motion-reveal-duration: 1.5s;
     scroll-behavior: auto;
   }
 
-  .motion-reveal {
+  .motion-reveal__inner {
     opacity: 1;
     transform: none;
     transition: none;
+    will-change: auto;
   }
 }
