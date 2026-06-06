@@ -521,7 +521,9 @@ const statIconMap: Record<string, Component> = {
 
 .about-pc__value-card {
   position: relative;
-  border-radius: 16px;
+  border-radius: 30px;
+  width: 460px;
+  height: 324px;
   overflow: hidden;
   min-height: 280px;
 }

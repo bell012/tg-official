@@ -177,7 +177,7 @@
 <script setup lang="ts">
 import introImage from "@/static/about/back.avif";
 import introDivider from "@/static/about/Group3.avif?url";
-import valueCardBg from "@/static/about/Group2.avif";
+import valueCardBg from "@/static/about/h5Group2.avif";
 import valueCardHoverBg from "@/static/about/hover.avif";
 import reviewsBg from "@/static/about/h5EvaluateBack.avif";
 import quoteLeft from "@/static/about/svg/left.svg?url";
@@ -218,7 +218,7 @@ import { LINK } from "@/utils/jumpLink";
 
 .about-h5 {
   width: 100%;
-  padding: h5(48) h5(75) h5(90);
+  padding: h5(48) h5(42) h5(90);
   color: #fff;
 }
 
@@ -312,7 +312,7 @@ import { LINK } from "@/utils/jumpLink";
   justify-content: center;
   margin: 0 0;
   font-family: "PingFang SC", -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: h5(54);
+  font-size: h5(66);
   font-weight: 600;
   line-height: 1.1;
 
@@ -396,8 +396,8 @@ import { LINK } from "@/utils/jumpLink";
 .about-h5__reviews {
   position: relative;
   overflow: hidden;
-  margin: 0 h5(-75) h5(70);
-  padding: h5(72) h5(75) h5(66);
+  margin: 0 h5(-42) h5(70);
+  padding: h5(72) h5(42) h5(66);
 }
 
 .about-h5__reviews-bg {

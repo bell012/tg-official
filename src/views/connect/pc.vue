@@ -17,29 +17,38 @@
         :key="card.title"
         class="connect-pc__card"
       >
-        <img :src="card.icon" alt="" class="connect-pc__card-icon" aria-hidden="true" />
-        <h2 class="connect-pc__card-title">{{ card.title }}</h2>
-        <p
-          v-for="line in card.desc"
-          :key="line"
-          class="connect-pc__card-desc"
-        >
-          {{ line }}
-        </p>
-        <a
-          :href="card.href"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="connect-pc__card-action"
-        >
-          <span>{{ card.action }}</span>
-          <img
-            :src="card.arrowIcon"
-            alt=""
-            class="connect-pc__card-arrow"
-            aria-hidden="true"
-          />
-        </a>
+        <img :src="valueCardBg" alt="" class="connect-pc__card-bg" aria-hidden="true" />
+        <img
+          :src="valueCardHoverBg"
+          alt=""
+          class="connect-pc__card-bg connect-pc__card-bg--hover"
+          aria-hidden="true"
+        />
+        <div class="connect-pc__card-inner">
+          <img :src="card.icon" alt="" class="connect-pc__card-icon" aria-hidden="true" />
+          <h2 class="connect-pc__card-title">{{ card.title }}</h2>
+          <p
+            v-for="line in card.desc"
+            :key="line"
+            class="connect-pc__card-desc"
+          >
+            {{ line }}
+          </p>
+          <a
+            :href="card.href"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="connect-pc__card-action"
+          >
+            <span>{{ card.action }}</span>
+            <img
+              :src="card.arrowIcon"
+              alt=""
+              class="connect-pc__card-arrow"
+              aria-hidden="true"
+            />
+          </a>
+        </div>
       </article>
     </section>
 
@@ -98,6 +107,8 @@
 
 <script setup lang="ts">
 import cooperateBg from "@/static/about/bottomBack1.avif";
+import valueCardBg from "@/static/about/Group4.avif";
+import valueCardHoverBg from "@/static/about/hoverBack.avif";
 import iconTelegram from "@/static/about/svg/icon5.svg?url";
 import iconCooperate from "@/static/about/svg/icon6.svg?url";
 import iconService from "@/static/about/svg/icon7.svg?url";
@@ -217,31 +228,17 @@ const features = [
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
-  max-width: 1200px;
+  max-width: 1440px;
   margin: 0 auto 180px;
-  padding: 0 32px;
 }
 
 .connect-pc__card {
   position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 45px 30px 45px;
-  border: 1px solid rgba(255, 193, 111, 0.18);
-  border-radius: 20px;
-  background:
-    radial-gradient(78% 70% at 0% 0%, rgba(192, 89, 31, 0.32) 0%, rgba(192, 89, 31, 0) 55%),
-    radial-gradient(82% 70% at 100% 100%, rgba(27, 93, 212, 0.26) 0%, rgba(27, 93, 212, 0) 56%),
-    #1a1921;
-  text-align: center;
+  border-radius: 30px;
   overflow: hidden;
-  transition: background 0.25s ease, border-color 0.25s ease;
-
-  &:hover {
-    background: url("@/static/about/hoverBack.avif") center / cover no-repeat;
-    border-color: rgba(255, 193, 111, 0.35);
-  }
+  width: 460px;
+  height: 405px;
+  min-height: 280px;
 
   &:hover .connect-pc__card-action {
     background: #ffc16f;
@@ -252,6 +249,35 @@ const features = [
   &:hover .connect-pc__card-arrow {
     filter: brightness(0);
   }
+}
+
+.connect-pc__card-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+
+.connect-pc__card-bg--hover {
+  opacity: 0;
+}
+
+.connect-pc__card:hover .connect-pc__card-bg--hover {
+  opacity: 1;
+}
+
+.connect-pc__card-inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 48px 30px;
+  text-align: center;
+  height: 100%;
 }
 
 .connect-pc__card-icon {
