@@ -171,12 +171,12 @@
             <img
               :src="phonePc"
               alt="APP/H5演示"
-              class="reveal-card w-full h-[821px]"
+              class="reveal-card w-full min-h-[800px]"
               :class="{ 'is-visible': step2VisiblePc }"
               :style="{ transitionDelay: '200ms' }"
             />
             <div
-              class="reveal-card rounded-[10px] border border-[#322E28] bg-[#1A1921] px-[43px] pt-[60px] pb-[50px]"
+              class="reveal-card rounded-[30px] border border-[#322E28] bg-[#1A1921] px-[43px] pt-[60px] pb-[50px]"
               :class="{ 'is-visible': step2VisiblePc }"
               :style="{ transitionDelay: '400ms' }"
             >
