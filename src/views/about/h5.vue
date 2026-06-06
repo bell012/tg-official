@@ -1,13 +1,10 @@
 <template>
   <div class="about-h5">
-
     <section class="about-h5__group">
       <div class="about-h5__group-content">
-        
         <h2 class="about-h5__group-title">
-          
           <span>{{ groupIntro.title }}</span>
-          
+
           <img :src="introDivider" alt="" aria-hidden="true" />
         </h2>
         <p class="about-h5__group-label">{{ groupIntro.label }}</p>
@@ -18,7 +15,6 @@
     </section>
 
     <section class="about-h5__values">
-      
       <h2 class="about-h5__values-title">
         <span>{{ coreValuesSection.title }}</span>
         <img :src="introDivider" alt="" aria-hidden="true" />
@@ -27,8 +23,17 @@
       <p class="about-h5__values-subtitle">{{ coreValuesSection.subtitle }}</p>
 
       <div class="about-h5__value-list">
-        <article v-for="item in coreValuesH5" :key="item.title" class="about-h5__value-card">
-          <img :src="valueCardBg" alt="" class="about-h5__value-card-bg" aria-hidden="true" />
+        <article
+          v-for="item in coreValuesH5"
+          :key="item.title"
+          class="about-h5__value-card"
+        >
+          <img
+            :src="valueCardBg"
+            alt=""
+            class="about-h5__value-card-bg"
+            aria-hidden="true"
+          />
           <img
             :src="valueCardHoverBg"
             alt=""
@@ -36,7 +41,11 @@
             aria-hidden="true"
           />
           <div class="about-h5__value-content">
-            <img :src="item.icon" :alt="item.title" class="about-h5__value-icon" />
+            <img
+              :src="item.icon"
+              :alt="item.title"
+              class="about-h5__value-icon"
+            />
             <h3 class="about-h5__value-title">{{ item.title }}</h3>
             <p class="about-h5__value-desc">{{ item.desc }}</p>
             <p class="about-h5__value-desc">{{ item.desc2 }}</p>
@@ -46,7 +55,12 @@
     </section>
 
     <section class="about-h5__reviews">
-      <img :src="reviewsBg" alt="" class="about-h5__reviews-bg" aria-hidden="true" />
+      <img
+        :src="reviewsBg"
+        alt=""
+        class="about-h5__reviews-bg"
+        aria-hidden="true"
+      />
       <div class="about-h5__reviews-mask" aria-hidden="true" />
       <div class="about-h5__reviews-inner">
         <p class="about-h5__reviews-label">客户评价</p>
@@ -58,7 +72,11 @@
         </blockquote>
 
         <ul class="about-h5__stats">
-          <li v-for="stat in reviewStats" :key="stat.label" class="about-h5__stat">
+          <li
+            v-for="stat in reviewStats"
+            :key="stat.label"
+            class="about-h5__stat"
+          >
             <img :src="statIconMap[stat.icon]" alt="" aria-hidden="true" />
             <div class="about-h5__stat-content">
               <strong>{{ stat.value }}</strong>
@@ -85,21 +103,48 @@
     </section>
 
     <section class="about-h5__team">
-      <img :src="teamTitleImage" alt="TEAM 我们的团队 OUR TEAM" class="about-h5__team-title-image" />
+      <img
+        :src="teamTitleImage"
+        alt="TEAM 我们的团队 OUR TEAM"
+        class="about-h5__team-title-image"
+      />
       <div class="about-h5__member-list">
-        <article v-for="member in teamMembers" :key="member.name" class="about-h5__member-card">
-          <img :src="member.photo" :alt="member.name" class="about-h5__member-photo" />
+        <article
+          v-for="member in teamMembers"
+          :key="member.name"
+          class="about-h5__member-card"
+        >
+          <img
+            :src="member.photo"
+            :alt="member.name"
+            class="about-h5__member-photo"
+          />
           <div class="about-h5__member-info">
             <p class="about-h5__member-name">{{ member.name }}</p>
             <p class="about-h5__member-role">{{ member.role }}</p>
             <div class="about-h5__member-social">
-              <a :href="LINK.telegram" target="_blank" rel="noopener noreferrer" aria-label="Telegram">
+              <a
+                :href="LINK.telegram"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Telegram"
+              >
                 <img :src="iconTg" alt="" aria-hidden="true" />
               </a>
-              <a :href="LINK.whatsapp" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+              <a
+                :href="LINK.whatsapp"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="WhatsApp"
+              >
                 <img :src="iconWhatsApp" alt="" aria-hidden="true" />
               </a>
-              <a :href="LINK.facebook" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+              <a
+                href="/about"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+              >
                 <img :src="iconFacebook" alt="" aria-hidden="true" />
               </a>
             </div>
@@ -109,12 +154,21 @@
     </section>
 
     <section class="about-h5__promo">
-      <img :src="promoBg" alt="" class="about-h5__promo-bg" aria-hidden="true" />
+      <img
+        :src="promoBg"
+        alt=""
+        class="about-h5__promo-bg"
+        aria-hidden="true"
+      />
       <div class="about-h5__promo-inner">
         <p class="about-h5__promo-tag">{{ promo.tag }}</p>
         <h2 class="about-h5__promo-title">{{ promo.title }}</h2>
-        <p class="about-h5__promo-desc">{{ promo.desc1 }}{{ promo.desc2 }}{{ promo.desc3 }}</p>
-        <RouterLink to="/about" class="about-h5__promo-btn">{{ promo.cta }}</RouterLink>
+        <p class="about-h5__promo-desc">
+          {{ promo.desc1 }}{{ promo.desc2 }}{{ promo.desc3 }}
+        </p>
+        <RouterLink to="/about" class="about-h5__promo-btn">{{
+          promo.cta
+        }}</RouterLink>
       </div>
     </section>
   </div>
@@ -422,7 +476,7 @@ import { LINK } from "@/utils/jumpLink";
     width: h5(75);
     height: h5(75);
   }
-  .about-h5__stat-content{
+  .about-h5__stat-content {
     text-align: left;
     margin-left: h5(15);
   }
@@ -459,7 +513,7 @@ import { LINK } from "@/utils/jumpLink";
 
   p {
     margin: 0 0 h5(30);
-    color: #C2C2C2;
+    color: #c2c2c2;
     font-size: h5(36);
   }
 
@@ -478,7 +532,7 @@ import { LINK } from "@/utils/jumpLink";
 
   strong {
     display: block;
-    color: #FFC16F;
+    color: #ffc16f;
     font-size: h5(30);
     font-weight: 600;
   }
@@ -486,7 +540,7 @@ import { LINK } from "@/utils/jumpLink";
   span {
     display: block;
     margin-top: h5(4);
-    color: #C2C2C2;
+    color: #c2c2c2;
     font-size: h5(30);
     font-weight: 400;
   }
@@ -615,7 +669,7 @@ import { LINK } from "@/utils/jumpLink";
   margin: 0;
   font-family: "PingFang SC", -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: h5(30);
-  color: #C2C2C2;
+  color: #c2c2c2;
 }
 
 .about-h5__promo-btn {
@@ -626,12 +680,11 @@ import { LINK } from "@/utils/jumpLink";
   width: h5(450);
   height: h5(105);
   border-radius: h5(30);
-  border: h5(1) solid #FFC16F;
+  border: h5(1) solid #ffc16f;
   color: #ffc16f;
   background: transparent;
   font-size: h5(42);
   font-weight: 400;
   text-decoration: none;
 }
-
 </style>
