@@ -360,7 +360,7 @@
               :class="{ 'is-visible': step4VisiblePc }"
               :style="{ transitionDelay: `${(i + 1) * 200}ms` }"
             >
-              <div class="w-full h-[456px] flex-shrink-0 overflow-hidden">
+              <div class="w-full aspect-square flex-shrink-0 overflow-hidden">
                 <img
                   :src="article.pcImage"
                   :alt="article.title"
