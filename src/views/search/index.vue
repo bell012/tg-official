@@ -158,6 +158,11 @@ watch(currentPage, () => {
   gap: 39px;
   width: 100%;
   align-items: stretch;
+
+  :deep(.motion-reveal),
+  :deep(.motion-reveal__inner) {
+    height: 100%;
+  }
 }
 
 @media (max-width: 1279px) {

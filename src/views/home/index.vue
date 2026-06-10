@@ -362,12 +362,12 @@
             </div>
           </div>
 
-          <div class="mt-[60px] grid grid-cols-3 gap-[39px]">
+          <div class="mt-[60px] grid grid-cols-3 items-stretch gap-[39px]">
             <RouterLink
               v-for="(article, i) in articles"
               :key="article.id"
               :to="`/consult/${article.id}`"
-              class="group reveal-card flex w-full flex-col overflow-hidden rounded-[30px] border border-[#322E28] bg-[#1A1921] text-inherit no-underline cursor-pointer"
+              class="group reveal-card flex h-full w-full flex-col overflow-hidden rounded-[30px] border border-[#322E28] bg-[#1A1921] text-inherit no-underline cursor-pointer"
               :class="{ 'is-visible': step4VisiblePc }"
               :style="{ transitionDelay: `${(i + 1) * 200}ms` }"
             >
@@ -380,7 +380,9 @@
                   decoding="async"
                 />
               </div>
-              <h3 class="py-[30px] px-[20px] text-[24px] font-[600] text-white">
+              <h3
+                class="flex-1 py-[30px] px-[20px] text-[24px] font-[600] leading-[1.42] text-white min-h-[calc(60px+3*1.42em)]"
+              >
                 {{ article.title }}
               </h3>
             </RouterLink>
@@ -794,7 +796,7 @@
                   decoding="async"
                 />
               </div>
-              <h3 class="p-[14px] text-sm font-[600] text-white">
+              <h3 class="p-[14px] text-sm font-[600] leading-[1.42] text-white">
                 {{ article.title }}
               </h3>
             </RouterLink>

@@ -71,6 +71,7 @@ withDefaults(
 .consult-card-link {
   display: block;
   width: 100%;
+  height: 100%;
   text-decoration: none;
   color: inherit;
   cursor: pointer;
@@ -90,6 +91,7 @@ withDefaults(
   display: flex;
   flex-direction: column;
   width: 100%;
+  height: 100%;
   border: 1px solid #322e28;
   border-radius: 30px;
   background: #1a1921;
@@ -112,8 +114,10 @@ withDefaults(
 
   .consult-card__title {
     flex: 1;
+    box-sizing: border-box;
     margin: 0;
     padding: 30px;
+    min-height: calc(60px + 3 * 1.42em);
     font-family: "PingFang SC", -apple-system, BlinkMacSystemFont, sans-serif;
     font-weight: 600;
     font-size: 24px;
@@ -127,7 +131,6 @@ withDefaults(
   display: flex;
   flex-direction: column;
   width: 100%;
-  min-height: calc(#{h5(585)} + #{h5(200)});
   border: 1px solid #322e28;
   border-radius: h5(30);
   background: #1a1921;
