@@ -29,6 +29,8 @@
             :alt="section.imageAlt"
             class="serve-mobile-section__visual-img"
             :class="{ 'serve-mobile-section__visual-img--flip': section.layout.visual.flipHorizontal }"
+            loading="lazy"
+            decoding="async"
           />
         </div>
       </div>

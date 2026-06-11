@@ -5,7 +5,9 @@
     class="reveal-group"
     :class="{ 'is-revealed': isRevealed, 'reveal-group--passive': !animateSelf }"
   >
-    <slot />
+    <div class="reveal-group__inner">
+      <slot />
+    </div>
   </component>
 </template>
 
@@ -32,28 +34,45 @@ const { isRevealed } = useScrollReveal(el, {
 <style scoped lang="scss">
 .reveal-group {
   width: 100%;
+  overflow: hidden;
+}
+
+.reveal-group__inner {
+  width: 100%;
+  display: inherit;
+  flex-direction: inherit;
+  flex-wrap: inherit;
+  align-items: inherit;
+  justify-content: inherit;
+  gap: inherit;
+  grid-template-columns: inherit;
+  grid-template-rows: inherit;
+  place-items: inherit;
   opacity: 0;
-  transform: translateY(60px);
+  transform: translate3d(0, 60px, 0);
   transition: opacity 400ms ease, transform 400ms ease;
   will-change: opacity, transform;
 }
 
-/*  */
 .reveal-group.reveal-group--passive {
+  overflow: visible;
+}
+
+.reveal-group.reveal-group--passive > .reveal-group__inner {
   opacity: 1;
   transform: none;
   transition: none;
   will-change: auto;
 }
 
-.reveal-group.is-revealed {
+.reveal-group.is-revealed > .reveal-group__inner {
   opacity: 1;
   transform: none;
   will-change: auto;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .reveal-group {
+  .reveal-group__inner {
     opacity: 1;
     transform: none;
     transition: none;

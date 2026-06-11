@@ -63,14 +63,26 @@
     top: 80px;
     left: -55%;
     width: 90%;
-    filter: blur(400px);
+    background: radial-gradient(
+      circle,
+      rgba(192, 89, 31, 0.22) 0%,
+      rgba(192, 89, 31, 0.12) 42%,
+      rgba(192, 89, 31, 0) 72%
+    );
+    filter: none;
   }
 
   .serve-page-bg__ellipse--blue {
     top: 35%;
     left: 55%;
     width: 70%;
-    filter: blur(400px);
+    background: radial-gradient(
+      circle,
+      rgba(27, 93, 212, 0.2) 0%,
+      rgba(27, 93, 212, 0.1) 42%,
+      rgba(27, 93, 212, 0) 72%
+    );
+    filter: none;
   }
 }
 </style>

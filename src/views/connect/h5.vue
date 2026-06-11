@@ -57,6 +57,8 @@
         alt=""
         class="connect-h5__cooperate-bg"
         aria-hidden="true"
+        loading="lazy"
+        decoding="async"
       />
       <div class="connect-h5__cooperate-body">
         <h2 class="connect-h5__cooperate-title">

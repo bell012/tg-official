@@ -16,6 +16,8 @@
       alt=""
       aria-hidden="true"
       class="serve-card-bg__glow pointer-events-none absolute z-0 max-w-none select-none"
+      loading="lazy"
+      decoding="async"
     />
   </div>
 </template>

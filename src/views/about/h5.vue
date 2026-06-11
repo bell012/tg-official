@@ -11,7 +11,13 @@
         <p class="about-h5__group-brand">{{ groupIntro.brand }}</p>
         <p class="about-h5__group-desc">{{ groupIntro.body }}</p>
       </div>
-      <img :src="introImage" alt="集团总部夜景" class="about-h5__group-image" />
+      <img
+        :src="introImage"
+        alt="集团总部夜景"
+        class="about-h5__group-image"
+        loading="eager"
+        decoding="async"
+      />
     </RevealGroup>
 
 	    <section class="about-h5__values">
@@ -63,6 +69,8 @@
         alt=""
         class="about-h5__reviews-bg"
         aria-hidden="true"
+        loading="lazy"
+        decoding="async"
       />
       <div class="about-h5__reviews-mask" aria-hidden="true" />
       <div class="about-h5__reviews-inner">
@@ -124,6 +132,8 @@
             :src="member.photo"
             :alt="member.name"
             class="about-h5__member-photo"
+            loading="lazy"
+            decoding="async"
           />
           <div class="about-h5__member-info">
             <p class="about-h5__member-name">{{ member.name }}</p>
@@ -165,6 +175,8 @@
         alt=""
         class="about-h5__promo-bg"
         aria-hidden="true"
+        loading="lazy"
+        decoding="async"
       />
       <div class="about-h5__promo-inner">
         <p class="about-h5__promo-tag">{{ promo.tag }}</p>
