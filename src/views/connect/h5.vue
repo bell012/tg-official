@@ -1,6 +1,6 @@
 <template>
   <div class="connect-h5">
-    <section class="connect-h5__hero">
+    <RevealGroup as="section" class="connect-h5__hero">
       <div class="connect-h5__hero-title-box">
         <span class="connect-h5__hero-watermark" aria-hidden="true">联系我们</span>
         <h1 class="connect-h5__hero-title">联系我们</h1>
@@ -9,13 +9,19 @@
         专业包网服务 / 棋牌游戏搭建 / API对接 / 独立后台<br />
         立即联系官方客服获取专属合作方案
       </p>
-    </section>
+    </RevealGroup>
 
-    <section class="connect-h5__cards" aria-label="联系方式">
+    <RevealGroup
+      as="section"
+      class="connect-h5__cards"
+      aria-label="联系方式"
+      :animate-self="false"
+    >
       <article
-        v-for="card in contactCards"
+        v-for="(card, i) in contactCards"
         :key="card.title"
         class="connect-h5__card"
+        :style="{ transitionDelay: `${i * 200}ms` }"
       >
         <img :src="card.icon" alt="" class="connect-h5__card-icon" aria-hidden="true" />
         <h2 class="connect-h5__card-title">{{ card.title }}</h2>
@@ -43,9 +49,9 @@
           />
         </a>
       </article>
-    </section>
+    </RevealGroup>
 
-    <section class="connect-h5__cooperate">
+    <RevealGroup as="section" class="connect-h5__cooperate">
       <img
         :src="serviceImage"
         alt=""
@@ -97,11 +103,13 @@
           </a>
         </div>
       </div>
-    </section>
+    </RevealGroup>
   </div>
 </template>
 
 <script setup lang="ts">
+	import RevealGroup from "@/components/RevealGroup.vue";
+
 import serviceImage from "@/static/about/Frame18.avif";
 import iconTelegram from "@/static/about/svg/icon5.svg?url";
 import iconCooperate from "@/static/about/svg/icon6.svg?url";
@@ -241,6 +249,18 @@ const features = [
   background: url("@/static/about/h5Back.avif") center / cover no-repeat #1a1921;
   text-align: center;
   overflow: hidden;
+
+  /*  */
+  opacity: 0;
+  transform: translateY(60px);
+  transition: opacity 400ms ease, transform 400ms ease;
+  will-change: opacity, transform;
+}
+
+.connect-h5__cards.is-revealed .connect-h5__card {
+  opacity: 1;
+  transform: none;
+  will-change: auto;
 }
 
 .connect-h5__card-icon {
@@ -432,6 +452,15 @@ const features = [
 .connect-h5__btn--primary {
   background: #ffc16f;
   color: #0d0c14;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .connect-h5__card {
+    opacity: 1;
+    transform: none;
+    transition: none;
+    will-change: auto;
+  }
 }
 
 </style>

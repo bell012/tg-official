@@ -1,23 +1,36 @@
 <template>
   <div class="connect-pc">
-    <section class="connect-pc__hero">
+    <RevealGroup as="section" class="connect-pc__hero">
       <div class="connect-pc__hero-title-box">
-        <span class="connect-pc__hero-watermark" aria-hidden="true">联系我们</span>
+        <span class="connect-pc__hero-watermark" aria-hidden="true"
+          >联系我们</span
+        >
         <h1 class="connect-pc__hero-title">联系我们</h1>
       </div>
       <p class="connect-pc__hero-intro">
         专业包网服务 / 棋牌游戏搭建 / API对接 / 独立后台<br />
         立即联系官方客服获取专属合作方案
       </p>
-    </section>
+    </RevealGroup>
 
-    <section class="connect-pc__cards" aria-label="联系方式">
+    <RevealGroup
+      as="section"
+      class="connect-pc__cards"
+      aria-label="联系方式"
+      :animate-self="false"
+    >
       <article
-        v-for="card in contactCards"
+        v-for="(card, i) in contactCards"
         :key="card.title"
         class="connect-pc__card"
+        :style="{ transitionDelay: `${i * 200}ms` }"
       >
-        <img :src="valueCardBg" alt="" class="connect-pc__card-bg" aria-hidden="true" />
+        <img
+          :src="valueCardBg"
+          alt=""
+          class="connect-pc__card-bg"
+          aria-hidden="true"
+        />
         <img
           :src="valueCardHoverBg"
           alt=""
@@ -25,7 +38,12 @@
           aria-hidden="true"
         />
         <div class="connect-pc__card-inner">
-          <img :src="card.icon" alt="" class="connect-pc__card-icon" aria-hidden="true" />
+          <img
+            :src="card.icon"
+            alt=""
+            class="connect-pc__card-icon"
+            aria-hidden="true"
+          />
           <h2 class="connect-pc__card-title">{{ card.title }}</h2>
           <p
             v-for="line in card.desc"
@@ -50,13 +68,21 @@
           </a>
         </div>
       </article>
-    </section>
+    </RevealGroup>
 
-    <section class="connect-pc__cooperate">
-      <img :src="cooperateBg" alt="" class="connect-pc__cooperate-bg" aria-hidden="true" />
+    <RevealGroup as="section" class="connect-pc__cooperate">
+      <img
+        :src="cooperateBg"
+        alt=""
+        class="connect-pc__cooperate-bg"
+        aria-hidden="true"
+      />
       <div class="connect-pc__cooperate-body">
         <h2 class="connect-pc__cooperate-title">
-          与我们合作<br />打造属于您的<span class="connect-pc__cooperate-title-accent">娱乐平台</span>
+          与我们合作<br />打造属于您的<span
+            class="connect-pc__cooperate-title-accent"
+            >娱乐平台</span
+          >
         </h2>
         <p class="connect-pc__cooperate-desc">
           无论您是运营方、代理商还是技术团队<br />我们都能为您提供专业的解决方案
@@ -101,11 +127,13 @@
           </a>
         </div>
       </div>
-    </section>
+    </RevealGroup>
   </div>
 </template>
 
 <script setup lang="ts">
+import RevealGroup from "@/components/RevealGroup.vue";
+
 import cooperateBg from "@/static/about/bottomBack1.avif";
 import valueCardBg from "@/static/about/Group4.avif";
 import valueCardHoverBg from "@/static/about/hoverBack.avif";
@@ -188,7 +216,11 @@ const features = [
   font-weight: 700;
   font-size: 150px;
   line-height: 1;
-  background: linear-gradient(180deg, rgba(194, 194, 194, 1) 14%, rgba(13, 12, 20, 1) 84%);
+  background: linear-gradient(
+    180deg,
+    rgba(194, 194, 194, 1) 14%,
+    rgba(13, 12, 20, 1) 84%
+  );
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -207,7 +239,7 @@ const features = [
   display: flex;
   align-items: center;
   justify-content: center;
-  
+
   font-weight: 600;
   font-size: 100px;
   line-height: 1;
@@ -240,6 +272,12 @@ const features = [
   height: 405px;
   min-height: 280px;
 
+  /* 卡片在同一组内 stagger：默认隐藏，RevealGroup 触发后显示 */
+  opacity: 0;
+  transform: translateY(60px);
+  transition: opacity 400ms ease, transform 400ms ease;
+  will-change: opacity, transform;
+
   &:hover .connect-pc__card-action {
     background: #ffc16f;
     border-color: #ffc16f;
@@ -249,6 +287,12 @@ const features = [
   &:hover .connect-pc__card-arrow {
     filter: brightness(0);
   }
+}
+
+.connect-pc__cards.is-revealed .connect-pc__card {
+  opacity: 1;
+  transform: none;
+  will-change: auto;
 }
 
 .connect-pc__card-bg {
@@ -285,15 +329,15 @@ const features = [
   height: 96px;
   object-fit: contain;
   margin-bottom: 10px;
-  fill: rgba(255, 193, 111, 0.10);
+  fill: rgba(255, 193, 111, 0.1);
   stroke-width: 1.364px;
-  stroke: rgba(255, 193, 111, 0.00);
-  filter: drop-shadow(0 0 54.545px rgba(255, 193, 111, 0.30));
+  stroke: rgba(255, 193, 111, 0);
+  filter: drop-shadow(0 0 54.545px rgba(255, 193, 111, 0.3));
 }
 
 .connect-pc__card-title {
   margin: 0 0 14px;
-  
+
   font-size: 30px;
   font-weight: 600;
   line-height: 1.2;
@@ -302,7 +346,7 @@ const features = [
 
 .connect-pc__card-desc {
   margin: 0;
-  
+
   font-size: 16px;
   font-weight: 400;
   line-height: 1.55;
@@ -326,7 +370,7 @@ const features = [
   border: 1px solid rgba(255, 193, 111, 0.7);
   border-radius: 10px;
   color: #ffc16f;
-  
+
   font-size: 20px;
   font-weight: 600;
   text-decoration: none;
@@ -384,7 +428,7 @@ const features = [
 
 .connect-pc__cooperate-title {
   margin: 0 0 18px;
-  
+
   font-size: 50px;
   font-weight: 600;
   line-height: 1.25;
@@ -397,7 +441,7 @@ const features = [
 
 .connect-pc__cooperate-desc {
   margin: 0 0 24px;
-  
+
   font-size: 20px;
   font-weight: 400;
   line-height: 1.6;
@@ -443,7 +487,7 @@ const features = [
   display: flex;
   align-items: center;
   gap: 42px;
-  span{
+  span {
     font-size: 20px;
   }
 }
@@ -496,6 +540,15 @@ const features = [
   }
   .connect-pc__features {
     gap: 24px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .connect-pc__card {
+    opacity: 1;
+    transform: none;
+    transition: none;
+    will-change: auto;
   }
 }
 </style>
