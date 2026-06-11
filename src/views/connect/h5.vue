@@ -334,7 +334,6 @@ const features = [
 .connect-h5__cooperate {
   position: relative;
   overflow: hidden;
-  border: h5(1) solid rgba(255, 193, 111, 0.22);
   border-radius: h5(30);
 }
 

@@ -97,7 +97,8 @@
         aria-hidden="true"
       />
       <div class="about-pc__reviews-overlay" aria-hidden="true" />
-      <RevealGroup class="about-pc__reviews-inner">
+      <RevealGroup >
+        <div class="about-pc__reviews-inner">
         <div class="about-pc__reviews-left">
           <span class="about-pc__label">客户评价</span>
           <h2 class="about-pc__reviews-title">客户满意 成就我们</h2>
@@ -162,6 +163,7 @@
             </div>
           </footer>
         </article>
+      </div>
       </RevealGroup>
     </section>
 

@@ -418,6 +418,7 @@ import { LINK } from "@/utils/jumpLink";
 }
 
 .about-h5__reviews {
+  width: 100vw;
   position: relative;
   overflow: hidden;
   margin: 0 h5(-42) h5(70);
@@ -669,7 +670,6 @@ import { LINK } from "@/utils/jumpLink";
   overflow: hidden;
   margin-bottom: h5(54);
   min-height: h5(760);
-  border: h5(1) solid rgba(255, 193, 111, 0.2);
 }
 
 .about-h5__promo-bg {

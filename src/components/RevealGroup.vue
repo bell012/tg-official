@@ -39,6 +39,7 @@ const { isRevealed } = useScrollReveal(el, {
 
 .reveal-group__inner {
   width: 100%;
+  grid-column: 1 / -1;
   display: inherit;
   flex-direction: inherit;
   flex-wrap: inherit;
