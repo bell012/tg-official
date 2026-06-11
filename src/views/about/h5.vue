@@ -368,6 +368,17 @@ import { LINK } from "@/utils/jumpLink";
   min-height: h5(300);
   border: h5(1) solid rgba(255, 193, 111, 0.12);
   background: #12121b;
+
+  opacity: 0;
+  transform: translateY(60px);
+  transition: opacity 400ms ease, transform 400ms ease;
+  will-change: opacity, transform;
+}
+
+.about-h5__value-list.is-revealed .about-h5__value-card {
+  opacity: 1;
+  transform: none;
+  will-change: auto;
 }
 
 .about-h5__value-card-bg {
@@ -728,5 +739,15 @@ import { LINK } from "@/utils/jumpLink";
   font-size: h5(42);
   font-weight: 400;
   text-decoration: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about-h5__value-card,
+  .about-h5__member-card {
+    opacity: 1;
+    transform: none;
+    transition: none;
+    will-change: auto;
+  }
 }
 </style>

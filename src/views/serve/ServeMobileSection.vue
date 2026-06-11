@@ -1,6 +1,40 @@
 <template>
   <section class="serve-mobile-section">
+    <template v-if="isCouponSection">
+      <div class="serve-mobile-section__frame serve-mobile-section__frame--coupon">
+        <div class="serve-mobile-section__card">
+          <ServeSectionCardBg class="!rounded-[30px]" />
+        </div>
+
+        <div class="serve-mobile-section__content">
+          <RevealGroup class="serve-mobile-section__copy" style="--reveal-delay: 200ms">
+            <ServeMobileHeading
+              :no="section.no"
+              :title="section.title"
+              :subtitle="section.subtitle"
+            />
+
+            <p class="serve-mobile-section__desc">
+              {{ section.description }}
+            </p>
+          </RevealGroup>
+
+          <RevealGroup class="serve-mobile-section__visual" style="--reveal-delay: 400ms">
+            <img
+              :src="visualSrc"
+              :alt="section.imageAlt"
+              class="serve-mobile-section__visual-img"
+              :class="{ 'serve-mobile-section__visual-img--flip': section.layout.visual.flipHorizontal }"
+              loading="lazy"
+              decoding="async"
+            />
+          </RevealGroup>
+        </div>
+      </div>
+    </template>
+
     <RevealGroup
+      v-else
       class="serve-mobile-section__frame"
       :class="
         section.couponVisual
@@ -51,6 +85,8 @@ const visualSrc = computed(
   () =>
     props.section.mobileVisualImage ?? props.section.layout.visual.image
 );
+
+const isCouponSection = computed(() => Boolean(props.section.couponVisual));
 </script>
 
 <style scoped lang="scss">
@@ -82,6 +118,10 @@ const visualSrc = computed(
   display: flex;
   flex-direction: column;
   align-items: stretch;
+}
+
+.serve-mobile-section__copy {
+  width: 100%;
 }
 
 /* 设计标注 @1x：副标题→文案 10px，文案→配图 25px（×3 → h5） */

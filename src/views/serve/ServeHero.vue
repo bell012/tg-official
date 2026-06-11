@@ -1,6 +1,6 @@
 <template>
   <section class="serve-hero">
-    <RevealGroup class="serve-hero__inner">
+    <RevealGroup class="serve-hero__inner" style="--reveal-delay: 0ms">
       <div class="serve-hero__title-box">
         <span class="serve-hero__watermark" aria-hidden="true">包网服务</span>
         <h1 class="serve-hero__title">包网服务</h1>

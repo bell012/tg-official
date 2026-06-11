@@ -52,6 +52,7 @@ const { isRevealed } = useScrollReveal(el, {
   opacity: 0;
   transform: translate3d(0, 60px, 0);
   transition: opacity 400ms ease, transform 400ms ease;
+  transition-delay: var(--reveal-delay, 0ms);
   will-change: opacity, transform;
 }
 
