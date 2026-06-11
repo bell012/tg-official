@@ -33,13 +33,13 @@
         </div>
       </div>
       <div
-        class="w-full h-full bg-[#0D0C14] bg-no-repeat bg-[length:100%_100%]"
+        class="w-full h-full bg-[#0D0C14] bg-no-repeat bg-[length:100%_100%] px-[80px]"
         style="background-image: url('/src/static/home/homeBG_pc.avif')"
       >
         <!-- PC步骤1 -->
         <section
           ref="step1RootPc"
-          class="w-full h-full px-[40px] xl:px-[120px] 2xl:px-[240px] pt-[60px] pb-[120px]"
+          class="w-full h-full px-[40px] pt-[60px] pb-[120px]"
         >
           <div
             class="reveal-card flex items-end justify-between h-[149px] overflow-hidden"
@@ -81,11 +81,11 @@
             </button>
           </div>
 
-          <div class="mt-[60px] grid grid-cols-3 gap-[20px]">
+		          <div class="mt-[60px] flex items-center gap-[20px]">
             <div
               v-for="(card, i) in serviceCards"
               :key="card.title"
-              class="service-card reveal-card flex h-[388px] flex-col items-center justify-center px-[64px] text-center"
+	              class="service-card reveal-card flex min-w-[460px] h-[388px] flex-col items-center justify-center px-[60px] text-center"
               :class="{ 'is-visible': cardsVisiblePc }"
               :style="{ transitionDelay: `${(i + 1) * 200}ms` }"
             >
@@ -104,7 +104,7 @@
           </div>
 
           <div
-            class="reveal-card mt-[39px] rounded-[30px] bg-[#1A1921] border border-[#322E28] pt-[40px] pb-[80px]"
+            class="reveal-card min-w-[1400px] mt-[39px] rounded-[30px] bg-[#1A1921] border border-[#322E28] pt-[40px] pb-[80px]"
             :class="{ 'is-visible': cardsVisiblePc }"
             :style="{ transitionDelay: '800ms' }"
           >
@@ -133,7 +133,7 @@
         <!-- PC步骤2 -->
         <section
           ref="step2RootPc"
-          class="w-full px-[40px] xl:px-[120px] 2xl:px-[240px] pb-[120px]"
+          class="w-full px-[40px] pb-[120px]"
         >
           <div
             class="reveal-card flex items-stretch h-[149px] overflow-hidden gap-[16px]"
@@ -168,17 +168,17 @@
           </div>
 
           <div
-            class="mt-[60px] grid grid-cols-2 items-center gap-[40px] xl:gap-[80px] 2xl:gap-[120px]"
+            class="mt-[60px] flex items-center gap-[40px]"
           >
             <img
               :src="phonePc"
               alt="APP/H5演示"
-              class="reveal-card w-full min-h-[800px]"
+              class="reveal-card min-w-[615px] min-h-[800px]"
               :class="{ 'is-visible': step2VisiblePc }"
               :style="{ transitionDelay: '200ms' }"
             />
             <div
-              class="reveal-card rounded-[30px] border border-[#322E28] bg-[#1A1921] px-[43px] pt-[60px] pb-[50px]"
+              class="reveal-card min-w-[600px] rounded-[30px] border border-[#322E28] bg-[#1A1921] px-[43px] pt-[60px] pb-[50px]"
               :class="{ 'is-visible': step2VisiblePc }"
               :style="{ transitionDelay: '400ms' }"
             >
@@ -197,12 +197,12 @@
 
           <div
             ref="step2CardsRootPc"
-            class="mt-[20px] grid grid-cols-2 gap-[20px] xl:grid-cols-4"
+            class="mt-[20px] flex items-center gap-[20px]"
           >
             <div
               v-for="(card, i) in featureCards"
               :key="card.title"
-              class="feature-card reveal-card flex h-[500px] flex-col items-center pt-[60px] text-center"
+              class="feature-card reveal-card flex min-w-[344px] min-h-[500px] flex-col items-center pt-[60px] text-center"
               :class="{ 'is-visible': step2CardsVisiblePc }"
               :style="{ transitionDelay: `${i * 200}ms` }"
             >
@@ -226,7 +226,7 @@
         <!-- PC步骤3 -->
         <section
           ref="step3RootPc"
-          class="w-full px-[40px] xl:px-[120px] 2xl:px-[240px] pb-[120px]"
+          class="w-full px-[40px] pb-[120px]"
         >
           <div
             class="reveal-card flex items-stretch h-[149px] overflow-hidden gap-[16px]"
@@ -328,7 +328,7 @@
         <!-- PC步骤4 -->
         <section
           ref="step4RootPc"
-          class="w-full px-[40px] xl:px-[120px] 2xl:px-[240px] pb-[120px]"
+          class="w-full px-[40px] pb-[120px]"
         >
           <div
             class="reveal-card flex items-stretch h-[149px] overflow-hidden gap-[16px]"
@@ -362,12 +362,12 @@
             </div>
           </div>
 
-          <div class="mt-[60px] grid grid-cols-3 items-stretch gap-[39px]">
+          <div class="mt-[60px] flex items-stretch gap-[39px]">
             <RouterLink
               v-for="(article, i) in articles"
               :key="article.id"
               :to="`/consult/${article.id}`"
-              class="group reveal-card flex h-full w-full flex-col overflow-hidden rounded-[30px] border border-[#322E28] bg-[#1A1921] text-inherit no-underline cursor-pointer"
+              class="group reveal-card flex min-w-[452px] min-h-[587px] flex-col overflow-hidden rounded-[30px] border border-[#322E28] bg-[#1A1921] text-inherit no-underline cursor-pointer"
               :class="{ 'is-visible': step4VisiblePc }"
               :style="{ transitionDelay: `${(i + 1) * 200}ms` }"
             >
@@ -392,7 +392,7 @@
         <!-- PC步骤5 -->
         <section
           ref="step5RootPc"
-          class="w-full px-[40px] xl:px-[120px] 2xl:px-[240px] pb-[120px]"
+          class="w-full px-[40px] pb-[120px]"
         >
           <div
             class="reveal-card flex items-stretch h-[149px] overflow-hidden gap-[16px]"
@@ -427,7 +427,7 @@
           </div>
 
           <div
-            class="join-card-pc reveal-card relative mt-[60px] h-[500px]"
+            class="join-card-pc reveal-card relative mt-[60px] min-w-[1440px] min-h-[500px]"
             :class="{ 'is-visible': step5VisiblePc }"
             :style="{ transitionDelay: '200ms' }"
           >
