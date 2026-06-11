@@ -435,7 +435,6 @@ import { LINK } from "@/utils/jumpLink";
 .about-h5__reviews-mask {
   position: absolute;
   inset: 0;
-  width: 100%;
 }
 
 .about-h5__reviews-inner {
@@ -670,8 +669,7 @@ import { LINK } from "@/utils/jumpLink";
   overflow: hidden;
   margin-bottom: h5(54);
   min-height: h5(760);
-  border: h5(1) solid #0D0C14;
-  background: #0D0C14;
+  border: h5(1) solid rgba(255, 193, 111, 0.2);
 }
 
 .about-h5__promo-bg {
