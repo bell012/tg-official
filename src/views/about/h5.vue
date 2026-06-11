@@ -432,16 +432,28 @@ import { LINK } from "@/utils/jumpLink";
   width: 100vw;
   position: relative;
   overflow: hidden;
+  box-sizing: border-box;
+  height: h5(992);
+  min-height: h5(992);
   margin: 0 h5(-42) h5(70);
   padding: h5(72) h5(42) h5(66);
 }
 
+.about-h5__reviews :deep(.reveal-group__inner) {
+  position: relative;
+  height: 100%;
+}
+
 .about-h5__reviews-bg {
   position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
+  top: h5(-72);
+  left: h5(-42);
+  width: 100vw;
+  max-width: none;
+  height: h5(992);
+  display: block;
   object-fit: cover;
+  pointer-events: none;
 }
 
 .about-h5__reviews-mask {
