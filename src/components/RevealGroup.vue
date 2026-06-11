@@ -1,12 +1,25 @@
 <template>
-  <div ref="el" class="reveal-group" :class="{ 'is-revealed': isRevealed }">
+  <component
+    :is="as"
+    ref="el"
+    class="reveal-group"
+    :class="{ 'is-revealed': isRevealed, 'reveal-group--passive': !animateSelf }"
+  >
     <slot />
-  </div>
+  </component>
 </template>
 
 <script setup lang="ts">
 import { ref } from "vue";
 import { useScrollReveal } from "@/composables/useScrollReveal";
+
+withDefaults(
+  defineProps<{
+    as?: string;
+    animateSelf?: boolean;
+  }>(),
+  { as: "div", animateSelf: true }
+);
 
 const el = ref<HTMLElement | null>(null);
 // 滚动到元素进入视口上半区再触发
@@ -23,6 +36,14 @@ const { isRevealed } = useScrollReveal(el, {
   transform: translateY(60px);
   transition: opacity 400ms ease, transform 400ms ease;
   will-change: opacity, transform;
+}
+
+/*  */
+.reveal-group.reveal-group--passive {
+  opacity: 1;
+  transform: none;
+  transition: none;
+  will-change: auto;
 }
 
 .reveal-group.is-revealed {

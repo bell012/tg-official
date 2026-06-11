@@ -1,6 +1,6 @@
 <template>
   <div class="about-h5">
-    <section class="about-h5__group">
+    <RevealGroup as="section" class="about-h5__group">
       <div class="about-h5__group-content">
         <h2 class="about-h5__group-title">
           <span>{{ groupIntro.title }}</span>
@@ -12,21 +12,24 @@
         <p class="about-h5__group-desc">{{ groupIntro.body }}</p>
       </div>
       <img :src="introImage" alt="集团总部夜景" class="about-h5__group-image" />
-    </section>
+    </RevealGroup>
 
-    <section class="about-h5__values">
-      <h2 class="about-h5__values-title">
-        <span>{{ coreValuesSection.title }}</span>
-        <img :src="introDivider" alt="" aria-hidden="true" />
-      </h2>
-      <p class="about-h5__values-label">{{ coreValuesSection.label }}</p>
-      <p class="about-h5__values-subtitle">{{ coreValuesSection.subtitle }}</p>
+	    <section class="about-h5__values">
+	      <RevealGroup>
+	        <h2 class="about-h5__values-title">
+	          <span>{{ coreValuesSection.title }}</span>
+	          <img :src="introDivider" alt="" aria-hidden="true" />
+	        </h2>
+	        <p class="about-h5__values-label">{{ coreValuesSection.label }}</p>
+	        <p class="about-h5__values-subtitle">{{ coreValuesSection.subtitle }}</p>
+	      </RevealGroup>
 
-      <div class="about-h5__value-list">
+	      <RevealGroup class="about-h5__value-list" :animate-self="false">
         <article
-          v-for="item in coreValuesH5"
+	          v-for="(item, i) in coreValuesH5"
           :key="item.title"
           class="about-h5__value-card"
+	          :style="{ transitionDelay: `${i * 200}ms` }"
         >
           <img
             :src="valueCardBg"
@@ -51,10 +54,10 @@
             <p class="about-h5__value-desc">{{ item.desc2 }}</p>
           </div>
         </article>
-      </div>
-    </section>
+	      </RevealGroup>
+	    </section>
 
-    <section class="about-h5__reviews">
+    <RevealGroup as="section" class="about-h5__reviews">
       <img
         :src="reviewsBg"
         alt=""
@@ -100,19 +103,22 @@
           </footer>
         </article>
       </div>
-    </section>
+    </RevealGroup>
 
-    <section class="about-h5__team">
-      <img
-        :src="teamTitleImage"
-        alt="TEAM 我们的团队 OUR TEAM"
-        class="about-h5__team-title-image"
-      />
-      <div class="about-h5__member-list">
+	    <section class="about-h5__team">
+	      <RevealGroup>
+	        <img
+	          :src="teamTitleImage"
+	          alt="TEAM 我们的团队 OUR TEAM"
+	          class="about-h5__team-title-image"
+	        />
+	      </RevealGroup>
+	      <RevealGroup class="about-h5__member-list" :animate-self="false">
         <article
-          v-for="member in teamMembers"
+	          v-for="(member, i) in teamMembers"
           :key="member.name"
           class="about-h5__member-card"
+	          :style="{ transitionDelay: `${i * 200}ms` }"
         >
           <img
             :src="member.photo"
@@ -150,10 +156,10 @@
             </div>
           </div>
         </article>
-      </div>
-    </section>
+	      </RevealGroup>
+	    </section>
 
-    <section class="about-h5__promo">
+    <RevealGroup as="section" class="about-h5__promo">
       <img
         :src="promoBg"
         alt=""
@@ -170,11 +176,13 @@
           promo.cta
         }}</RouterLink>
       </div>
-    </section>
+    </RevealGroup>
   </div>
 </template>
 
 <script setup lang="ts">
+import RevealGroup from "@/components/RevealGroup.vue";
+
 import introImage from "@/static/about/back.avif";
 import introDivider from "@/static/about/Group3.avif?url";
 import valueCardBg from "@/static/about/h5Group2.avif";
@@ -583,6 +591,18 @@ import { LINK } from "@/utils/jumpLink";
   background: rgba(255, 255, 255, 0.04);
   border: h5(1) solid rgba(255, 255, 255, 0.08);
   box-shadow: 0 h5(10) h5(26) rgba(0, 0, 0, 0.24);
+
+  /*  */
+  opacity: 0;
+  transform: translateY(60px);
+  transition: opacity 400ms ease, transform 400ms ease;
+  will-change: opacity, transform;
+}
+
+.about-h5__member-list.is-revealed .about-h5__member-card {
+  opacity: 1;
+  transform: none;
+  will-change: auto;
 }
 
 .about-h5__member-photo {

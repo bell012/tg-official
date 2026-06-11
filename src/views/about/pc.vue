@@ -1,7 +1,7 @@
 <template>
   <div class="about-pc">
     <!-- Hero -->
-    <section class="about-pc__hero max-w-[1440px] mx-auto">
+    <RevealGroup as="section" class="about-pc__hero max-w-[1440px] mx-auto">
       <div class="about-pc__hero-title-box">
         <span class="about-pc__hero-watermark" aria-hidden="true"
           >关于我们</span
@@ -9,10 +9,10 @@
         <h1 class="about-pc__hero-title">关于我们</h1>
       </div>
       <p class="about-pc__hero-intro">{{ aboutHeroIntro }}</p>
-    </section>
+    </RevealGroup>
 
     <!-- 集团介绍 -->
-    <section class="about-pc__intro max-w-[1440px] mx-auto">
+    <RevealGroup as="section" class="about-pc__intro max-w-[1440px] mx-auto">
       <div class="about-pc__intro-image-wrap">
         <img
           :src="introImage"
@@ -34,11 +34,11 @@
         <p class="about-pc__intro-brand">{{ groupIntro.brand }}</p>
         <p class="about-pc__intro-body">{{ groupIntro.body }}</p>
       </div>
-    </section>
+    </RevealGroup>
 
     <!-- 核心价值观 -->
     <section class="about-pc__values max-w-[1440px] mx-auto">
-      <div class="about-pc__values-head">
+      <RevealGroup class="about-pc__values-head">
         <span class="about-pc__values-label">{{
           coreValuesSection.label
         }}</span>
@@ -54,12 +54,13 @@
           />
         </h2>
         <p class="about-pc__values-sub">{{ coreValuesSection.subtitle }}</p>
-      </div>
-      <div class="about-pc__values-grid">
+      </RevealGroup>
+	      <RevealGroup class="about-pc__values-grid" :animate-self="false">
         <article
-          v-for="item in coreValues"
+	          v-for="(item, i) in coreValues"
           :key="item.title"
           class="about-pc__value-card"
+	          :style="{ transitionDelay: `${i * 200}ms` }"
         >
           <img
             :src="valueCardBg"
@@ -84,7 +85,7 @@
             <p class="about-pc__value-desc">{{ item.desc2 }}</p>
           </div>
         </article>
-      </div>
+      </RevealGroup>
     </section>
 
     <!-- 客户评价 -->
@@ -96,7 +97,7 @@
         aria-hidden="true"
       />
       <div class="about-pc__reviews-overlay" aria-hidden="true" />
-      <div class="about-pc__reviews-inner">
+      <RevealGroup class="about-pc__reviews-inner">
         <div class="about-pc__reviews-left">
           <span class="about-pc__label">客户评价</span>
           <h2 class="about-pc__reviews-title">客户满意 成就我们</h2>
@@ -161,23 +162,24 @@
             </div>
           </footer>
         </article>
-      </div>
+      </RevealGroup>
     </section>
 
     <!-- 团队 -->
     <section class="about-pc__team max-w-[1440px] mx-auto">
-      <header class="about-pc__team-head">
+      <RevealGroup as="header" class="about-pc__team-head">
         <img
           :src="teamTitleImage"
           alt="我们的团队"
           class="about-pc__team-title-image"
         />
-      </header>
-      <div class="about-pc__team-grid">
+      </RevealGroup>
+	      <RevealGroup class="about-pc__team-grid" :animate-self="false">
         <article
           v-for="(member, index) in teamMembers"
           :key="member.name"
           class="about-pc__member-card"
+	          :style="{ transitionDelay: `${index * 200}ms` }"
         >
           <img
             :src="member.photo"
@@ -219,11 +221,11 @@
             </div>
           </div>
         </article>
-      </div>
+      </RevealGroup>
     </section>
 
     <!-- 促销横幅 -->
-    <section class="about-pc__promo max-w-[1440px] mx-auto">
+    <RevealGroup as="section" class="about-pc__promo max-w-[1440px] mx-auto">
       <img
         :src="promoBg"
         alt=""
@@ -245,11 +247,13 @@
           </RouterLink>
         </div>
       </div>
-    </section>
+    </RevealGroup>
   </div>
 </template>
 
 <script setup lang="ts">
+import RevealGroup from "@/components/RevealGroup.vue";
+
 import type { Component } from "vue";
 import introImage from "@/static/about/back.avif";
 import introDivider from "@/static/about/Group3.avif?url";
@@ -526,6 +530,18 @@ const statIconMap: Record<string, Component> = {
   height: 324px;
   overflow: hidden;
   min-height: 280px;
+
+  /*  */
+  opacity: 0;
+  transform: translateY(60px);
+  transition: opacity 400ms ease, transform 400ms ease;
+  will-change: opacity, transform;
+}
+
+.about-pc__values-grid.is-revealed .about-pc__value-card {
+  opacity: 1;
+  transform: none;
+  will-change: auto;
 }
 
 .about-pc__value-card-bg {
@@ -801,6 +817,18 @@ const statIconMap: Record<string, Component> = {
   overflow: hidden;
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.06);
+
+  /*  */
+  opacity: 0;
+  transform: translateY(60px);
+  transition: opacity 400ms ease, transform 400ms ease;
+  will-change: opacity, transform;
+}
+
+.about-pc__team-grid.is-revealed .about-pc__member-card {
+  opacity: 1;
+  transform: none;
+  will-change: auto;
 }
 
 .about-pc__member-photo {
