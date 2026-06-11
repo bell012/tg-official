@@ -672,6 +672,12 @@ import { LINK } from "@/utils/jumpLink";
   min-height: h5(760);
 }
 
+.about-h5__promo :deep(.reveal-group__inner) {
+  position: relative;
+  height: 100%;
+  min-height: inherit;
+}
+
 .about-h5__promo-bg {
   position: absolute;
   inset: 0;
