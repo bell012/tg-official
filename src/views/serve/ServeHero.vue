@@ -1,16 +1,18 @@
 <template>
   <section class="serve-hero">
-    <div class="serve-hero__inner">
+    <RevealGroup class="serve-hero__inner">
       <div class="serve-hero__title-box">
         <span class="serve-hero__watermark" aria-hidden="true">包网服务</span>
         <h1 class="serve-hero__title">包网服务</h1>
       </div>
       <p class="serve-hero__intro">{{ intro }}</p>
-    </div>
+    </RevealGroup>
   </section>
 </template>
 
 <script setup lang="ts">
+import RevealGroup from "@/components/RevealGroup.vue";
+
 defineProps<{ intro: string }>();
 </script>
 

@@ -1,6 +1,6 @@
 <template>
   <section class="serve-mobile-section">
-    <div
+    <RevealGroup
       class="serve-mobile-section__frame"
       :class="
         section.couponVisual
@@ -32,12 +32,13 @@
           />
         </div>
       </div>
-    </div>
+    </RevealGroup>
   </section>
 </template>
 
 <script setup lang="ts">
 import { computed } from "vue";
+import RevealGroup from "@/components/RevealGroup.vue";
 import ServeMobileHeading from "./ServeMobileHeading.vue";
 import ServeSectionCardBg from "./ServeSectionCardBg.vue";
 import type { ServeSection } from "./sections";

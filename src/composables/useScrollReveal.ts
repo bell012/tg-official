@@ -11,7 +11,10 @@ function getObserverOptions(): IntersectionObserverInit {
   return { threshold: 0.15, rootMargin: "0px 0px -8% 0px" };
 }
 
-export function useScrollReveal(target: Ref<HTMLElement | null>) {
+export function useScrollReveal(
+  target: Ref<HTMLElement | null>,
+  optionsOverride?: IntersectionObserverInit
+) {
   const isRevealed = ref(false);
   let observer: IntersectionObserver | null = null;
 
@@ -31,7 +34,7 @@ export function useScrollReveal(target: Ref<HTMLElement | null>) {
         el.classList.add("is-revealed");
         observer?.disconnect();
       }
-    }, getObserverOptions());
+    }, optionsOverride ?? getObserverOptions());
     observer.observe(el);
   });
 
