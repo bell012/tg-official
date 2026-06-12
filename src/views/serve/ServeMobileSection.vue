@@ -1,13 +1,19 @@
 <template>
   <section class="serve-mobile-section">
     <template v-if="isCouponSection">
-      <div class="serve-mobile-section__frame serve-mobile-section__frame--coupon">
+      <RevealGroup
+        class="serve-mobile-section__frame serve-mobile-section__frame--coupon serve-mobile-section__frame--stagger"
+        :animate-self="false"
+      >
         <div class="serve-mobile-section__card">
           <ServeSectionCardBg class="!rounded-[30px]" />
         </div>
 
         <div class="serve-mobile-section__content">
-          <RevealGroup class="serve-mobile-section__copy" style="--reveal-delay: 200ms">
+          <div
+            class="serve-mobile-section__copy serve-mobile-section__stagger-item"
+            style="transition-delay: 200ms"
+          >
             <ServeMobileHeading
               :no="section.no"
               :title="section.title"
@@ -17,9 +23,12 @@
             <p class="serve-mobile-section__desc">
               {{ section.description }}
             </p>
-          </RevealGroup>
+          </div>
 
-          <RevealGroup class="serve-mobile-section__visual" style="--reveal-delay: 400ms">
+          <div
+            class="serve-mobile-section__visual serve-mobile-section__stagger-item"
+            style="transition-delay: 400ms"
+          >
             <img
               :src="visualSrc"
               :alt="section.imageAlt"
@@ -28,9 +37,9 @@
               loading="lazy"
               decoding="async"
             />
-          </RevealGroup>
+          </div>
         </div>
-      </div>
+      </RevealGroup>
     </template>
 
     <RevealGroup
@@ -122,6 +131,19 @@ const isCouponSection = computed(() => Boolean(props.section.couponVisual));
 
 .serve-mobile-section__copy {
   width: 100%;
+}
+
+.serve-mobile-section__stagger-item {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: opacity 400ms ease, transform 400ms ease;
+  will-change: opacity, transform;
+}
+
+.serve-mobile-section__frame--stagger.is-revealed .serve-mobile-section__stagger-item {
+  opacity: 1;
+  transform: none;
+  will-change: auto;
 }
 
 /* 设计标注 @1x：副标题→文案 10px，文案→配图 25px（×3 → h5） */

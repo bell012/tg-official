@@ -1,5 +1,5 @@
 <template>
-  <div class="about-h5">
+  <div ref="valuesRevealRef" class="about-h5">
     <RevealGroup as="section" class="about-h5__group">
       <div class="about-h5__group-content">
         <h2 class="about-h5__group-title">
@@ -20,22 +20,25 @@
       />
     </RevealGroup>
 
-	    <section class="about-h5__values">
-	      <RevealGroup>
+	    <section
+	      class="about-h5__values about-h5__values--stagger"
+	      :class="{ 'is-revealed': valuesRevealed }"
+	    >
+	      <div class="about-h5__values-head" style="transition-delay: 200ms">
 	        <h2 class="about-h5__values-title">
 	          <span>{{ coreValuesSection.title }}</span>
 	          <img :src="introDivider" alt="" aria-hidden="true" />
 	        </h2>
 	        <p class="about-h5__values-label">{{ coreValuesSection.label }}</p>
 	        <p class="about-h5__values-subtitle">{{ coreValuesSection.subtitle }}</p>
-	      </RevealGroup>
+	      </div>
 
-	      <RevealGroup class="about-h5__value-list" :animate-self="false">
+	      <div class="about-h5__value-list">
         <article
 	          v-for="(item, i) in coreValuesH5"
           :key="item.title"
           class="about-h5__value-card"
-	          :style="{ transitionDelay: `${i * 200}ms` }"
+	          :style="{ transitionDelay: `${(i + 2) * 200}ms` }"
         >
           <img
             :src="valueCardBg"
@@ -60,7 +63,7 @@
             <p class="about-h5__value-desc">{{ item.desc2 }}</p>
           </div>
         </article>
-	      </RevealGroup>
+	      </div>
 	    </section>
 
     <RevealGroup as="section" class="about-h5__reviews">
@@ -193,7 +196,9 @@
 </template>
 
 <script setup lang="ts">
+import { ref } from "vue";
 import RevealGroup from "@/components/RevealGroup.vue";
+import { useScrollReveal } from "@/composables/useScrollReveal";
 
 import introImage from "@/static/about/back.avif";
 import introDivider from "@/static/about/Group3.avif?url";
@@ -230,6 +235,13 @@ const statIconMap: Record<string, string> = {
   star: iconStarStat,
   trophy: iconTrophy,
 };
+
+const valuesRevealRef = ref<HTMLElement | null>(null);
+const { isRevealed: valuesRevealed } = useScrollReveal(valuesRevealRef, {
+  threshold: 0,
+  rootMargin: "0px 0px -50% 0px",
+});
+
 import { LINK } from "@/utils/jumpLink";
 </script>
 
@@ -317,6 +329,19 @@ import { LINK } from "@/utils/jumpLink";
   margin-bottom: h5(60);
 }
 
+.about-h5__values-head {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: opacity 400ms ease, transform 400ms ease;
+  will-change: opacity, transform;
+}
+
+.about-h5__values--stagger.is-revealed .about-h5__values-head {
+  opacity: 1;
+  transform: none;
+  will-change: auto;
+}
+
 .about-h5__values-label {
   margin: 0 0 h5(30);
   color: #ffc16f;
@@ -375,7 +400,7 @@ import { LINK } from "@/utils/jumpLink";
   will-change: opacity, transform;
 }
 
-.about-h5__value-list.is-revealed .about-h5__value-card {
+.about-h5__values--stagger.is-revealed .about-h5__value-card {
   opacity: 1;
   transform: none;
   will-change: auto;
@@ -754,6 +779,7 @@ import { LINK } from "@/utils/jumpLink";
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .about-h5__values-head,
   .about-h5__value-card,
   .about-h5__member-card {
     opacity: 1;
