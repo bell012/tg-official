@@ -108,7 +108,7 @@
           </button>
         </div>
 
-        <nav class="mobile-menu__nav">
+        <nav class="mobile-menu__nav mx-[auto]">
           <a
             v-for="item in navItems"
             :key="item.path"
@@ -325,14 +325,13 @@ const goAndClose = (path: string) => {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: h5(90) h5(60) 0;
+  padding: 30px 20px 0;
 }
 
 .mobile-menu__title {
   font-family: "PingFang SC", -apple-system, BlinkMacSystemFont, sans-serif;
   font-weight: 600;
-  font-size: h5(60);
-  line-height: 1.4;
+  font-size: 20px;
   color: #ffffff;
 }
 
@@ -340,15 +339,15 @@ const goAndClose = (path: string) => {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0;
+  padding: 0px;
   border: none;
   background: transparent;
   cursor: pointer;
 }
 
 .mobile-menu__close-icon {
-  width: h5(48);
-  height: h5(48);
+  width: 16px;
+  height: 16px;
   color: #ffffff;
 }
 
@@ -356,23 +355,23 @@ const goAndClose = (path: string) => {
 .mobile-menu__nav {
   display: flex;
   flex-direction: column;
-  gap: h5(21);
-  margin-top: h5(60);
-  padding: 0 h5(60);
+  gap: 7px;
+  margin-top: 20px;
+  padding: 0 20px;
 }
 
 .mobile-menu__link {
   display: flex;
-  height: h5(150);
+  width: 335px;
+  height: 50px;
   align-items: center;
   justify-content: center;
-  border-radius: h5(30);
+  border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.3);
   background: rgba(0, 0, 0, 0.5);
   font-family: "PingFang SC", -apple-system, BlinkMacSystemFont, sans-serif;
   font-weight: 600;
-  font-size: h5(48);
-  line-height: 1.4;
+  font-size: 16px;
   color: #ffffff;
   text-decoration: none;
   cursor: pointer;
@@ -384,31 +383,32 @@ const goAndClose = (path: string) => {
 
 /* 社交区 y:1290，图标 105，文案 42 #C2C2C2，列间距 7 */
 .mobile-menu__social {
+  width: 335px;
+  margin:0 auto;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: h5(7);
-  padding: h5(90) h5(42) h5(60);
+  gap: 2px;
+  padding: 30px 0px 20px;
 }
 
 .mobile-menu__social-item {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: h5(21);
+  gap: 7px;
   cursor: pointer;
   text-decoration: none;
 }
 
 .mobile-menu__social-icon {
-  width: h5(105);
-  height: h5(105);
+  width: 35px;
+  height: 35px;
 }
 
 .mobile-menu__social-label {
   font-family: "PingFang SC", -apple-system, BlinkMacSystemFont, sans-serif;
   font-weight: 400;
-  font-size: h5(42);
-  line-height: 1.4;
+  font-size: 14px;
   color: #c2c2c2;
   text-align: center;
 }

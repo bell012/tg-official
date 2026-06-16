@@ -98,7 +98,7 @@
     >
       <div class="flex flex-col items-center">
         <img :src="logoUrl" alt="TG包网" class="h-[24px] w-auto" />
-        <p class="mt-[10px] text-center text-xs font-[400] text-[#C2C2C2]">
+        <p class="mt-[10px] mx-[auto] w-[347px] text-center text-xs font-[400] text-[#C2C2C2]">
           TG包网专注于包网开发多年，致力于为客户提供全面的定制搭建服务。我们的项目涵盖体育、棋牌、彩票、真人视讯、电竞、电子游戏包网及综合海外包网解决方案 我们的专业团队都能为您提供高效、安全、符合市场需求的服务。选择TG包网，助您在竞争激烈的市场中脱颖而出！
         </p>
       </div>
@@ -153,7 +153,7 @@
 
         <div class="flex flex-col items-center justify-center">
           <h3 class="text-base font-[600] text-white mb-[20px]">Social Icons</h3>
-          <ul class="w-full grid grid-cols-4 flex-col items-center justify-center gap-[10px]">
+          <ul class="mx-[auto] w-[347px] grid grid-cols-4 flex-col items-center justify-center gap-[10px]">
             <li v-for="s in socialItems" :key="s.label">
               <a
                 :href="s.href"

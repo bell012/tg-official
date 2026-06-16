@@ -527,11 +527,11 @@
             </button>
           </div>
 
-          <div class="mt-[20px] grid grid-cols-3 gap-[10px]">
+          <div class="mt-[20px] flex items-center justify-center gap-[10px]">
             <div
               v-for="(card, i) in serviceCardsH5"
               :key="card.title"
-              class="service-card-h5 reveal-card min-h-[182px] flex flex-col items-center px-[10px] pb-[12px] pt-[16px] text-center"
+              class="service-card-h5 reveal-card w-[109px] h-[182px] flex flex-col items-center px-[10px] pb-[12px] pt-[16px] text-center"
               :class="{ 'is-visible': cardsVisibleH5 }"
               :style="{ transitionDelay: `${(i + 1) * 200}ms` }"
             >
@@ -550,7 +550,7 @@
           </div>
 
           <div
-            class="reveal-card mt-[10px] rounded-[10px] bg-[#1A1921] border border-[#322E28] py-[14px]"
+            class="reveal-card mt-[10px] rounded-[10px] mx-[auto] w-[347px] h-[102px] bg-[#1A1921] border border-[#322E28] py-[14px]"
             :class="{ 'is-visible': cardsVisibleH5 }"
             :style="{ transitionDelay: '800ms' }"
           >
@@ -604,7 +604,7 @@
           </div>
 
           <div
-            class="reveal-card mt-[20px] rounded-[10px] bg-[#1A1921] border border-[#322E28] p-[14px]"
+            class="reveal-card mt-[20px] mx-[auto] w-[347px] h-[122px] rounded-[10px] bg-[#1A1921] border border-[#322E28] p-[14px]"
             :class="{ 'is-visible': step2VisibleH5 }"
             :style="{ transitionDelay: '200ms' }"
           >
@@ -619,7 +619,7 @@
           <img
             :src="phoneH5"
             alt="APP/H5演示"
-            class="reveal-card mt-[20px] w-[282px] h-full mx-auto"
+            class="reveal-card mt-[20px] w-[282px] h-[274px] mx-auto"
             :class="{ 'is-visible': step2VisibleH5 }"
             :style="{ transitionDelay: '400ms' }"
           />
@@ -630,12 +630,12 @@
 
           <div
             ref="step2CardsRootH5"
-            class="mt-[14px] grid grid-cols-2 gap-[14px]"
+            class="mt-[14px] grid grid-cols-[166px_166px] justify-center gap-[14px]"
           >
             <div
               v-for="(card, i) in featureCards"
               :key="card.title"
-              class="feature-card-h5 reveal-card flex h-[197px] flex-col items-center pt-[20px] text-center"
+              class="feature-card-h5 reveal-card flex w-[166px] h-[197px] flex-col items-center pt-[20px] text-center"
               :class="{ 'is-visible': step2CardsVisibleH5 }"
               :style="{ transitionDelay: `${i * 200}ms` }"
             >
@@ -690,14 +690,14 @@
               10,000+热门游戏全面覆盖
             </div>
             <p
-              class="mt-[10px] text-xs font-[400] leading-[20px] text-[#C2C2C2] text-center"
+              class="mt-[10px] mx-[auto] w-[347px] text-xs font-[400] leading-[20px] text-[#C2C2C2] text-center"
             >
               TG包网集团长期与各大知名游戏厂商保持稳定合作，聚合超过10000+款热门游戏资源，覆盖多元娱乐需求。我们不仅追求游戏数量，更重视内容品质、用户体验与市场反馈，每一款上线游戏都经过严格筛选与专业测试。我们愿与您共同深耕市场，携手同行，共创最大商业价值。
             </p>
           </div>
 
           <div
-            class="reveal-card mt-[20px]"
+            class="reveal-card mt-[20px] mx-[auto] w-[347px]"
             :class="{ 'is-visible': step3VisibleH5 }"
             :style="{ transitionDelay: '400ms' }"
           >
@@ -780,7 +780,7 @@
               v-for="(article, i) in articles"
               :key="article.id"
               :to="`/consult/${article.id}`"
-              class="group reveal-card flex w-full flex-col overflow-hidden rounded-[10px] border border-[#322E28] bg-[#1A1921]"
+              class="group reveal-card flex w-[347px] mx-[auto] flex-col overflow-hidden rounded-[10px] border border-[#322E28] bg-[#1A1921]"
               :class="{ 'is-visible': step4VisibleH5 }"
               :style="{ transitionDelay: `${(i + 1) * 200}ms` }"
             >
@@ -831,7 +831,7 @@
           </div>
 
           <div
-            class="join-card-h5 reveal-card relative mt-[20px] h-[166px]"
+            class="join-card-h5 reveal-card relative mt-[20px] mx-[auto] w-[347px] h-[166px]"
             :class="{ 'is-visible': step5VisibleH5 }"
             :style="{ transitionDelay: '200ms' }"
           >
