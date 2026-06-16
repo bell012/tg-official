@@ -11,9 +11,7 @@
         <img :src="logoUrl" alt="TG包网" class="h-[36px] w-auto" />
       </router-link>
 
-      <nav
-        class="flex items-center gap-[24px] xl:gap-[40px] 2xl:gap-[58px]"
-      >
+      <nav class="flex items-center gap-[24px] xl:gap-[40px] 2xl:gap-[58px]">
         <router-link
           v-for="item in navItems"
           :key="item.path"
@@ -38,9 +36,7 @@
         </router-link>
       </nav>
 
-      <div
-        class="flex items-center ml-[20px] xl:ml-[40px] 2xl:ml-[80px]"
-      >
+      <div class="flex items-center ml-[20px] xl:ml-[40px] 2xl:ml-[80px]">
         <button
           type="button"
           class="flex h-[20px] w-[20px] items-center justify-center mr-[20px] xl:mr-[32px] 2xl:mr-[43px]"
@@ -60,7 +56,9 @@
     </div>
 
     <!-- H5 -->
-    <div class="flex h-[40px] w-full items-center justify-between px-[14px] py-[10px] lg:hidden">
+    <div
+      class="flex h-[40px] w-full items-center justify-between px-[14px] py-[10px] lg:hidden"
+    >
       <div class="flex items-center">
         <button
           type="button"
@@ -68,7 +66,10 @@
           aria-label="menu"
           @click="toggleMobile"
         >
-          <Menu class="h-4 w-4" :class="mobileOpen ? 'text-[#FFC16F]' : 'text-[#fff]'" />
+          <Menu
+            class="h-4 w-4"
+            :class="mobileOpen ? 'text-[#FFC16F]' : 'text-[#fff]'"
+          />
         </button>
         <router-link to="/" class="flex items-center gap-[14px]">
           <img :src="logoUrl_h5" alt="TG包网" class="h-[20px] w-auto" />
@@ -95,7 +96,10 @@
 
     <!-- H5 侧边栏 -->
     <transition name="fade">
-      <div v-show="mobileOpen" class="mobile-menu fixed inset-0 z-40 flex flex-col lg:hidden">
+      <div
+        v-show="mobileOpen"
+        class="mobile-menu fixed inset-0 z-40 flex flex-col lg:hidden"
+      >
         <div class="mobile-menu__head">
           <span class="mobile-menu__title">Persona</span>
           <button
@@ -127,7 +131,11 @@
             class="mobile-menu__social-item"
             @click="s.handler"
           >
-            <img :src="s.icon" :alt="s.label" class="mobile-menu__social-icon" />
+            <img
+              :src="s.icon"
+              :alt="s.label"
+              class="mobile-menu__social-icon"
+            />
             <span class="mobile-menu__social-label">{{ s.label }}</span>
           </a>
         </div>
@@ -144,7 +152,11 @@
       >
         <form
           class="mx-auto flex h-[40px] max-w-[720px] items-center gap-3 rounded-full border bg-white/20 px-4 lg:h-14 lg:px-5"
-          :class="searchQuery.trim() ? 'border-[#FFC16F]' : 'border-white/50 focus-within:border-[#FFC16F]'"
+          :class="
+            searchQuery.trim()
+              ? 'border-[#FFC16F]'
+              : 'border-white/50 focus-within:border-[#FFC16F]'
+          "
           @submit.prevent="submitSearch"
           @click.stop
         >
@@ -156,7 +168,11 @@
             class="min-w-0 flex-1 bg-transparent text-sm text-white outline-none placeholder:font-normal placeholder:text-[#C2C2C2] lg:text-base"
             :class="searchQuery.trim() ? 'font-semibold lg:text-lg' : ''"
           />
-          <button type="submit" class="flex shrink-0 items-center justify-center" aria-label="搜索">
+          <button
+            type="submit"
+            class="flex shrink-0 items-center justify-center"
+            aria-label="搜索"
+          >
             <Search class="h-5 w-5 text-white" />
           </button>
         </form>
@@ -166,7 +182,11 @@
           v-if="searchResults.length"
           class="scrollbar-none mx-auto mt-5 grid max-h-[calc(100vh-140px)] w-full max-w-[720px] list-none grid-cols-1 gap-0 overflow-y-auto p-0 lg:mt-6 lg:grid-cols-2 lg:gap-x-6 lg:gap-y-6"
         >
-          <li v-for="(item, index) in searchResults" :key="item.id" class="min-w-0">
+          <li
+            v-for="(item, index) in searchResults"
+            :key="item.id"
+            class="min-w-0"
+          >
             <router-link
               :to="`/consult/${item.id}`"
               class="group flex gap-3 lg:gap-4"
@@ -178,10 +198,14 @@
                 class="size-[60px] shrink-0 rounded-[10px] object-cover lg:size-24 lg:rounded-[20px]"
               />
               <div class="min-w-0 flex-1 pt-0.5">
-                <p class="line-clamp-2 text-sm font-semibold leading-snug text-white transition-colors group-hover:text-[#FFC16F] lg:text-base">
+                <p
+                  class="line-clamp-2 text-sm font-semibold leading-snug text-white transition-colors group-hover:text-[#FFC16F] lg:text-base"
+                >
                   {{ item.title }}
                 </p>
-                <p class="mt-3 text-xs text-[#C2C2C2] lg:mt-4 lg:text-sm">{{ item.publishedAt }}</p>
+                <p class="mt-3 text-xs text-[#C2C2C2] lg:mt-4 lg:text-sm">
+                  {{ item.publishedAt }}
+                </p>
               </div>
             </router-link>
             <div
@@ -231,10 +255,22 @@ interface SocialItem {
 }
 
 const socialItems: SocialItem[] = [
-  { label: "Telegram", icon: telegramIcon, handler: () => openLink(LINK.telegram) },
-  { label: "Whatsapp", icon: whatsappIcon, handler: () => openLink(LINK.whatsapp) },
-  { label: "Facebook", icon: facebookIcon, handler: () => openLink(LINK.facebook) },
-  { label: "Tiktok",   icon: tiktokIcon,   handler: () => openLink(LINK.tiktok) },
+  {
+    label: "Telegram",
+    icon: telegramIcon,
+    handler: () => openLink(LINK.telegram),
+  },
+  {
+    label: "Whatsapp",
+    icon: whatsappIcon,
+    handler: () => openLink(LINK.whatsapp),
+  },
+  {
+    label: "Facebook",
+    icon: facebookIcon,
+    handler: () => openLink(LINK.facebook),
+  },
+  { label: "Tiktok", icon: tiktokIcon, handler: () => openLink(LINK.tiktok) },
 ];
 
 interface NavItem {
@@ -295,7 +331,7 @@ const handleJump = () => {
 };
 const handleTelegrim = () => {
   openLink(LINK.telegram);
-}
+};
 const goAndClose = (path: string) => {
   mobileOpen.value = false;
   router.push(path);
@@ -322,10 +358,12 @@ const goAndClose = (path: string) => {
 
 /* Persona y:222 / close 48×48 @ x:1017 */
 .mobile-menu__head {
+  width: 335px;
+  margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 30px 20px 0;
+  padding: 30px 0px 20px 0px;
 }
 
 .mobile-menu__title {
@@ -384,7 +422,7 @@ const goAndClose = (path: string) => {
 /* 社交区 y:1290，图标 105，文案 42 #C2C2C2，列间距 7 */
 .mobile-menu__social {
   width: 335px;
-  margin:0 auto;
+  margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 2px;
